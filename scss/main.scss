@@ -1,0 +1,451 @@
+$EVI100: #00A9C3;
+$EVIDARK001: #13131A;
+$EVIDARK002: #0A5E6F;
+$EVIDARK003: #171F3D;
+$EVIDARK004: #515166;
+$EVIDARK005: #1C1C24;
+$EVI400: #F0F0F0;
+$EVI500: #515166;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@font-face {
+    font-family: "Axiforma";
+    src: local("Axiforma Bold"), local("Axiforma-Bold"),
+        url("/assets/fonts/Axiforma-Bold.woff2") format("woff2"),
+        url("/assets/fonts/Axiforma-Bold.woff") format("woff"),
+        url("/assets/fonts/Axiforma-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Axiforma";
+    src: local("Axiforma Semi Bold"), local("Axiforma-Semi-Bold"),
+        url("/assets/fonts/Axiforma-SemiBold.woff2") format("woff2"),
+        url("/assets/fonts/Axiforma-SemiBold.woff") format("woff"),
+        url("/assets/fonts/Axiforma-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Axiforma";
+    src: local("Axiforma Black"), local("Axiforma-Black"),
+        url("/assets/fonts/Axiforma-Black.woff2") format("woff2"),
+        url("/assets/fonts/Axiforma-Black.woff") format("woff"),
+        url("/assets/fonts/Axiforma-Black.ttf") format("truetype");
+    font-weight: bolder;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Axiforma";
+    src: local("Axiforma Medium"), local("Axiforma-Medium"),
+        url("/assets/fonts/Axiforma-Medium.woff2") format("woff2"),
+        url("/assets/fonts/Axiforma-Medium.woff") format("woff"),
+        url("/assets/fonts/Axiforma-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Axiforma";
+    src: local("Axiforma Regular"), local("Axiforma-Regular"),
+        url("/assets/fonts/Axiforma-Regular.woff2") format("woff2"),
+        url("/assets/fonts/Axiforma-Regular.woff") format("woff"),
+        url("/assets/fonts/Axiforma-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin font($weight, $size, $lineHeight, $color, $family: "Axiforma") {
+    font-family: $family, sans-serif;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $lineHeight;
+    color: $color;
+}
+
+@mixin theme($color, $bgColor) {
+    color: $color;
+    background-color: $bgColor;
+}
+
+@mixin btn($background, $radius, $border, $color, $hovercolor, $hoverbackground) {
+    background-color: $background;
+    border-radius: $radius;
+    border: $border;
+    padding: 0.8em 1em;
+    width: 448px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        text-align: center;
+        @include font(700, 14px, 1.5em, $color);
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: $hoverbackground;
+
+        span {
+            @include font(700, 14px, 1.5em, $hovercolor);
+        }
+    }
+
+    @media (max-width: 768px) {
+        width: 328px;
+
+    }
+}
+
+body {
+    margin: 0;
+}
+
+.navbar {
+    @include theme($EVI400, $EVIDARK001);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5em 0;
+    padding: 0.5em 2em;
+
+    .navbar-options {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        column-gap: 1em;
+
+        a {
+            text-decoration: none;
+
+            div {
+                @include font(700, 14px, 1.5em, $EVIDARK004);
+            }
+        }
+    }
+}
+
+.hero-content-text {
+    margin-left: 5em;
+    width: 80%;
+
+    h1 {
+        @include font(500, 64px, 1.4em, $EVI400);
+    }
+
+    @media (max-width: 768px) {
+        margin-left: 2em;
+        width: 70%;
+
+        h1 {
+            @include font(500, 44px, 1.4em, $EVI400);
+        }
+    }
+}
+
+.btn-white {
+    @include btn($EVI400, 1.5em, none, $EVI100, $EVI400, $EVI100);
+}
+
+.btn-blue {
+    @include btn($EVI100, 1.5em, none, $EVI400, $EVI500, $EVI500);
+    @include font(700, 14px, 1.5em, $EVI400);
+}
+
+//! Estilos para todas las secciones
+section {
+    @include theme($EVI400, $EVIDARK001);
+
+    .section-title {
+        position: relative;
+
+        h2 {
+            margin: 0;
+            @include font(700, 34px, 1.4em, $EVI400);
+            z-index: 2;
+            position: relative;
+        }
+
+        .section-decorator {
+            position: absolute;
+            right: -3em;
+            top: 1.2em;
+            width: 231px;
+            height: 24px;
+            opacity: 0.5;
+            background-color: $EVI100;
+            border-radius: 1em;
+            z-index: 1;
+        }
+    }
+}
+
+//?Section de indicadores y banderas
+.whatsits-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 0;
+
+    p {
+        @include font(300, 16px, 1.4em, $EVI400);
+        width: 50%;
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+    .whatsits-indicators {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        column-gap: 2em;
+        background-color: $EVIDARK005;
+        padding: 0 2em;
+        border-radius: 3em;
+
+        .indicator-item {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            text-align: center;
+            padding: 1.2em 0 0.8em 0;
+            column-gap: 2em;
+
+            .indicator-item-text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 10em;
+                row-gap: 0.2em;
+
+                span:first-child {
+                    @include font(700, 24px, 1.2em, $EVI100, 'Poppins');
+
+                    span {
+                        @include font(700, 24px, 1.2em, $EVI100, 'Poppins');
+
+                    }
+                }
+
+                span:last-child {
+                    @include font(400, 16px, 1.2em, $EVI400);
+                }
+            }
+
+            .indicator-item-divider {
+                width: 1px;
+                height: 3.5em;
+                background-color: $EVIDARK004;
+            }
+        }
+    }
+
+    .whatsits-students {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 1em;
+        margin-top: 2em;
+
+        span {
+            @include font(400, 20px, 1.2em, $EVI400 );
+        }
+
+        .country-flags {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-column-gap: 2em;
+        }
+
+        @media (max-width: 890px) {
+            .country-flags {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+    }
+}
+
+.banner {
+    padding: 2em 0;
+    box-shadow: 0px 4px 80px 0px #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .banner-content {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            @include font(700, 48px, 1.4em, $EVI100);
+            font-style: italic;
+            text-align: center;
+            margin: 0;
+        }
+
+        p {
+            @include font(700, 36px, 1.4em, $EVIDARK004);
+
+        }
+    }
+
+}
+
+.reasons-list {
+
+    .reason-list-content {
+        @include theme($EVI400, $EVIDARK005);
+        display: flex;
+        padding: 3em 2em;
+        border-radius: 2em;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 80%;
+        margin: 0 auto;
+
+        .reason-list-item {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .reason-header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                column-gap: 1em;
+                margin-bottom: 2em;
+                width: 90%;
+
+                @include font(700, 22px, 1.2em, $EVI100);
+
+                h3 {
+                    margin: 0;
+                }
+
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                row-gap: 3em;
+                width: 70%;
+
+                li {
+                    @include font(400, 16px, 1.2em, $EVI400);
+
+
+                }
+            }
+        }
+
+
+    }
+
+    @media (max-width: 768px) {
+
+        .reason-list-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            row-gap: 2em;
+            width: 80%;
+
+            .reason-list-item {
+                display: flex;
+                width: 100% !important;
+                flex-direction: column;
+
+                .reason-header {
+                    row-gap: 1em;
+
+                    h3 {
+                        width: 100%;
+                    }
+                }
+
+                ul {
+                    width: 80%;
+                    display: flex;
+                    flex-direction: column;
+
+                }
+
+                button {
+                    margin: 0 auto;
+                }
+            }
+
+
+        }
+    }
+}
+
+.qualities-list {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .quality-item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        column-gap: 1.5em;
+
+        .quality-content {
+            width: 50%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            column-gap: 1em;
+
+            .quality-content-text {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+                width: 70%;
+
+                h4 {
+                    margin: 0;
+                    @include font(800, 20px, 1.4em, $EVI400);
+                }
+
+                p {
+                    @include font(400, 14px, 1.4em, $EVI400);
+
+                }
+            }
+
+        }
+    }
+}
+
+.experiencies-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
