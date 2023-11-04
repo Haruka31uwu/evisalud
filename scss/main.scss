@@ -970,7 +970,14 @@ footer {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-
+a{
+    @include font(400, 14px, 1.4em, $EVI400 );
+    &:hover{
+        @include font(400, 14px, 1.4em, $EVI100 );
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
         .course-more-info {
             @include font(400, 14px, 1.4em, $EVI400 );
             text-decoration: underline;
