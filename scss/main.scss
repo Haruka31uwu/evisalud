@@ -1,4 +1,5 @@
 $EVI100: #00A9C3;
+$EVI200: #0393AA;
 $EVIDARK001: #13131A;
 $EVIDARK002: #0A5E6F;
 $EVIDARK003: #171F3D;
@@ -76,7 +77,8 @@ $EVI500: #515166;
     border-radius: $radius;
     border: $border;
     padding: 0.8em 1em;
-    width: 448px;
+    width: 100%;
+    max-width: 448px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -135,7 +137,7 @@ body {
     width: 80%;
 
     h1 {
-        @include font(500, 64px, 1.4em, $EVI400);
+        @include font(500, 50px, 1.4em, $EVI400);
     }
 
     @media (max-width: 768px) {
@@ -157,6 +159,17 @@ body {
     @include font(700, 14px, 1.5em, $EVI400);
 }
 
+.btn-blue-outline {
+    @include btn(transparent, 1.5em, 1px solid $EVI100, transparent, transparent, $EVI100);
+    @include font(700, 14px, 1.5em, $EVI400);
+}
+
+.btn-course {
+    @include btn($EVI500, 1.5em, none, $EVI400, $EVI400, $EVI100);
+    @include font(700, 14px, 1.5em, $EVI400);
+
+}
+
 //! Estilos para todas las secciones
 section {
     @include theme($EVI400, $EVIDARK001);
@@ -166,7 +179,7 @@ section {
 
         h2 {
             margin: 0;
-            @include font(700, 34px, 1.4em, $EVI400);
+            @include font(700, 32px, 1.4em, $EVI400);
             z-index: 2;
             position: relative;
         }
@@ -290,14 +303,14 @@ section {
         align-items: center;
 
         h2 {
-            @include font(700, 48px, 1.4em, $EVI100);
+            @include font(700, 46px, 1.4em, $EVI100);
             font-style: italic;
             text-align: center;
             margin: 0;
         }
 
         p {
-            @include font(700, 36px, 1.4em, $EVIDARK004);
+            @include font(700, 28 px, 1.4em, $EVIDARK004);
 
         }
     }
@@ -437,6 +450,41 @@ section {
                     @include font(400, 14px, 1.4em, $EVI400);
 
                 }
+
+                ul {
+                    padding: 0 1em;
+
+                    li {
+                        @include font(400, 14px, 1.4em, $EVI400);
+                    }
+                }
+            }
+
+           
+        }
+        .quality-content-2 {
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            column-gap: 2em;
+
+            .quality-content-text-2 {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+                width: auto;
+
+            }
+
+            ul {
+                padding: 0 1em;
+
+                li {
+                    @include font(400, 14px, 1.4em, $EVI400);
+                }
             }
 
         }
@@ -448,4 +496,658 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 5em 0;
+
+    .experiences-container {
+        display: flex;
+        flex-direction: row;
+        column-gap: 2em;
+        width: 90%;
+        margin: 2em auto 0 auto;
+        align-items: center;
+
+        .experience-container {
+            @include theme($EVI400, $EVIDARK005);
+            border-radius: 1.5em;
+            padding: 1em 2em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 300px;
+            height: 250px;
+            min-width: 300px;
+            p {
+                @include font(400, 14px, 1.4em, $EVI400);
+                text-align: center;
+                width: auto;
+                margin: 2.5em auto 0 auto;
+            }
+
+            .experience-owner {
+
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+
+                span {
+                    text-align: end;
+                }
+
+                span:first-child {
+                    @include font(700, 14px, 1.4em, $EVI100);
+                }
+
+                span:last-child {
+                    @include font(400, 14px, 1.4em, $EVI100);
+                }
+            }
+        }
+    }
+}
+
+.dude-section {
+    @include theme($EVI400, $EVIDARK005);
+    padding: 2em 0;
+}
+
+.dude-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .dude-options {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 1.5em;
+
+        h4 {
+            margin: 0;
+            @include font(700, 24px, 1.4em, $EVI400);
+
+        }
+
+        span {
+            @include font(400, 14px, 1.4em, $EVI400);
+        }
+
+        button {
+            display: flex;
+            column-gap: 0.5em;
+        }
+    }
+
+}
+
+.allies-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5em 0;
+
+    .allies-container {
+        margin-top: 2em;
+        display: flex;
+        column-gap: 5em;
+    }
+}
+
+.newsletter-section {
+    .newsletter-container {
+        margin: 0 auto;
+        width: 75%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4.5em 4em;
+        border-radius: 1.5em 1.5em 0 0;
+        box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.30);
+        @include theme($EVI400, $EVI200);
+
+        .first-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            row-gap: 0.5em;
+            width: 35%;
+            row-gap: 1em;
+
+            h4 {
+                margin: 0;
+                @include font(700, 30px, 1.4em, $EVI400);
+            }
+
+            span {
+                @include font(400, 13px, 1.4em, $EVI400);
+            }
+        }
+
+        .second-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            row-gap: 1.5em;
+            width: 35%;
+
+            .email-container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1em;
+
+                .email-text {
+                    margin-bottom: 0.5em;
+                    align-self: start;
+                    @include font(400, 13px, 1.4em, $EVI400);
+                }
+
+                input {
+                    height: 40px;
+                    border-radius: 1.5em;
+                    border: 1px solid $EVI400;
+                    color: $EVI400;
+                    padding: 0 1em;
+                    @include font(400, 14px, 1.4em, $EVI100);
+                    @include theme($EVI400, transparent)
+                }
+            }
+
+
+            button {
+                width: 100%;
+            }
+
+            .newsletter-spam {
+                @include font(400, 13px, 1.4em, $EVI400);
+                text-align: center;
+            }
+        }
+    }
+}
+
+footer {
+    @include theme($EVI400, $EVIDARK001);
+    padding: 2em 0;
+    box-shadow: 0px -4px 40px 0px rgba(0, 0, 0, 0.10);
+
+    .footer-content {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+
+        .footer-content-elements {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2em;
+
+            .footer-content-element-sections {
+                display: flex;
+                flex-direction: row;
+                column-gap: 3em;
+
+                .column {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 1em;
+
+                    h5 {
+                        margin: 0;
+                        @include font(700, 18px, 1.4em, $EVI400);
+                    }
+
+                    span {
+                        @include font(400, 16px, 1.4em, $EVI400);
+                        &:hover {
+                            cursor: pointer;
+                            text-decoration: underline;
+                            @include font(400, 16px, 1.4em, $EVI100);
+                        }
+                    }
+                }
+
+                .column-divider {
+                    height: 90px;
+                    width: 1px;
+                    background-color: $EVI400;
+                    align-self: flex-end;
+                    margin-bottom: 1px;
+                }
+
+                .footer-content-end {
+                    display: flex;
+                    flex-direction: row;
+                    row-gap: 1em;
+
+                }
+
+                .svgs-container {
+                    display: flex;
+                    flex-direction: row;
+                    column-gap: 1em;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 1em;
+
+                    svg {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+
+            .footer-content-end {
+                display: flex;
+                flex-direction: row;
+                row-gap: 1em;
+                align-self: flex-end;
+                column-gap: 1.5em;
+                margin-top: 2em;
+
+                span {
+                    @include font(400, 14px, 1.4em, $EVI400);
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                        @include font(400, 14px, 1.4em, $EVI100);
+                    }
+                }
+
+                .footer-divider {
+                    height: 20px;
+                    width: 1px;
+                    background-color: $EVI400;
+                    align-self: flex-end;
+                    margin-bottom: 1px;
+                }
+
+                .footer-content-end-item {
+                    @include font(400, 16px, 1.4em, $EVI400);
+                    text-decoration: none;
+                    color: $EVI400;
+                }
+            }
+        }
+    }
+}
+
+/**
+*?Courses styles*/
+.our-courses-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .our-courses-banner {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        @include theme($EVI400, $EVI100);
+
+        .our-courses-banner-text {
+            width: 50%;
+            margin: 0 auto;
+            word-break: break-all;
+            text-align: center;
+
+            p {
+                @include font(400, 16px, 1.4em, $EVI400);
+                span {
+                    @include font(400, 16px, 1.4em, $EVIDARK003);
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                        @include font(400, 16px, 1.4em, $EVI400);
+                    }
+                }
+            }
+
+            span {
+                text-decoration: underline;
+                padding: 0 1em;
+                @include font(400, 16px, 1.4em, $EVIDARK003);
+            }
+        }
+
+    }
+
+    .our-couses-description {
+        padding: 1em 0;
+        width: 100%;
+
+        .our-courses-description-text {
+            width: 80%;
+            margin: 0 auto;
+            word-break: break-all;
+            text-align: center;
+
+            p {
+                @include font(500, 14px, 1.6em, $EVI400);
+            }
+
+            span {
+                @include font(500, 14px, 1.4em, $EVI100);
+                padding: 0 1em;
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                    @include font(500, 14px, 1.4em, $EVIDARK003);
+                }
+            }
+        }
+    }
+}
+
+.section-explorer {
+    display: flex;
+    flex-direction: column;
+
+    .section-content {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .courses-search-container {
+            align-self: end;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border: 1px solid $EVIDARK003;
+            padding: 0.5em 1em;
+            border-radius: 1em;
+            width: 15em;
+        }
+
+        .courses-list-container {
+
+            h4 {
+                margin: 0;
+                @include font(700, 24px, 1.4em, $EVI100);
+            }
+
+            .courses-items-container {
+                padding: 2em 0;
+                display: grid;
+                align-items: center;
+                justify-content: center;
+                grid-template-columns: repeat(3, 1fr);
+                grid-row-gap: 2em;
+                margin: 0 auto;
+            }
+
+            @media (max-width: 768px) {
+                .courses-items-container {
+                    display: flex;
+                    flex-direction: row;
+                    overflow-x: scroll;
+                    column-gap: 3em;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+
+
+}
+
+.course-container {
+    width: 350px;
+
+    .course-img-container {
+        position: relative;
+
+        .more-selled-course {
+            position: absolute;
+            top: 0;
+            right: 2em;
+            width: 50px;
+            padding: 0 0.3em;
+            border-radius: 0 0 1em 1em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            @include font(400, 10px, 1.2em, $EVI100);
+            @include theme($EVI400, $EVI100);
+
+            span {
+                word-break: break-all;
+                text-align: center;
+            }
+        }
+
+        .course-type {
+            position: absolute;
+            bottom: 0;
+            left: 1em;
+        }
+
+    }
+
+    .course-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1em;
+        border-radius: 0 0 1em 1em;
+        @include theme($EVI400, $EVIDARK005);
+
+        h5 {
+            margin: 0;
+            @include font(700, 16px, 1.4em, $EVI400);
+        }
+
+        .course-description {
+            @include font(400, 14px, 1.4em, $EVIDARK004 );
+        }
+
+        .course-schedule {
+            @include font(700, 14px, 1.4em, $EVI100 );
+        }
+    }
+
+    .course-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .course-more-info {
+            @include font(400, 14px, 1.4em, $EVI400 );
+            text-decoration: underline;
+        }
+
+        button {
+            width: 50%;
+            min-width: 160px;
+            display: flex;
+            flex-direction: row;
+            column-gap: 1em;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.our-programs-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    .programs-container {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+
+    h3 {
+        margin: 1em 0;
+        @include font(400, 14px, 1.4em, $EVI400);
+    }
+
+    .program-container {
+        width: 400px;
+
+        .program-img-container {
+            position: relative;
+
+            .program-type {
+                position: absolute;
+                bottom: 0;
+                left: 1em;
+            }
+
+        }
+
+        .program-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1em;
+            border-radius: 0 0 1em 1em;
+            @include theme($EVI400, $EVIDARK005);
+
+            h5 {
+                margin: 0;
+                @include font(700, 16px, 1.4em, $EVI400);
+            }
+
+            .program-description {
+                @include font(400, 14px, 1.4em, $EVIDARK004 );
+            }
+
+            .program-schedule {
+                @include font(700, 14px, 1.4em, $EVI100 );
+            }
+
+            .program-course-list {
+                padding: 1em 0 0 0;
+                list-style: none;
+                row-gap: 0.5em;
+                display: flex;
+                flex-direction: column;
+
+                li {
+                    display: flex;
+                    flex-direction: row;
+                    column-gap: 1em;
+                    @include font(400, 12px, 1.4em, $EVI400 );
+                }
+
+            }
+        }
+
+        .program-footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .program-more-info {
+                @include font(400, 14px, 1.4em, $EVI400 );
+                text-decoration: underline;
+
+            }
+
+            button {
+                width: 40%;
+                min-width: 200px;
+                display: flex;
+                flex-direction: row;
+                column-gap: 1em;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.course-metodology {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 0;
+}
+.gift-know{
+    background:url('assets/img/courses/gift.jpeg') no-repeat;
+    width:100%;
+    height:350px;
+    background-size:cover;
+    padding: 1em;
+    .message{
+        margin-left: 2em;
+        width: 50%;
+        padding: 1em 0;
+        @include theme($EVI400, $EVI100);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.7;
+        border-radius: 2em;
+        h2{
+            padding-top: 1em;
+            margin: 0;
+            @include font(700, 32px, 1.4em, $EVI400);   
+        }
+        p{
+            width: 70%;
+            @include font(400, 18px, 1.4em, $EVI400);   
+            text-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            row-gap: 1em;
+            button{
+                width: 400px;
+            }
+        }
+    }
+}
+//! Courses Details
+
+.course-copy{
+    @include font(500, 24px, 1.4em, $EVI400);
+    width:80%
+}
+.title-decorated{
+    margin: 0;
+    @include font(500, 28px, 1.4em, $EVI400);
+}span a{
+    @include font(500, 14px, 1.4em, $EVI400);
+    text-decoration: none;
+}
+.modal-customized{
+    .modal-customized-header{
+        svg{
+            &:hover{
+                cursor: pointer;
+                stroke: $EVI100;
+                fill: $EVI100;
+            }
+        }
+    }
 }

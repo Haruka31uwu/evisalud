@@ -8,4 +8,4 @@
       <h2>MÁS QUE CURSOS, LA EXPERIENCIA EDUCATIVA QUE BUSCABAS</h2>
     </div>
   </section>
-</template>n
+</template>

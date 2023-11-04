@@ -1,0 +1,134 @@
+{
+    "coursesTypes": [
+        {
+            "title": "Cursos de Investigacion",
+            "id": 1
+        },
+        {
+            "title": "Cursos de medicina basada en evidencias",
+            "id": 2
+        }
+    ],
+    "coursesList": [
+        {
+            "id": 1,
+            "type": 1,
+            "title": "Redacción de protocolos de investigación en salud",
+            "description": "Entenderás los principios de metodología de la investigación, a generar ideas de investigación sólidas y redactar paso a paso tu protocolo de investigación.",
+            "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
+            "img": "/assets/img/courses/protocolos.jpg",
+            "pricePen": 420,
+            "priceUsd":125,
+            "color":"#1971B8",
+            "brochureUrl":"/assets/files/protocolos.pdf"
+        },
+        {
+            "id": 2,
+            "type": 1,
+            "title": "Análisis estadístico con STATA",
+            "description": "Aprenderás a utilizar el programa STATA para limpiar tu base de datos, armar las tablas y figuras necesarias para presentar tus resultados descriptivos, bivariados y de regresión; para su publicación en formato de artículo científico.",
+            "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
+            "img": "/assets/img/courses/stata.jpg",
+            "pricePen": 420,
+            "priceUsd":125,
+            "color":"#BED31E",
+            "brochureUrl":"/assets/files/stata.pdf"
+        },
+        {
+            "id": 3,
+            "type": 1,
+            "title": "Análisis estadístico con RStudio",
+            "description": "Aprenderás a utilizar el programa RStudio para limpiar tu base de datos, armar las tablas necesarias para presentar tus resultados descriptivos, bivariados y de regresión; para su publicación en formato de artículo científico.",
+            "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
+            "img": "/assets/img/courses/rstudio.jpg",
+            "pricePen": 420,
+            "priceUsd":125,
+            "color":"#60B744",
+            "brochureUrl":"/assets/files/rstudio.pdf"
+        },
+        {
+            "id": 4,
+            "type": 1,
+            "title": "Redacción y publicación de artículos científicos biomédicos",
+            "description": "Aprenderás a redactar artículos científicos originales en áreas de la salud y realizar el proceso de publicación en una revista científica indizada.",
+            "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
+            "img": "/assets/img/courses/redaccion.jpg",
+            "pricePen": 420,
+            "priceUsd":125,
+            "color": "#1AABE4",
+            "brochureUrl":"/assets/files/redaccion.pdf"
+        },
+        {
+            "id": 5,
+            "type": 1,
+            "title": "Búsqueda bibliográfica y uso de Zotero",
+            "description": "Aprenderás a buscar estudios en PubMed y Google Académico. Así como a usar Zotero para citar todo tipo de documentos (artículos, libros, páginas web, leyes, entre otros), verificar que las citas estén correctas, usar sus distintas herramientas, y cómo utilizarlo de forma colaborativa en Google Docs.",
+            "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
+            "img": "/assets/img/courses/zotero.jpg",
+            "pricePen": 250,
+            "priceUsd":75,
+            "color":"#AD5CA1",
+            "brochureUrl":"/assets/files/zotero.pdf"
+        },
+        {
+            "id": 6,
+            "type": 2,
+            "title": "Elaboración de revisiones sistemáticas y meta-análisis",
+            "description": "Aprenderás paso a paso a diseñar, elaborar y publicar revisiones sistemáticas y meta-análisis de alta calidad. Para ello, aprenderás a elaborar estrategias de búsqueda avanzadas, procesos adecuados de selección y extracción de datos, evaluación de los sesgos de los estudios incluídos, métodos para realizar meta-análisis y cómo reportar los resultados.",
+            "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
+            "img": "/assets/img/courses/sistematica.jpg",
+            "pricePen": 420,
+            "priceUsd":125,
+            "color":"#189EC3",
+            "brochureUrl":"/assets/files/sistematica.pdf"
+        },
+        {
+            "id": 7,
+            "type": 2,
+            "title": "Introducción a la medicina basada en evidencias",
+            "description": "El curso de Análisis estadístico con STATA para investigación en salud, tiene como objetivo que los participantes adquieran los conocimientos y habilidades necesarias para el manejo de la herramienta estadística STATA, con el fin de que puedan realizar análisis estadísticos básicos y avanzados de datos en salud.",
+            "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
+            "img": "/assets/img/courses/course.png",
+            "pricePen": 420,
+            "priceUsd":125,
+            "color":"#2F4F9A",
+            "brochureUrl":"/assets/files/evidencia.pdf"
+        },
+        {
+            "id": 8,
+            "type": 2,
+            "title": "Búsqueda y lectura de crítica estudios de exactitud diagnóstica",
+            "description": "Aprenderás a tomar decisiones sobre el uso de pruebas diagnósticas, interpretando y usando conceptos como sensibilidad, especificidad, ROC, LR, entre otros. Además, aprenderás a usar nomogramas para trazar un plan de acción personalizado con tus pacientes",
+            "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
+            "img": "/assets/img/courses/course.png",
+            "pricePen": 420,
+            "priceUsd":125,
+            "color":"#2F4F9A",
+            "brochureUrl":"/assets/files/lectura.pdf"
+        }, 
+        {
+            "id": 9,
+            "type": 2,
+            "title": "Búsqueda y lectura crítica de guías de práctica clínica",
+            "description": "Aprenderás a buscar guías de práctica clínica, saber identificarlas y poder elegir la más confiable, leerlas críticamente, entender sus recomendaciones, y aplicarlas de la mejor manera en la práctica clínica.",
+            "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
+            "img": "/assets/img/courses/course.png",
+            "pricePen": 420,
+            "priceUsd":125,
+            "color":"#1AB2C9",
+            "brochureUrl":"/assets/files/critica.pdf"
+        },
+        {
+            "id": 10,
+            "type": 2,
+            "title": "Redacción y publicación de casos clínicos",
+            "description": "Aprenderás a encontrar casos clínicos publicables en tu práctica clínica y cómo redactarlos para publicarlos en revistas científicas indizadas",
+            "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
+            "img": "/assets/img/courses/course.png",
+            "pricePen": 250,
+            "priceUsd":75,
+            "color":"#6B60A5",
+            "brochureUrl":"/assets/files/clinicos.pdf"
+        }
+    ]
+}

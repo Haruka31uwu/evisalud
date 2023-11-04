@@ -169,7 +169,7 @@ const navOptions = [
   },
   {
     name: "Para Instituciones",
-    path: "/institutions ",
+    path: "/institutions",
     type: "link",
     mode: "single",
   },

@@ -12,20 +12,21 @@
               :key="`reason-item-${itemIndex}`"
             >{{ reasonItem }}</li>
           </ul>
-          <button class="btn-blue">Ver Cursos</button>
+          <button class="btn-blue" @click="redirectTo('/courses',reason.id)">Ver Cursos</button>
         </div>
       </div>
   </section>
 </template>
 <script>
 import { defineComponent } from "@vue/composition-api";
-
+import {redirectTo} from "/composables/main-composables.js";
 export default defineComponent({
   setup() {
     const reasonsList = ref([
       {
         icon: "/assets/img/lupa.svg",
         title: "¿Por qué aprender a realizar investigación de calidad?",
+        id: "investigation-courses",
         reasons: [
           "Potencia tu perfil profesional y tu producción científica",
           "Investigaciones mal realizadas llevan a decisiones perjudiciales",
@@ -36,6 +37,7 @@ export default defineComponent({
       {
         icon: "/assets/img/board.svg",
         title: "¿Por qué aprender a tomar decisiones basadas en evidencia?",
+        id: "evidences-courses",
         reasons: [
           "A la vanguardia en el campo clínico",
           "Mejora la calidad de la atención de salud: mejora resultados en salud, evita daños innecesarios a los pacientes ",

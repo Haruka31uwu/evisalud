@@ -2,21 +2,26 @@
   <div class="hero-container">
     <div class="hero"></div>
     <div class="hero-content">
-     <div class="hero-content-text">
+      <div class="hero-content-text">
         <h1>
-            Aprende de forma dinámica y aplicada a realizar investigación en salud y tomar decisiones basadas en evidencias
+          Aprende de forma dinámica y aplicada a realizar investigación en salud
+          y tomar decisiones basadas en evidencias
         </h1>
-        <div class="btn-white">
-            <span>Inicia ahora</span>
+        <div class="btn-white"  @click="redirectTo('/courses')">
+          <span>Inicia ahora</span>
         </div>
-     </div>
+      </div>
     </div>
   </div>
 </template>
+<script setup>
+import { redirectTo } from "/composables/main-composables.js";
+</script>
 <style lang="scss" scoped>
 .hero-container {
   position: relative;
-  height: 970px;
+  min-height: 700px;
+  height: 100vh;
   .hero {
     height: 100%;
     width: auto;
@@ -29,10 +34,10 @@
   }
   .hero-content {
     position: absolute;
-    width:60%;
+    width: 60%;
     height: 100%;
-    top:0;
-    background: linear-gradient(90deg, #1F3C90 0%, #00A9C396 100%);
+    top: 0;
+    background: linear-gradient(90deg, #1f3c90 0%, #00a9c396 100%);
     border-radius: 0px 50% 50% 0px;
     display: flex;
     align-items: center;
