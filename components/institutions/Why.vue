@@ -1,10 +1,10 @@
 <template>
   <section class="d-flex justify-content-center flex-column align-items-center">
     <div class="section-title" style="margin-bottom: 2em">
-      <h2>¿Por qué elegir un Inhouse para tu institución?</h2>
+      <h2 class="text-center">¿Por qué elegir un Inhouse para tu institución?</h2>
       <svg
         style="position: absolute; top: 1em; right: -2em"
-        width="696"
+        width="100%"
         height="24"
         viewBox="0 0 696 24"
         fill="none"
@@ -13,18 +13,19 @@
         <rect opacity="0.5" width="696" height="24" rx="12" fill="#0393AA" />
       </svg>
     </div>
-    <div class="row" style="background: #13131a">
-      <div class="col col-sm-12 col-md-6 col-xl-3">
+    <div class="row"  style="background: #13131a">
+      <div class="col-12 col-sm-12 col-md-6 col-xl-3 mb-1"
+      >
+        
         <div
           style="
-            width: 55%;
-            background: #1c1c24;
             border-radius: 1em;
             min-height: 230px;
           "
-          class="py-4 px-3 d-flex flex-column justify-content-start mx-auto text-center"
+          :style="currentWindowWidth>768?'background: #1c1c24;width:55%':''"
+          class="py-4 px-3 d-flex flex-column justify-content-start mx-auto text-xl-center"
         >
-          <h5 style="color: #0393aa">
+          <h5 style="color: #0393aa" :style="currentWindowWidth<768?'text-decoration:underline':''">
             Adaptacion a las necesidades especificas
           </h5>
           <span style="color: white">
@@ -33,17 +34,18 @@
           >
         </div>
       </div>
-      <div class="col col-sm-12 col-md-6 col-xl-3">
+      <div class="col-12 col-sm-12 col-md-6 col-xl-3 mb-1"
+      
+      >
         <div
           style="
-            width: 55%;
-            background: #1c1c24;
             border-radius: 1em;
             min-height: 230px;
           "
-          class="py-4 px-3 d-flex flex-column justify-content-start mx-auto text-center"
+          :style="currentWindowWidth>768?'background: #1c1c24;width:55%':''"
+          class="py-4 px-3 d-flex flex-column justify-content-start mx-auto text-xl-center"
         >
-          <h5 style="color: #0393aa">
+          <h5 style="color: #0393aa" :style="currentWindowWidth<768?'text-decoration:underline':''">
             Adaptacion a las necesidades especificas
           </h5>
           <span style="color: white">
@@ -52,17 +54,18 @@
           >
         </div>
       </div>
-      <div class="col col-sm-12 col-md-6 col-xl-3">
+      <div class="col-12 col-sm-12 col-md-6 col-xl-3 mb-1"
+      
+      >
         <div
           style="
-            width: 55%;
-            background: #1c1c24;
             border-radius: 1em;
             min-height: 230px;
           "
-          class="py-4 px-3 d-flex flex-column justify-content-start mx-auto text-center"
+          :style="currentWindowWidth>768?'background: #1c1c24;width:55%':''"
+          class="py-4 px-3 d-flex flex-column justify-content-start mx-auto text-xl-center"
         >
-          <h5 style="color: #0393aa">
+          <h5 style="color: #0393aa" :style="currentWindowWidth<768?'text-decoration:underline':''">
             Adaptacion a las necesidades especificas
           </h5>
           <span style="color: white">
@@ -71,17 +74,19 @@
           >
         </div>
       </div>
-      <div class="col col-sm-12 col-md-6 col-xl-3">
+      <div class="col-12 col-sm-12 col-md-6 col-xl-3 mb-1"
+      
+      >
         <div
           style="
-            width: 55%;
-            background: #1c1c24;
             border-radius: 1em;
             min-height: 230px;
           "
-          class="py-4 px-3 d-flex flex-column justify-content-start mx-auto text-center"
+          :style="currentWindowWidth>768?'background: #1c1c24;width:55%':''"
+          class="py-4 px-3 d-flex flex-column justify-content-start mx-auto text-xl-center"
+          
         >
-          <h5 style="color: #0393aa">
+          <h5 style="color: #0393aa" :style="currentWindowWidth<768?'text-decoration:underline':''">
             Adaptacion a las necesidades especificas
           </h5>
           <span style="color: white">
@@ -97,8 +102,9 @@
     ></div>
     <div style="width: 80%" class="py-5">
       <div class="row">
-        <div class="col">
+        <div class="col-12 col-md-6 col-xl-4 mb-5 d-flex flex-column justify-content-center align-items-center">
           <svg
+            v-if="currentWindowWidth>768"
             width="78"
             height="90"
             viewBox="0 0 78 90"
@@ -245,10 +251,10 @@
             />
           </svg>
           <div style="position: relative">
-            <h5 class="title-decorated">Inhouse realizados</h5>
+            <h5 class="title-decorated text-center">Inhouse realizados</h5>
             <svg
               style="position: absolute; top: 1.2em; left: 0.5em"
-              width="288"
+              width="80%"
               height="24"
               viewBox="0 0 288 24"
               fill="none"
@@ -264,7 +270,7 @@
             </svg>
           </div>
         </div>
-        <div class="col d-flex flex-column gap-4">
+        <div class="col-12 col-md-6 col-xl-4 d-flex flex-column gap-4 mb-5">
           <div
             class="d-flex flex-column justify-content-center align-items-center gap-2"
           >
@@ -326,7 +332,7 @@
             >
           </div>
         </div>
-        <div class="col d-flex flex-column gap-4">
+        <div class="col-12 col-md-12 col-xl-4 d-flex flex-column gap-4 justify-content-center">
           <div
             class="d-flex flex-column justify-content-center align-items-center gap-2"
           >
@@ -391,9 +397,9 @@
       </div>
     </div>
     <div class="row py-5" style="width: 80%">
-      <div class="col col-sm-12 col-md-3 col-lg-6 d-flex flex-column gap-5">
+      <div class="col col-sm-12 col-md-3 col-lg-6 d-flex flex-column gap-4">
         <svg
-          width="152"
+          width="30%"
           height="126"
           viewBox="0 0 152 126"
           fill="none"
@@ -407,10 +413,10 @@
           />
         </svg>
         <div style="position: relative">
-          <h5 class="title-decorated">Asistencia Tecnica</h5>
+          <h5 class="title-decorated py-0">Asistencia Tecnica</h5>
           <svg
             style="position: absolute; top: 1em; left: 0.5em"
-            width="288"
+            width="100%"
             height="24"
             viewBox="0 0 288 24"
             fill="none"
@@ -433,9 +439,9 @@
         </h5>
         <ul class="d-flex flex-column gap-2">
           <li>Elaboración de guías de práctica clínica</li>
-          <li>Elaboración de guías de práctica clínica</li>
-          <li>Elaboración de guías de práctica clínica</li>
-          <li>Elaboración de guías de práctica clínica</li>
+          <li>Adaptación de guías de práctica clínica</li>
+          <li>Elaboración de recomendaciones rápidas</li>
+          <li>Elaboración de evaluaciones de tecnología sanitaria </li>
         </ul>
         <span class="mt-5"
           >Para cualquier consulta sobre este servicio contáctate con
@@ -464,3 +470,12 @@
     </div>
   </section>
 </template>
+<script setup>
+ let currentWindowWidth = ref(null);
+    onMounted(() => {
+      currentWindowWidth.value = window.innerWidth;
+      window.addEventListener("resize", () => {
+        currentWindowWidth.value = window.innerWidth;
+      });
+    });
+</script>

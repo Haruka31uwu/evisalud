@@ -5,10 +5,11 @@
         <h2>Plana Docente</h2>
         <img src="/assets/img/courses/docentes-item.svg" style="bottom:0;right: -1em;position: absolute;"  />
        </div>
+       <input type="text" style="position: absolute;right:2em;top:5em" v-model="inputDoctor" class="search-input" placeholder="Buscar Docente"/>
       </div>
       <div class="section-items">
-        <courses-courses-details-docente-item
-          v-for="docente in docentes"
+        <about-docente-item
+          v-for="docente in docentes.filter(docente=>docente.name.toLowerCase().includes(inputDoctor.toLowerCase()))"
           :key="docente.id"
           :docente="docente"
         />
@@ -17,29 +18,23 @@
   </template>
   <script>
   import { onBeforeMount, ref } from 'vue';
-  import { getDocentesCourse } from '/composables/docentes-composables.js'
+  import { getAllDocentes } from '/composables/docentes-composables.js'
   export default {
-    props:{
-      docenteIds:{
-        type:Array,
-        default:()=>[]
-      }	
-    },
-    setup(props) {
-      const params = ref({
-        docenteIds: props.docenteIds
-      });
+    setup() {
+      const inputDoctor=ref("");
       const docentes = ref([]);
       onBeforeMount(async () => {
         try {
-           docentes.value=getDocentesCourse(params.value.docenteIds);
+           docentes.value=getAllDocentes();
+           console.log(docentes.value);
         } catch (error) {
           console.error(error);
         }
       });
   
       return {
-        docentes
+        docentes,
+        inputDoctor
       };
     }
   }

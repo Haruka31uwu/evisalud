@@ -6,20 +6,95 @@
         v-for="(quality, index) in qualities"
         :key="`quality-${index}`"
       >
-      <div class="quality-content" :style="index%2==0?'align-self:flex-start':'align-self:flex-end'">
-        <img :src="quality.logo" width="100" height="100"/>
-        <div class="quality-content-text" >
+        <div
+          v-if="index < 3 ||currentWindowWidth>768"
+          class="quality-content"
+          :style="
+            index % 2 == 0 ? 'align-self:flex-start' : 'align-self:flex-end'
+          "
+        >
+          <img :src="quality.logo" width="100" height="100" />
+          <div class="quality-content-text">
             <h4>{{ quality.title }}</h4>
             <p>{{ quality.content }}</p>
+          </div>
+        </div>
+        <div
+            v-if="index < 3||currentWindowWidth>768"
+            style="
+              width: 80%;
+              background-color: white;
+              color: white;
+              height: 1px;
+              margin: 2em 0;
+            "
+          ></div>
+        <div
+          v-if="index > 3 && currentWindowWidth<=768"
+          class="quality-more"
+          :style="
+            !showMore ? 'display:none' : 'display:flex;flex-direction:column'
+          "
+        >
+          <div
+            v-if="index > 3 && currentWindowWidth<=768"
+            class="quality-content"
+            :style="
+              index % 2 == 0 ? 'align-self:flex-start' : 'align-self:flex-end'
+            "
+          >
+            <img :src="quality.logo" width="100" height="100" />
+            <div class="quality-content-text">
+              <h4>{{ quality.title }}</h4>
+              <p>{{ quality.content }}</p>
+            </div>
+          </div>
+          <div
+            v-if="index > 3 && currentWindowWidth<=768"
+            style="
+              width: 80%;
+              background-color: white;
+              color: white;
+              height: 1px;
+              margin: 2em 0;
+            "
+          ></div>
+        </div>
+        <div
+          class="view-more"
+          @click="showMore = !showMore"
+          v-if="currentWindowWidth < 768 && ( (index == 3 && !showMore)||(index == 6 && showMore))"
+        >
+          Ver más
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="8"
+            viewBox="0 0 14 8"
+            fill="none"
+          >
+            <path
+              d="M0.999999 1L7 7L13 1"
+              stroke="#0393AA"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
       </div>
-      <div style="width:80%;background-color: white;color: white;height: 1px;margin: 2em 0;"></div>
-
-    </div>
     </div>
   </section>
 </template>
 <script setup>
+let currentWindowWidth = ref(null);
+let showMore = ref(false);
+onMounted(() => {
+  currentWindowWidth.value = window.innerWidth;
+  window.addEventListener("resize", () => {
+    currentWindowWidth.value = window.innerWidth;
+  });
+});
 const qualities = ref([
   {
     logo: "/assets/img/class-quality.svg",

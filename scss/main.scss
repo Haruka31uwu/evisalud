@@ -71,7 +71,12 @@ $EVI500: #515166;
     color: $color;
     background-color: $bgColor;
 }
-
+@mixin searchInput(){
+    background: $EVIDARK001;
+    border-radius: 50px;
+    border:1px solid $EVIDARK004;
+    padding: 10px 8px 10px 15px;
+}
 @mixin btn($background, $radius, $border, $color, $hovercolor, $hoverbackground) {
     background-color: $background;
     border-radius: $radius;
@@ -152,6 +157,12 @@ body {
 
 .btn-white {
     @include btn($EVI400, 1.5em, none, $EVI100, $EVI400, $EVI100);
+    span{
+        a{
+            @include font(700, 14px, 1.5em, $EVIDARK001);
+
+        }
+    }
 }
 
 .btn-blue {
@@ -161,6 +172,9 @@ body {
 
 .btn-blue-outline {
     @include btn(transparent, 1.5em, 1px solid $EVI100, transparent, transparent, $EVI100);
+    @include font(700, 14px, 1.5em, $EVI400);
+}.btn-gray-outline {
+    @include btn(transparent, 1.5em, 1px solid $EVI400, $EVI400, $EVI400, $EVI100);
     @include font(700, 14px, 1.5em, $EVI400);
 }
 
@@ -188,12 +202,37 @@ section {
             position: absolute;
             right: -3em;
             top: 1.2em;
-            width: 231px;
+            width: 100%;
             height: 24px;
             opacity: 0.5;
             background-color: $EVI100;
             border-radius: 1em;
             z-index: 1;
+        }
+    }
+
+    @media(max-width:768px) {
+        .section-title {
+            position: relative;
+
+            h2 {
+                margin: 0;
+                @include font(700, 24px, 1.4em, $EVI400);
+                z-index: 2;
+                position: relative;
+            }
+
+            .section-decorator {
+                position: absolute;
+                right: -3em;
+                top: 0.8em;
+                width: 100%;
+                height: 24px;
+                opacity: 0.5;
+                background-color: $EVI100;
+                border-radius: 1em;
+                z-index: 1;
+            }
         }
     }
 }
@@ -211,6 +250,15 @@ section {
         width: 50%;
         text-align: center;
         margin-bottom: 2em;
+    }
+
+    @media(max-width:1160px) {
+        p {
+            @include font(300, 16px, 1.4em, $EVI400);
+            width: 80%;
+            text-align: center;
+            margin-bottom: 2em;
+        }
     }
 
     .whatsits-indicators {
@@ -261,6 +309,37 @@ section {
         }
     }
 
+    @media(max-width:1160px) {
+        .whatsits-indicators {
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            background-color: transparent;
+            row-gap: 1em;
+
+            .indicator-item {
+                background-color: $EVIDARK005;
+                min-height: 130px;
+                border-radius: 1em;
+                width: auto;
+                padding: 0 1em;
+                align-items: center;
+            }
+
+            .indicator-item:nth-child(5) {
+                grid-column: 1/3;
+                grid-row: 2/3;
+                width: 150px;
+                margin: 0 auto;
+
+            }
+
+            .indicator-item-divider {
+                display: none;
+            }
+        }
+    }
+
     .whatsits-students {
         display: flex;
         flex-direction: column;
@@ -282,6 +361,7 @@ section {
         @media (max-width: 890px) {
             .country-flags {
                 grid-template-columns: repeat(6, 1fr);
+                grid-row-gap: 1em;
             }
         }
     }
@@ -310,11 +390,33 @@ section {
         }
 
         p {
-            @include font(700, 28 px, 1.4em, $EVIDARK004);
+            @include font(700, 30px, 1.4em, $EVIDARK004);
 
         }
+
     }
 
+    @media(max-width: 768px) {
+        .banner-content {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            h2 {
+                @include font(700, 26px, 1.4em, $EVI100);
+                font-style: italic;
+                text-align: center;
+                margin: 0;
+            }
+
+            p {
+                @include font(700, 18px, 1.4em, $EVIDARK004);
+                text-align: center;
+            }
+        }
+    }
 }
 
 .reasons-list {
@@ -324,7 +426,7 @@ section {
         display: flex;
         padding: 3em 2em;
         border-radius: 2em;
-        align-items: flex-end;
+        align-items: flex-start;
         justify-content: space-between;
         width: 80%;
         margin: 0 auto;
@@ -367,6 +469,10 @@ section {
 
                 }
             }
+
+            button {
+                width: 60%;
+            }
         }
 
 
@@ -380,9 +486,13 @@ section {
             align-items: center;
             justify-content: center;
             row-gap: 2em;
-            width: 80%;
+            width: 90%;
+            background: transparent;
 
             .reason-list-item {
+                @include theme($EVI400, $EVIDARK005);
+                padding: 2em 1em;
+                border-radius: 1.5em;
                 display: flex;
                 width: 100% !important;
                 flex-direction: column;
@@ -396,10 +506,10 @@ section {
                 }
 
                 ul {
-                    width: 80%;
+                    width: 90%;
                     display: flex;
                     flex-direction: column;
-
+                    row-gap: 2em;
                 }
 
                 button {
@@ -460,8 +570,9 @@ section {
                 }
             }
 
-           
+
         }
+
         .quality-content-2 {
             width: 80%;
             display: flex;
@@ -491,6 +602,123 @@ section {
     }
 }
 
+@media(max-width:768px) {
+    .qualities-list {
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+        .quality-item {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            column-gap: 1.5em;
+
+            .view-more {
+                @include font(400, 14px, 1.4em, $EVI100);
+            }
+
+            .quality-content {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                column-gap: 1em;
+
+                .quality-content-text {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    width: 70%;
+
+                    h4 {
+                        margin: 0;
+                        @include font(800, 20px, 1.4em, $EVI400);
+                    }
+
+                    p {
+                        @include font(400, 14px, 1.4em, $EVI400);
+
+                    }
+
+                    ul {
+                        padding: 0 1em;
+
+                        li {
+                            @include font(400, 14px, 1.4em, $EVI400);
+                        }
+                    }
+                }
+
+
+            }
+
+            .quality-content-2 {
+                width: 80%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                column-gap: 2em;
+
+                .quality-content-text-2 {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    width: auto;
+
+                }
+
+                ul {
+                    padding: 0 1em;
+
+                    li {
+                        @include font(400, 14px, 1.4em, $EVI400);
+                    }
+                }
+
+            }
+            @media(max-width:768px){
+                .quality-content-2 {
+                    width: 90%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto;
+                    row-gap: 1em;
+                    .quality-content-text-2 {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        width: auto;
+           
+
+                    }
+    
+                    ul {
+                        padding: 0 1em;
+                        row-gap: 1em;
+                        display: flex;
+                        flex-direction: column;
+                        li {
+                            @include font(400, 14px, 1.4em, $EVI400);
+                        }
+                    }
+    
+                }
+            }
+        }
+    }
+}
+
 .experiencies-section {
     display: flex;
     flex-direction: column;
@@ -514,15 +742,25 @@ section {
             flex-direction: column;
             justify-content: space-between;
             width: 300px;
-            height: 250px;
+            height: 320px;
             min-width: 300px;
+            h4{
+                @include font(700, 18px, 1.4em, $EVI100);
+            }
             p {
                 @include font(400, 14px, 1.4em, $EVI400);
                 text-align: center;
                 width: auto;
                 margin: 2.5em auto 0 auto;
             }
-
+            span{
+                @include font(700, 14px, 1.4em, $EVIDARK004);
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                    @include font(700, 14px, 1.4em, $EVI100);
+                }
+            }
             .experience-owner {
 
                 display: flex;
@@ -594,6 +832,8 @@ section {
         margin-top: 2em;
         display: flex;
         column-gap: 5em;
+        width: 90%;
+        justify-content: center;
     }
 }
 
@@ -671,9 +911,95 @@ section {
             }
         }
     }
+
+    @media(max-width:768px) {
+        .newsletter-container {
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.30);
+            @include theme($EVI400, $EVI200);
+
+            .first-column {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                row-gap: 0.5em;
+                width: 100%;
+                row-gap: 1em;
+
+                .first-column-header {
+                    display: flex;
+                    column-gap: 1em;
+                     svg{
+                        width: 30px;
+                        height: 30px;
+                     }
+                    h4 {
+                        margin: 0;
+                        @include font(700, 30px, 1.4em, $EVI400);
+                    }
+
+                    span {
+                        @include font(400, 13px, 1.4em, $EVI400);
+
+                    }
+                }
+
+            }
+
+            .second-column {
+                margin-top: 1em;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                row-gap: 1.5em;
+                width: 100%;
+
+                .email-container {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 1em;
+
+                    .email-text {
+                        margin-bottom: 0.5em;
+                        align-self: start;
+                        @include font(400, 13px, 1.4em, $EVI400);
+                    }
+
+                    input {
+                        height: 40px;
+                        border-radius: 1.5em;
+                        border: 1px solid $EVI400;
+                        color: $EVI400;
+                        padding: 0 1em;
+                        @include font(400, 14px, 1.4em, $EVI100);
+                        @include theme($EVI400, transparent)
+                    }
+                }
+
+
+                button {
+                    width: 100%;
+                }
+
+                .newsletter-spam {
+                    @include font(400, 13px, 1.4em, $EVI400);
+                    text-align: center;
+                }
+            }
+        }
+    }
 }
 
-footer {
+.footer-lg {
     @include theme($EVI400, $EVIDARK001);
     padding: 2em 0;
     box-shadow: 0px -4px 40px 0px rgba(0, 0, 0, 0.10);
@@ -709,6 +1035,7 @@ footer {
 
                     span {
                         @include font(400, 16px, 1.4em, $EVI400);
+
                         &:hover {
                             cursor: pointer;
                             text-decoration: underline;
@@ -757,6 +1084,7 @@ footer {
 
                 span {
                     @include font(400, 14px, 1.4em, $EVI400);
+
                     &:hover {
                         cursor: pointer;
                         text-decoration: underline;
@@ -777,6 +1105,129 @@ footer {
                     text-decoration: none;
                     color: $EVI400;
                 }
+            }
+        }
+    }
+}
+.footer-md{
+    @include theme($EVI400, $EVIDARK001);
+    box-shadow: 0px -4px 40px 0px rgba(0, 0, 0, 0.10);
+    width: 100%;
+    .footer-content{
+        .row-divider{
+            width: 90%;
+            height: 0.5px;
+            background-color: $EVIDARK004;
+            margin: 1.4em auto;
+        }
+        .footer-content-first-row{
+            display: flex;
+            flex-direction: row ;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 auto;
+            width: 90%;
+        }.row{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+
+        }.first-row{
+            display: flex;
+            flex-direction: column;
+            row-gap: 1em;
+            h5{
+                @include font(700, 22px, 1.4em, $EVI400);
+            }span{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                column-gap: 0.5em;
+                a{
+                    @include font(400, 20px, 1.4em, $EVI400);
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                    @include font(300, 21px, 1.4em, $EVI100);
+                }
+                }
+            }
+        }
+        .second-row{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            row-gap: 0.2em;
+            width: 50%;
+            span{
+                text-align: center;
+                @include font(400, 20px, 1.4em, $EVI100);
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                    @include font(300, 20px, 1.4em, $EVI100);
+                }
+
+            }
+        }
+        .third-row{
+
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            .svgs-container{
+                display: flex;
+                justify-content: center;
+                column-gap: 1.2em;
+                align-items: center;
+                svg{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+    }.footer-content-end{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 1em;
+        margin: 0 auto;
+        width: 90%;
+        span{
+            @include font(400, 18px, 1.4em, $EVI400);
+            text-align: center;
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+                @include font(300, 20px, 1.4em, $EVI100);
+            }
+        }
+        .name-company{
+            @include font(400, 20px, 1.4em, $EVIDARK004);
+            &:hover {
+                cursor: pointer;
+ 
+            }
+        }
+        .footer-divider-vertical{
+            width: 2px;
+            height: 20px;
+            background-color: $EVIDARK004;
+            margin: 1.4em auto;
+        }
+        .footer-content-end-item{
+            @include font(400, 20px, 1.4em, $EVI400);
+            text-decoration: none;
+            color: $EVI400;
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+                @include font(300, 21px, 1.4em, $EVI100);
             }
         }
     }
@@ -807,8 +1258,10 @@ footer {
 
             p {
                 @include font(400, 16px, 1.4em, $EVI400);
+
                 span {
                     @include font(400, 16px, 1.4em, $EVIDARK003);
+
                     &:hover {
                         cursor: pointer;
                         text-decoration: underline;
@@ -823,7 +1276,12 @@ footer {
                 @include font(400, 16px, 1.4em, $EVIDARK003);
             }
         }
+        @media(max-width:768px){
+            .our-courses-banner-text{
+                width: 80%;
+            }
 
+        }
     }
 
     .our-couses-description {
@@ -843,12 +1301,34 @@ footer {
             span {
                 @include font(500, 14px, 1.4em, $EVI100);
                 padding: 0 1em;
+                text-decoration: underline;
+
                 &:hover {
                     cursor: pointer;
                     text-decoration: underline;
                     @include font(500, 14px, 1.4em, $EVIDARK003);
                 }
             }
+        }
+        @media(max-width:768px){
+            .our-courses-description-text{
+                width: 90%;
+                p{
+                    @include font(500, 16px, 1.4em, $EVI400);
+                }
+                
+            }span {
+                @include font(500, 16px, 1.4em, $EVI100);
+                padding: 0 1em;
+                text-decoration: underline;
+
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                    @include font(500, 14px, 1.4em, $EVIDARK003);
+                }
+            }
+
         }
     }
 }
@@ -858,7 +1338,7 @@ footer {
     flex-direction: column;
 
     .section-content {
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -874,15 +1354,26 @@ footer {
             border-radius: 1em;
             width: 15em;
         }
-
+        @media(max-width:768px){
+            .courses-search-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                border: 1px solid $EVIDARK003;
+                padding: 0.5em 1em;
+                border-radius: 1em;
+                width: 100%;
+            }
+        }
         .courses-list-container {
-
+            overflow-x: hidden;
             h4 {
                 margin: 0;
                 @include font(700, 24px, 1.4em, $EVI100);
             }
 
             .courses-items-container {
+                overflow: hidden;
                 padding: 2em 0;
                 display: grid;
                 align-items: center;
@@ -892,14 +1383,17 @@ footer {
                 margin: 0 auto;
             }
 
-            @media (max-width: 768px) {
+            @media (max-width: 1024px) {
                 .courses-items-container {
-                    display: flex;
+                    
+
+                    display: flex  ;
                     flex-direction: row;
-                    overflow-x: scroll;
+                    overflow-x: hidden;
                     column-gap: 3em;
                     align-items: center;
                     justify-content: center;
+
                 }
             }
         }
@@ -949,6 +1443,7 @@ footer {
         justify-content: center;
         padding: 1em;
         border-radius: 0 0 1em 1em;
+        min-height:350px;
         @include theme($EVI400, $EVIDARK005);
 
         h5 {
@@ -970,14 +1465,17 @@ footer {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-a{
-    @include font(400, 14px, 1.4em, $EVI400 );
-    &:hover{
-        @include font(400, 14px, 1.4em, $EVI100 );
-        text-decoration: underline;
-        cursor: pointer;
-    }
-}
+
+        a {
+            @include font(400, 14px, 1.4em, $EVI400 );
+
+            &:hover {
+                @include font(400, 14px, 1.4em, $EVI100 );
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+
         .course-more-info {
             @include font(400, 14px, 1.4em, $EVI400 );
             text-decoration: underline;
@@ -995,6 +1493,7 @@ a{
     }
 }
 
+
 .our-programs-section {
     display: flex;
     justify-content: center;
@@ -1009,7 +1508,16 @@ a{
         justify-content: space-between;
 
     }
-
+    @media(max-width:768px){
+        .programs-container{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            row-gap: 2em;
+        }
+    }
     h3 {
         margin: 1em 0;
         @include font(400, 14px, 1.4em, $EVI400);
@@ -1090,6 +1598,11 @@ a{
             }
         }
     }
+    @media(max-width:1090px){
+        .program-container{
+            width: 90%;
+        }
+    }
 }
 
 .course-metodology {
@@ -1098,13 +1611,15 @@ a{
     align-items: center;
     padding: 2em 0;
 }
-.gift-know{
-    background:url('assets/img/courses/gift.jpeg') no-repeat;
-    width:100%;
-    height:350px;
-    background-size:cover;
+
+.gift-know {
+    background: url('assets/img/courses/gift.jpeg') no-repeat;
+    width: 100%;
+    height: 350px;
+    background-size: cover;
     padding: 1em;
-    .message{
+
+    .message {
         margin-left: 2em;
         width: 50%;
         padding: 1em 0;
@@ -1115,46 +1630,124 @@ a{
         align-items: center;
         opacity: 0.7;
         border-radius: 2em;
-        h2{
+
+        h2 {
             padding-top: 1em;
             margin: 0;
-            @include font(700, 32px, 1.4em, $EVI400);   
+            @include font(700, 32px, 1.4em, $EVI400);
         }
-        p{
+
+        p {
             width: 70%;
-            @include font(400, 18px, 1.4em, $EVI400);   
+            @include font(400, 18px, 1.4em, $EVI400);
             text-align: start;
             display: flex;
             flex-direction: column;
             justify-content: center;
             row-gap: 1em;
-            button{
+
+            button {
                 width: 400px;
             }
         }
     }
+    @media(max-width:1100px){
+        .message{
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            h2{
+                @include font(700, 26px, 1.4em, $EVI400);
+            }
+            p{
+                width: 100%;
+                @include font(400, 16px, 1.4em, $EVI400);
+                text-align: start;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                row-gap: 1em;
+                padding: 0 1em;
+                button{
+                    width: 100%;
+                }
+            }
+        }
+    
+    }
 }
+
 //! Courses Details
 
-.course-copy{
+.course-copy {
     @include font(500, 24px, 1.4em, $EVI400);
-    width:80%
+    width: 80%
 }
-.title-decorated{
+
+.title-decorated {
     margin: 0;
     @include font(500, 28px, 1.4em, $EVI400);
-}span a{
+}
+
+span a {
     @include font(500, 14px, 1.4em, $EVI400);
     text-decoration: none;
 }
-.modal-customized{
-    .modal-customized-header{
-        svg{
-            &:hover{
+
+.modal-customized {
+    .modal-customized-header {
+        svg {
+            &:hover {
                 cursor: pointer;
                 stroke: $EVI100;
                 fill: $EVI100;
             }
         }
     }
+}
+    @media(max-width:1200px){
+        .course-price-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        row-gap: 1em;
+        width: 100%!important;
+        .course-detail-price{
+            width: 50%;
+        }.course-detail-contact {
+            width: 50%;
+        }
+    }
+    
+} 
+ @media(max-width:7680px){
+    .course-price-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    row-gap: 1em;
+    width: 100%!important;
+    .course-detail-price{
+        width: 90%;
+    }.course-detail-contact {
+        width: 90%;
+    }
+}
+
+}
+.section-divider{
+    width: 80%;
+    height: 1px;
+    background-color: $EVIDARK004;
+    margin-top: 3em 
+}
+.search-input{
+    @include font(400, 14px, 1.4em, $EVI400);
+    @include searchInput();
 }

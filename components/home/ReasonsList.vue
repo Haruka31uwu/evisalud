@@ -14,7 +14,9 @@
           </ul>
           <button class="btn-blue" @click="redirectTo('/courses',reason.id)">Ver Cursos</button>
         </div>
+
       </div>
+
   </section>
 </template>
 <script>

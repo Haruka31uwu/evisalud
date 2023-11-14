@@ -6,3 +6,6 @@ export const getCourse = (id) => {
 export const getProgram = (id) => {
     return programData.programsList.find(program => program.id == id)
 }
+export const getProgramCourses = (id) => {
+    return courseData.coursesList.filter(course => course.id == id)
+}

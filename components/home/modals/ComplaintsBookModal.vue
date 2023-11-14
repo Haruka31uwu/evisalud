@@ -105,6 +105,11 @@ export default {
   width: 50%;
   background-color: #1c1c24;
 }
+@media (max-width: 768px) {
+  .modal-customized-body {
+    width: 80%;
+  }
+}
 .input-customized {
   border: 1px solid #515166;
   background: transparent;

@@ -3,7 +3,7 @@
     <courses-course-hero :courseInfo="courseData" />
     <courses-courses-details-course-description :courseInfo="courseData" />
     <courses-course-metodology />
-    <courses-courses-details-docentes/>
+    <courses-courses-details-docentes  v-if="docenteIds.length>0" :docenteIds="docenteIds"/>
   </div>
 </template>
 <script>
@@ -15,7 +15,7 @@ export default {
     const courseId = ref(null);
     const courseData = reactive({});
     const route = useRoute();
-
+    const docenteIds=ref([]);
     onMounted(() => {
       const params = route.params;
 
@@ -23,10 +23,14 @@ export default {
         console.log(params.courseId);
         courseId.value = params.courseId;
         courseData.value = getCourse(courseId.value);
+        courseData.value.docentes.forEach((docente) => {
+          docenteIds.value.push(docente.id);
+        });
+        console.log(docenteIds.value);
       }
     });
 
-    return { courseId, courseData };
+    return { courseId, courseData,docenteIds };
   },
 };
 </script>

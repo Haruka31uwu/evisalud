@@ -29,15 +29,15 @@
         />
       </svg>
     </article>
-    <div class="row ms-5">
+    <div class="row ms-xl-5">
       <div class="col col-sm-12 col-md-12 col-xl-8">
-        <div style="width: 60%" class="ms-5 d-flex gap-2 flex-column">
+        <div style="width: 80%" class="ms-5 d-flex gap-2 flex-column">
           <h4>
             Accede de inmediato al contenido y únete a la siguiente cohorte de
             este curso
           </h4>
           <ul class="d-flex flex-column gap-1">
-            <li>Inicio: 27 de agosto</li>
+            <!-- <li>Inicio: 27 de agosto</li>
             <li>Duracion: 5 semanas</li>
             <li>
               Clases: Las clases serán asincrónicas, para que el participante
@@ -55,6 +55,10 @@
             <li>
               Requisitos:No requiere conocimientos previos / haber llevado el
               curso X
+            </li> -->
+            <li v-for="(item,key,index) in courseInfo.value.info" :key="`detail-${index}`" >
+              <strong>{{key}}: </strong>
+              <span>{{ item }}</span>
             </li>
           </ul>
           <div class="more-info-course d-flex flex-column gap-3">
@@ -62,30 +66,38 @@
               >¿Quieres saber mas sobre el curso? revisa nuestro Brochure</small
             >
             <div
-            @click="forceFileDownload(courseInfo.value.brochureUrl,'Brochure')"
+              @click="
+                forceFileDownload(courseInfo.value.brochureUrl, 'Brochure')
+              "
               :style="{
                 background: courseInfo.value.color,
                 borderRadius: '1.5em',
                 width: '450px',
+                margin: '1.5em 0',
+                cursor: 'pointer',
               }"
-              class="px-2 py-2 d-flex gap-2 align-items-center justify-content-center"
+              class="px-2 py-2 d-flex gap-2 align-items-center justify-content-center w-100"
             >
               <img src="/assets/img/courses/download.svg" alt="downlaod icon" />
-              <span> Descargar Brochure </span>
+              <span > Descargar Brochure </span>
             </div>
           </div>
         </div>
       </div>
       <div
-        class="col col-sm-8 col-md-8 col-xl-4 py-4 d-flex course-detail-inversion align-self-end"
-        :style="{
-          background: courseInfo.value.color,
-          borderRadius: '10px',
-          borderTopRigthRadius: '0px',
-          borderBottomRigthRadius: '0px',
-        }"
+        class="col col-sm-12 col-md-12 col-xl-4 py-4 d-flex course-detail-inversion align-self-end"
       >
-        <div style="width: 70%" class="d-flex flex-column gap-4 ms-4">
+        <div
+          style="width: 100%"
+          class="d-flex flex-column gap-4 ms-4 course-price-container"
+          :style="{
+            background: courseInfo.value.color,
+            borderRadius: '10px',
+            borderTopRigthRadius: '0px',
+            borderBottomRigthRadius: '0px',
+            padding: '2em',
+          }"
+        >
           <div class="course-detail-price d-flex flex-column gap-2">
             <span class="course-detail-price-title">Inversión</span>
             <span
@@ -94,7 +106,7 @@
               }})</span
             >
             <small class="pb-1">!Pregunta por nuestros descuentos</small>
-            <div class="btn-white">
+            <div class="btn-white d-flex flex-row" style="column-gap: 1em">
               <img src="/assets/img/courses/car.svg" /><span
                 >Agregar al carrito</span
               >
@@ -104,11 +116,18 @@
             <small
               >Si tienes dudas o necesitas mas informacion,contactanos</small
             >
-            <div class="btn-white">
+            <div class="btn-white d-flex flex-row" style="column-gap: 1em">
               <img src="/assets/img/courses/whats.svg" />
-              <span><a target="_blank" href="https://wa.me/950876703">Ir a Whatsapp (+51 950 876 703)</a></span>
+              <span
+                ><a target="_blank" href="https://wa.me/950876703"
+                  >Ir a Whatsapp (+51 950 876 703)</a
+                ></span
+              >
             </div>
-            <div class="btn-white">
+            <div
+              class="btn-gray-outline d-flex flex-row"
+              style="column-gap: 1em"
+            >
               <img src="/assets/img/courses/info.svg" />
               <span>Ir a Preguntas Frecuentes</span>
             </div>
@@ -121,7 +140,7 @@
       class="my-5 mx-auto"
     ></div>
     <div class="row mx-auto" style="width: 80%">
-      <div class="col-sm-12 col-xl-6">
+      <div class="col-sm-12 col-xl-6 " v-if="currentWindowWidth>1200">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="212"
@@ -155,10 +174,11 @@
           />
         </svg>
       </div>
-      <div class="col-sm-12 col-xl-6">
-        <div style="position: relative; margin-bottom: 1em">
-          <span class="title-decorated" style="z-index: 2;">Contenido</span>
+      <div class="col-sm-12 col-md-12 col-xl-6 d-flex  flex-column justify-content-center align-items-center">
+        <div style="position: relative; margin-bottom: 1em" >
+          <span class="title-decorated" style="z-index: 2">Contenido</span>
           <div
+          
             style="
               width: 150px;
               border-radius: 1em;
@@ -167,7 +187,6 @@
               top: 1.2em;
               opacity: 0.7;
               left: 1em;
-
             "
             :style="{
               background: courseInfo.value.color,
@@ -175,8 +194,27 @@
           ></div>
         </div>
         <ul style="list-style: none" class="d-flex flex-column gap-1 mx-0 px-0">
-          <li class="d-flex gap-1 align-items-center">
-            <svg
+          <li class="d-flex gap-1 align-items-center" v-for="(item,index) in courseInfo.value.contenido" :key="`content-${index}`">
+            <svg 
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                y="7.07031"
+                width="10"
+                height="10"
+                rx="1"
+                transform="rotate(-45 0 7.07031)"
+                :fill="courseInfo.value.color"
+              />
+            </svg>
+            <span>{{ item }}</span>
+            </li>
+          <!-- <li class="d-flex gap-1 align-items-center" >
+            <svg 
               width="14"
               height="14"
               viewBox="0 0 14 14"
@@ -288,7 +326,7 @@
               />
             </svg>
             <span>Principios de redacción científica. </span>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -299,17 +337,17 @@
     <div
       class="d-flex mx-auto justify-content-center flex-column align-items-center gap-4"
     >
-      <h4>¿Qué aprenderé en este curso de {{ courseInfo.value.title }}?</h4>
+      <h4 style="text-align: center;">¿Qué aprenderé en este curso de {{ courseInfo.value.title }}?</h4>
       <video
-        style="width: 50%; height: 50%"
+        style="width: 70%; height: 50%"
         controls
-        src="https://www.youtube.com/watch?v=UvnI1Sk5w2w&list=RDUvnI1Sk5w2w&start_radio=1"
+        :src="courseInfo.value.videoUrl"
+        type="video/mp4"
       ></video>
     </div>
   </section>
 </template>
 <script>
-import { forceFileDownload } from "/composables/main-composables.js";
 export default {
   props: {
     courseInfo: {
@@ -319,8 +357,16 @@ export default {
     },
   },
   setup(props) {
+    let currentWindowWidth = ref(null);
+    onMounted(() => {
+      currentWindowWidth.value = window.innerWidth;
+      window.addEventListener("resize", () => {
+        currentWindowWidth.value = window.innerWidth;
+      });
+    });
     return {
       courseInfo: props.courseInfo,
+      currentWindowWidth,
     };
   },
 };

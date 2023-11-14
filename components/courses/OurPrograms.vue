@@ -1,6 +1,6 @@
 <template>
   <section class="our-programs-section" id="programs-list" >
-    <div class="section-title">
+    <div class="section-title mt-5">
       <h2>Nuestros Programas</h2>
       <div class="section-decorator"></div>
     </div>

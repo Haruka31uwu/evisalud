@@ -5,7 +5,7 @@
       class="d-flex mx-0 justify-content-center align-items-center gap-4 course-copy text-center py-5 mx-auto flex-column"
       style="color: #0393aa"
     >
-      <span> "{{ programInfo.value.description }}"</span>
+      <span> "{{ programInfo.value.frase }}"</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="253"
@@ -30,15 +30,23 @@
         />
       </svg>
     </article>
-    <div class="row ms-5">
-      <div class="col col-sm-12 col-md-12 col-xl-8">
-        <div style="width: 60%" class="d-flex flex-column gap-3">
+    <div class="row ms-xl-5">
+      <div class="col col-sm-12 col-md-12 col-xl-8 mb-4">
+        <div
+          :style="
+            currentWindowWidth > 1200 ? 'width:70%' : 'width:90%;margin:0 auto'
+          "
+          class="d-flex flex-column gap-3"
+        >
           <div
             v-for="(item, index) in programInfo.value.coursesList"
             :key="`course-${item.id}-${index}`"
             class="program-course"
+             :style="openedPrograms.includes(item.id)?'border:1px solid #0393AA':''"
           >
-            <div
+            <div class="showed-content ms-5 d-flex flex-row align-items-center gap-5"
+            >
+              <div
               class="program-course-num"
               :id="`program-course-${item.id}-${index}`"
             >
@@ -50,11 +58,63 @@
               <span>{{ item.title }}</span>
               <span>(5 semanas)</span>
             </div>
+            <div>
+              <svg
+                v-if="!openedPrograms.includes(item.id)"
+                @click="
+                  openedPrograms.includes(item.id)
+                    ? openedPrograms.splice(openedPrograms.indexOf(item.id), 1)
+                    : openedPrograms.push(item.id)
+                "
+                style="cursor:pointer"
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="10"
+                viewBox="0 0 19 10"
+                fill="none"
+              >
+                <path
+                  d="M9.55112 9.99905C9.86289 9.99186 10.1608 9.86997 10.3872 9.65715L18.2561 2.15489C18.5795 1.84395 18.7119 1.38562 18.6034 0.951675C18.4947 0.517761 18.1619 0.174097 17.7293 0.0496167C17.297 -0.0748903 16.8307 0.0387152 16.5053 0.347911L9.51159 7.01957L2.51785 0.347909C2.19247 0.0387149 1.72613 -0.0748859 1.29385 0.0496153C0.861321 0.174123 0.528485 0.517765 0.419782 0.951674C0.31132 1.38559 0.443713 1.84391 0.767119 2.15488L8.63599 9.65715C8.88212 9.88894 9.21188 10.0121 9.55064 9.99905L9.55112 9.99905Z"
+                  fill="#F0F0F0"
+                />
+              </svg>
+              <svg
+                v-else
+                style="cursor:pointer"
+
+                @click="
+                  openedPrograms.includes(item.id)
+                    ? openedPrograms.splice(openedPrograms.indexOf(item.id), 1)
+                    : openedPrograms.push(item.id)
+                "
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="10"
+                viewBox="0 0 19 10"
+                fill="none"
+              >
+                <path
+                  d="M9.47231 0.000945222C9.16054 0.00814104 8.86259 0.13003 8.63625 0.342845L0.767372 7.84511C0.443967 8.15605 0.311573 8.61438 0.420034 9.04832C0.528714 9.48224 0.861562 9.8259 1.2941 9.95038C1.7264 10.0749 2.19272 9.96128 2.5181 9.65209L9.51185 2.98043L16.5056 9.65209C16.831 9.96128 17.2973 10.0749 17.7296 9.95038C18.1621 9.82588 18.495 9.48223 18.6037 9.04832C18.7121 8.61441 18.5797 8.15609 18.2563 7.84511L10.3874 0.342845C10.1413 0.111062 9.81155 -0.0121391 9.4728 0.000945222H9.47231Z"
+                  fill="#0393AA"
+                />
+              </svg>
+            </div>
+            </div>
+            <div v-if="openedPrograms.includes(item.id)" class="ms-5 pb-3">
+              <span>Contenido</span>
+
+              <div v-for="(courses,coursesItem) in getProgramCourses(item.id)[0].contenido" :key="`courses-${coursesItem}`" class="d-flex flex-row gap-2 align-items-center mb-2">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect y="7.07031" width="10" height="10" rx="1" transform="rotate(-45 0 7.07031)" fill="#0393AA"/>
+                </svg>
+                <span >{{ courses }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div
-        class="col col-sm-8 col-md-8 col-xl-4 py-4 d-flex course-detail-inversion"
+        class="col col-sm-12 col-md-12 col-xl-4 py-4 d-flex course-detail-inversion"
         :style="{
           background: '#0393AA',
           borderRadius: '2em',
@@ -62,7 +122,10 @@
           borderBottomRigthRadius: '0',
         }"
       >
-        <div style="width: 70%" class="d-flex flex-column gap-1 ms-4">
+        <div
+          :style="currentWindowWidth > 1200 ? 'width:70%' : 'width:90%'"
+          class="d-flex flex-column gap-1 ms-4"
+        >
           <div class="course-detail-price d-flex flex-column gap-4">
             <span class="course-detail-price-title">Inversión</span>
             <span
@@ -87,7 +150,11 @@
             >
             <div class="btn-white">
               <img src="/assets/img/courses/whats.svg" />
-              <span><a target="_blank" href="https://wa.me/950876703">Ir a Whatsapp (+51 950 876 703)</a></span>
+              <span
+                ><a target="_blank" href="https://wa.me/950876703"
+                  >Ir a Whatsapp (+51 950 876 703)</a
+                ></span
+              >
             </div>
             <div class="btn-blue-outline">
               <img src="/assets/img/courses/info.svg" />
@@ -101,6 +168,7 @@
           background: '#0393AA',
           borderRadius: '1.5em',
           width: '450px',
+          cursor: 'pointer',
         }"
         class="px-2 py-2 d-flex gap-2 align-items-center justify-content-center mx-auto mt-5"
       >
@@ -112,8 +180,12 @@
       style="width: 80%; height: 1px; background: #515166"
       class="my-5 mx-auto"
     ></div>
-    <div style="background: #1c1c24;width:80%;border-radius:3em" class="d-flex justify-content-center gap-5 mx-auto py-5 align-items-center">
+    <div
+      style="background: #1c1c24; width: 80%; border-radius: 3em"
+      class="d-flex justify-content-center gap-5 mx-auto py-5 align-items-center"
+    >
       <svg
+        v-if="currentWindowWidth > 1200"
         width="235"
         height="220"
         viewBox="0 0 235 220"
@@ -149,9 +221,12 @@
           fill="#0393AA"
         />
       </svg>
-      <div>
+      <div class="px-5">
         <h5>¿Cómo solicitar la certificación?</h5>
-        <ul class="d-flex p-0 m-0 flex-column gap-3" style="list-style:none;width: 90%;">
+        <ul
+          class="d-flex p-0 m-0 flex-column gap-3"
+          style="list-style: none; width: 90%"
+        >
           <li>
             <svg
               width="14"
@@ -296,6 +371,7 @@
   </section>
 </template>
   <script>
+import {getProgramCourses} from '/composables/courses-composables.js'
 export default {
   props: {
     programInfo: {
@@ -305,8 +381,19 @@ export default {
     },
   },
   setup(props) {
+    let currentWindowWidth = ref(null);
+    let openedPrograms = ref([]);
+    onMounted(() => {
+      currentWindowWidth.value = window.innerWidth;
+      window.addEventListener("resize", () => {
+        currentWindowWidth.value = window.innerWidth;
+      });
+    });
     return {
       programInfo: props.programInfo,
+      currentWindowWidth,
+      openedPrograms,
+      getProgramCourses,
     };
   },
 };
@@ -319,10 +406,11 @@ export default {
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.3);
   width: 100%;
   height: auto;
-  padding: 0.5em 0 0.5em 1.5em;
+  padding: 0 0 0 0.5em;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   gap: 1.5em;
 }
 .program-course-num {

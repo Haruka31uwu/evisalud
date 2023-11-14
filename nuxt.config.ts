@@ -8,8 +8,8 @@ export default {
     '@pinia/nuxt',
   ],
 
-  // app: {
-  //   baseURL:'/evisalud/',
-  //   buildAssetsDir: 'assets',
-  //   }
+  app: {
+    baseURL:'/evisalud/',
+    buildAssetsDir: 'assets',
+    }
 }

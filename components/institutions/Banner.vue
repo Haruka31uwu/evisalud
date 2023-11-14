@@ -10,8 +10,8 @@
       servicio contáctanos aquí</span
     >
     <div
-      class="d-flex flex-row justify-content-between pt-5"
-      style="width: 80%"
+      class="d-flex justify-content-between  align-items-center pt-5 gap-3"
+      :style="currentWindowWidth>768?'width: 80%;flex-direction:row':'width: 100%;flex-direction:column'"
     >
       <div class="btn btn-blue">
         <svg
@@ -57,3 +57,12 @@
    
   </section>
 </template>
+<script setup>
+let currentWindowWidth = ref(null);
+onMounted(() => {
+  currentWindowWidth.value = window.innerWidth;
+  window.addEventListener("resize", () => {
+    currentWindowWidth.value = window.innerWidth;
+  });
+});
+</script>

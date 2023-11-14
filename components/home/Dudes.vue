@@ -1,5 +1,5 @@
 <template>
-    <div class="dude-section">
+    <div class="dude-section" v-if="currentWindowWidth>855">
         <div class="dude-container">
             <img src="/assets/img/evi.png" alt="Evi Owl" class="evi" height="360" width="360">
             <div class="dude-options">
@@ -12,3 +12,12 @@
         </div>
     </div>
 </template>
+<script setup>
+let currentWindowWidth = ref(null);
+onMounted(() => {
+  currentWindowWidth.value = window.innerWidth;
+  window.addEventListener("resize", () => {
+    currentWindowWidth.value = window.innerWidth;
+  });
+});
+</script>

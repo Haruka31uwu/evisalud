@@ -3,7 +3,7 @@
   <div class="program-container">
     <div
       class="program-img-container"
-      :style="`background:url(${program.img}) no-repeat;background-size: cover;width:400px;height:200px;border-radius:1em 1em 0 0;position:relative`"
+      :style="`background:url(${program.img}) no-repeat;background-size: cover;width:100%;height:200px;border-radius:1em 1em 0 0;position:relative`"
     >
       <div class="program-type">
         <svg

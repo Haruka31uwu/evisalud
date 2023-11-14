@@ -30,8 +30,9 @@
           />
         </svg>
       </div>
-      <div class="row">
+      <div class="row" style="width: 90%;margin: 0 auto;"> 
         <div
+        v-if="currentWindowWidth > 1090"
           class="col col-sm-12 col-md-3 col-lg-6 d-flex flex-column align-self-end px-5"
         >
           <img
@@ -42,6 +43,7 @@
         </div>
         <div
           class="col col-sm-12 col-md-9 col-lg-6 d-flex flex-column gap-4 py-5"
+          :class="currentWindowWidth < 1090 ? 'col col-md-10 col-lg-11 mx-auto ' : ''"
         >
           <h5 style="color: white" class="text-center">
             Trabajas con nosotros
@@ -75,12 +77,21 @@
 <script>
 export default {
   emits: ["closeModal"],
-  setup(props,ctx) {
+  setup(props, ctx) {
+    let currentWindowWidth = ref(null);
+    onMounted(() => {
+      currentWindowWidth.value = window.innerWidth;
+      window.addEventListener("resize", () => {
+        currentWindowWidth.value = window.innerWidth;
+      });
+    });
     const closeModal = () => {
-        ctx.emit("closeModal");
+      ctx.emit("closeModal");
     };
     return {
       closeModal,
+      currentWindowWidth
+      
     };
   },
 };
