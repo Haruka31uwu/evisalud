@@ -37,25 +37,6 @@
             este curso
           </h4>
           <ul class="d-flex flex-column gap-1">
-            <!-- <li>Inicio: 27 de agosto</li>
-            <li>Duracion: 5 semanas</li>
-            <li>
-              Clases: Las clases serán asincrónicas, para que el participante
-              pueda revisarlas en cualquier momento.
-            </li>
-            <li>
-              Reuniones sincronicas: El curso incluye 5 reuniones sincrónicas
-              virtuales, a desarrollarse los sábados de 5:30 pm a 7:00 pm.
-            </li>
-            <li>
-              Dirigido a: Profesionales y estudiantes de diversas áreas de la
-              salud (medicina, enfermería, obstetricia, odontología, psicología,
-              biología, tecnología médica, entre otros).
-            </li>
-            <li>
-              Requisitos:No requiere conocimientos previos / haber llevado el
-              curso X
-            </li> -->
             <li v-for="(item,key,index) in courseInfo.value.info" :key="`detail-${index}`" >
               <strong>{{key}}: </strong>
               <span>{{ item }}</span>

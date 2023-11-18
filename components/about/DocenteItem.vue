@@ -78,6 +78,13 @@ export default {
   },
 
   setup(props) {
+    let currentWindowWidth = ref(null);
+    onMounted(() => {
+      currentWindowWidth.value = window.innerWidth;
+      window.addEventListener("resize", () => {
+        currentWindowWidth.value = window.innerWidth;
+      });
+    });
     const docenteDescriptionOpen = ref([]);
     const docenteDescriptionOpenHandler = (index) => {
       if (docenteDescriptionOpen.value.includes(index)) {

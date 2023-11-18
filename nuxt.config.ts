@@ -7,9 +7,6 @@ export default {
   modules: [
     '@pinia/nuxt',
   ],
+  publicPath: process.env.NODE_ENV === "production" ? "/evisalud/" : "/",
 
-  app: {
-    baseURL:'/evisalud/',
-    buildAssetsDir: 'assets',
-    }
 }

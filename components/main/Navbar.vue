@@ -187,7 +187,7 @@ const navOptions = [
   },
   {
     name: "Recursos",
-    path: "/benefits",
+    path: "/resources",
     type: "link",
     mode: "single",
   },
