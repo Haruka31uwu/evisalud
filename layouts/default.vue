@@ -1,7 +1,10 @@
 <template>
   <div>
     <main-navbar />
-    <router-view />
+    <commons-complaints-book-form
+      v-if="getClaimForm"
+      @closeComplaintsBookForm="closeComplaintsBookForm"/> 
+    <router-view  v-show="!getClaimForm" />
     <main-footer
       @openWorkWithUsModal="openWorkWithUsModal"
       @openComplaintsBookModal="openComplaintsBookModal"
@@ -12,11 +15,14 @@
     />
     <home-modals-complaints-book-modal
       v-if="showModalComplainBook"
+      @openComplaintsBookForm="openComplaintsBookForm"
       @closeModal="closenComplaintsBookModal"
     />
+
   </div>
 </template>
 <script setup>
+import {getClaimForm} from '/composables/main-composables.js'
 useHead({
   link: [
     {
@@ -36,8 +42,10 @@ useHead({
     },
   ],
 });
+console.log(getClaimForm,'getClaimForm');
 const showModalWorkWithUs = ref(false);
 const showModalComplainBook = ref(false);
+const showModalComplainBookForm = ref(false);
 const openWorkWithUsModal = () => {
   showModalWorkWithUs.value = true;
 };
@@ -49,5 +57,15 @@ const openComplaintsBookModal = () => {
 };
 const closenComplaintsBookModal = () => {
   showModalComplainBook.value = false;
+};
+const closeComplaintsBookForm = () => {
+  showModalComplainBookForm.value = false;
+  getClaimForm.value=false;
+};
+const openComplaintsBookForm = () => {
+  closenComplaintsBookModal();
+  
+  getClaimForm.value=true;
+  console.log(getClaimForm.value)
 };
 </script>

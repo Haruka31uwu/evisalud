@@ -93,7 +93,7 @@
         </svg>
     </div>
     <div class="our-couses-description">
-      <div class="our-courses-description-text">
+      <div class="our-courses-description-text mt-1">
         <p>
           Nuestros cursos están enmarcados en dos programas de formación:
           <br />

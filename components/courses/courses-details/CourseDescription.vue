@@ -100,7 +100,7 @@
             <div class="btn-white d-flex flex-row" style="column-gap: 1em">
               <img src="/assets/img/courses/whats.svg" />
               <span
-                ><a target="_blank" href="https://wa.me/950876703"
+                ><a target="_blank" href="https://wa.me//+51950876703"
                   >Ir a Whatsapp (+51 950 876 703)</a
                 ></span
               >
@@ -319,12 +319,14 @@
       class="d-flex mx-auto justify-content-center flex-column align-items-center gap-4"
     >
       <h4 style="text-align: center;">¿Qué aprenderé en este curso de {{ courseInfo.value.title }}?</h4>
-      <video
+      <!-- <video
         style="width: 70%; height: 50%"
         controls
         :src="courseInfo.value.videoUrl"
         type="video/mp4"
-      ></video>
+      ></video> -->
+      <iframe width="80%" height="615" :src="courseInfo.value.videoUrl" frameborder="0" allowfullscreen></iframe>
+
     </div>
   </section>
 </template>

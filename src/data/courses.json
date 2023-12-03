@@ -32,7 +32,7 @@
                 "Identificar los sesgos y limitaciones del estudio",
                 "Principios y procedimientos éticos en investigación"
             ],
-            "videoUrl": "https://www.youtube.com/watch?v=jrbX0YOyfKk&ab_channel=EviSalud",
+            "videoUrl": "https://www.youtube.com/embed/jrbX0YOyfKk",
             "docentes": [
                 {
                     "name": "Álvaro Taype Rondán, MD MSc",
@@ -51,11 +51,12 @@
                     "id": 4
                 }
             ],
-            "img": "/assets/img/courses/protocolos.jpg",
+            "img": "/evisalud/assets/img/courses/protocolos.jpg",
             "pricePen": 420,
             "priceUsd": 125,
             "color": "#1971B8",
-            "brochureUrl": "/assets/files/protocolos.pdf"
+            "color2":"rgba(25, 113, 184, 0.50)", 
+            "brochureUrl": "/evisalud/assets/files/protocolos.pdf"
         },
         {
             "id": 2,
@@ -64,11 +65,12 @@
             "description": "Aprenderás a utilizar el programa RStudio para limpiar tu base de datos, armar las tablas necesarias para presentar tus resultados descriptivos, bivariados y de regresión; para su publicación en formato de artículo científico.",
             "frase": "Si eres un profesional o estudiante de la salud, y estás deseoso de realizar análisis estadísticos para tu tesis o tus publicaciones utilizando el programa STATA, ¡este curso es para ti!",
             "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
-            "img": "/assets/img/courses/stata.jpg",
+            "img": "/evisalud/assets/img/courses/stata.jpg",
             "pricePen": 420,
             "priceUsd": 125,
             "color": "#BED31E",
-            "brochureUrl": "/assets/files/stata.pdf",
+            "color2":"rgba(190, 211, 30, 0.50)", 
+            "brochureUrl": "/evisalud/assets/files/stata.pdf",
             "info": {
                 "Inicio": "14 de enero del 2024.",
                 "Duracion": "5 semanas.",
@@ -85,7 +87,7 @@
                 "Regresiones crudas y ajustadas para calcular RR, OR, RP",
                 "Creación de tablas y figuras para un artículo científico."
             ],
-            "videoUrl": "https://www.youtube.com/watch?v=hjxhs2HrwWA&ab_channel=EviSalud",
+            "videoUrl": "https://www.youtube.com/embed/hjxhs2HrwWA",
             "docentes": [
                 {
                     "name": "Álvaro Taype Rondán, MD MSc",
@@ -112,11 +114,12 @@
             "description": "Aprenderás a redactar artículos científicos originales en áreas de la salud y realizar el proceso de publicación en una revista científica indizada.",
             "frase": "Si eres un profesional o estudiante de la salud, y estás deseoso de realizar análisis estadísticos para tu tesis o tus publicaciones utilizando el programa RStudio, ¡este curso es para ti!",
             "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
-            "img": "/assets/img/courses/rstudio.jpg",
+            "img": "/evisalud/assets/img/courses/rstudio.jpg",
             "pricePen": 420,
             "priceUsd": 125,
             "color": "#60B744",
-            "brochureUrl": "/assets/files/rstudio.pdf",
+            "color2":"rgba(96, 183, 68, 0.50)", 
+            "brochureUrl": "/evisalud/assets/files/rstudio.pdf",
             "info": {
                 "Inicio": "26 de noviembre de 2023",
                 "Duracion": "5 semanas.",
@@ -133,7 +136,7 @@
                 "Regresiones crudas y ajustadas para calcular RR, OR, RP",
                 "Creación de tablas para un artículo científico"
             ],
-            "videoUrl": "https://www.youtube.com/watch?v=MIUBuxuAU2I&ab_channel=EviSalud",
+            "videoUrl": "https://www.youtube.com/embed/MIUBuxuAU2I",
             "docentes": [
                 {
                     "name": "Daniel Fernandez Guzman, MD",
@@ -160,11 +163,12 @@
             "description": "Aprenderás a redactar artículos científicos originales en áreas de la salud y realizar el proceso de publicación en una revista científica indizada.",
             "frase": "Si eres un profesional o estudiante de la salud, y estás deseoso de publicar artículos científicos en revistas indizadas, ¡este curso es para ti!",
             "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
-            "img": "/assets/img/courses/redaccion.jpg",
+            "img": "/evisalud/assets/img/courses/redaccion.jpg",
             "pricePen": 420,
             "priceUsd": 125,
             "color": "#1AABE4",
-            "brochureUrl": "/assets/files/redaccion.pdf",
+            "color2":"rgba(26, 171, 228, 0.50) ",
+            "brochureUrl": "/evisalud/assets/files/redaccion.pdf",
             "info": {
                 "Inicio": "17 de diciembre de 2023.",
                 "Duracion": "5 semanas.",
@@ -182,7 +186,7 @@
                 "Búsqueda de revistas indizadas para publicación.",
                 "Proceso de publicación en revistas científicas"
             ],
-            "videoUrl": "https://www.youtube.com/watch?v=kZTrvCgbMiM&ab_channel=EviSalud",
+            "videoUrl": "https://www.youtube.com/embed/kZTrvCgbMiM",
             "docentes": [
                 {
                     "name": "Álvaro Taype Rondán, MD MSc",
@@ -217,11 +221,12 @@
             "description": "Aprenderás a buscar estudios en PubMed y Google Académico. Así como a usar Zotero para citar todo tipo de documentos (artículos, libros, páginas web, leyes, entre otros), verificar que las citas estén correctas, usar sus distintas herramientas, y cómo utilizarlo de forma colaborativa en Google Docs.",
             "frase": "Si eres un profesional o estudiante de la salud, y estás deseoso de aprender a buscar estudios y citar las referencias bibliográficas de tus trabajos o artículos adecuadamente, ¡este curso es para ti!",
             "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
-            "img": "/assets/img/courses/zotero.jpg",
+            "img": "/evisalud/assets/img/courses/zotero.jpg",
             "pricePen": 250,
             "priceUsd": 75,
             "color": "#AD5CA1",
-            "brochureUrl": "/assets/files/zotero.pdf",
+            "color2":"rgba(173, 92, 161, 0.50)", 
+            "brochureUrl": "/evisalud/assets/files/zotero.pdf",
             "info": {
                 "Inicio": "5 de noviembre de 2023.",
                 "Duracion": "3 semanas",
@@ -238,7 +243,7 @@
                 "Herramientas, carpetas y grupos en Zotero.",
                 "Uso colaborativo de Zotero en Google Docs."
             ],
-            "videoUrl": "https://www.youtube.com/watch?v=-hssT7NTCZg&ab_channel=EviSalud",
+            "videoUrl": "https://www.youtube.com/embed/-hssT7NTCZg",
             "docentes": [
                 {
                     "name": "Leonardo Albitres Flores, MD, MSc(c)",
@@ -261,11 +266,12 @@
             "description": "Aprenderás paso a paso a diseñar, elaborar y publicar revisiones sistemáticas y meta-análisis de alta calidad. Para ello, aprenderás a elaborar estrategias de búsqueda avanzadas, procesos adecuados de selección y extracción de datos, evaluación de los sesgos de los estudios incluídos, métodos para realizar meta-análisis y cómo reportar los resultados.",
             "frase": "Si eres un profesional o estudiante de la salud deseoso de elaborar y publicar revisiones sistemáticas y meta-análisis, ¡este curso es para ti!",
             "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
-            "img": "/assets/img/courses/sistematica.jpg",
+            "img": "/evisalud/assets/img/courses/sistematica.jpg",
             "pricePen": 420,
             "priceUsd": 125,
             "color": "#189EC3",
-            "brochureUrl": "/assets/files/sistematica.pdf",
+            "color2":"rgba(24, 158, 195, 0.50)",          
+            "brochureUrl": "/evisalud/assets/files/sistematica.pdf",
             "info": {
                 "Inicio": "7 de enero de 2024.",
                 "Duracion": "5 semanas",
@@ -283,7 +289,7 @@
                 "Construir tablas summary of findings (SoF) estimando la certeza de la evidencia con metodología GRADE",
                 "Redactar el artículo final de la RS"
             ],
-            "videoUrl": "https://www.youtube.com/watch?v=khRwaxy0434&ab_channel=EviSalud",
+            "videoUrl": "https://www.youtube.com/embed/khRwaxy0434",
             "docentes": [
                 {
                     "name": "Álvaro Taype Rondán, MD MSc",
@@ -314,11 +320,12 @@
             "description": "Aprenderás a buscar ensayos clínicos y revisiones sistemáticas en PubMed, conceptos básicos de estadística, leer críticamente e interpretar los principales resultados y limitaciones de ensayos clínicos aleatorizados y revisiones sistemáticas; así como aprender a tomar decisiones en salud basadas en evidencia utilizando tablas SoF.",
             "frase": "Si eres un profesional o estudiante de la salud, y estás deseoso de tomar decisiones basadas en evidencias para el beneficio de tus pacientes, ¡este curso es para ti!",
             "schedule": "Lunes a viernes de  8:00 a.m. a 12:00 m.",
-            "img": "/assets/img/courses/course.png",
+            "img": "/evisalud/assets/img/courses/course.png",
             "pricePen": 420,
             "priceUsd": 125,
             "color": "#2F4F9A",
-            "brochureUrl": "/assets/files/evidencia.pdf",
+            "color2":"rgba(47, 80, 154, 0.50)",
+            "brochureUrl": "/evisalud/assets/files/evidencia.pdf",
             "info": {
                 "Inicio": "7 de enero de 2024.",
                 "Duracion": "5 semanas",
@@ -335,7 +342,7 @@
                 " Lectura crítica de revisiones sistemáticas.",
                 "Toma de decisiones basadas en evidencias."
             ],
-            "videoUrl": "https://www.youtube.com/watch?v=Dd-0iYs-4Pc&ab_channel=EviSalud",
+            "videoUrl": "https://www.youtube.com/embed/Dd-0iYs-4Pc",
             "docentes": [
                 {
                     "name": "Álvaro Taype Rondán, MD MSc",
@@ -366,11 +373,12 @@
             "description": "Aprenderás a tomar decisiones sobre el uso de pruebas diagnósticas, interpretando y usando conceptos como sensibilidad, especificidad, ROC, LR, entre otros. Además, aprenderás a usar nomogramas para trazar un plan de acción personalizado con tus pacientes",
             "frase": "Si eres un profesional o estudiante de la salud, y estás deseoso de tomar decisiones basadas en evidencias sobre el uso de pruebas diagnósticas para el beneficio de tus pacientes, ¡este curso es para ti!",
             "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
-            "img": "/assets/img/courses/course.png",
+            "img": "/evisalud/assets/img/courses/course.png",
             "pricePen": 420,
             "priceUsd": 125,
-            "color": "#2F4F9A",
-            "brochureUrl": "/assets/files/lectura.pdf",
+            "color": "#ECB14D",
+            "color2":"rgba(236, 177, 77, 0.50)",
+            "brochureUrl": "/evisalud/assets/files/lectura.pdf",
             "info": {
                 "Inicio": "31 de diciembre de 2023.",
                 "Duracion": "5 semanas",
@@ -387,7 +395,7 @@
                 "Lectura crítica de revisiones sistemáticas de diagnóstico.",
                 "Toma de decisiones basadas en evidencias sobre el uso de pruebas diagnósticas."
             ],
-            "videoUrl": "https://www.youtube.com/watch?v=cY4Cn9IOLs4&ab_channel=EviSalud",
+            "videoUrl": "https://www.youtube.com/embed/cY4Cn9IOLs4",
             "docentes": [
                 {
                     "name": "Álvaro Taype Rondán, MD MSc",
@@ -418,11 +426,12 @@
             "description": "Aprenderás a buscar guías de práctica clínica, saber identificarlas y poder elegir la más confiable, leerlas críticamente, entender sus recomendaciones, y aplicarlas de la mejor manera en la práctica clínica.",
             "frase": "Si eres un profesional o estudiante de la salud deseoso de tomar decisiones basadas en evidencias utilizando guías de práctica clínica confiables para el beneficio de tus pacientes, ¡este curso es para ti!",
             "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
-            "img": "/assets/img/courses/course.png",
+            "img": "/evisalud/assets/img/courses/course.png",
             "pricePen": 420,
             "priceUsd": 125,
             "color": "#1AB2C9",
-            "brochureUrl": "/assets/files/critica.pdf",
+            "color2":"rgba(26, 178, 201, 0.50)",
+            "brochureUrl": "/evisalud/assets/files/critica.pdf",
             "info": {
                 "Inicio": "19 de noviembre de 2023.",
                 "Duracion": "5 semanas",
@@ -439,7 +448,7 @@
                 "Lectura crítica de GPC",
                 "Aplicación de las recomendaciones de una GPC en la práctica de salud"
             ],
-            "videoUrl": "https://www.youtube.com/watch?v=BpVj9b2ibIg&ab_channel=EviSalud",
+            "videoUrl": "https://www.youtube.com/embed/BpVj9b2ibIg",
             "docentes": [
                 {
                     "name": "Álvaro Taype Rondán, MD MSc",
@@ -474,11 +483,12 @@
             "description": "Aprenderás a encontrar casos clínicos publicables en tu práctica clínica y cómo redactarlos para publicarlos en revistas científicas indizadas",
             "frase": "Si eres un profesional o estudiante de la salud, y estás deseoso de publicar reportes de casos clínicos en revistas indizadas, ¡este curso es para ti!",
             "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
-            "img": "/assets/img/courses/course.png",
+            "img": "/evisalud/assets/img/courses/course.png",
             "pricePen": 250,
             "priceUsd": 75,
             "color": "#6B60A5",
-            "brochureUrl": "/assets/files/clinicos.pdf",
+            "color2":"rgba(107, 96, 165, 0.50)",   
+            "brochureUrl": "/evisalud/assets/files/clinicos.pdf",
             "info": {
                 "Inicio": "4 de febrero de 2023.",
                 "Duracion": "3 semanas",
@@ -495,7 +505,7 @@
                 "Búsqueda de revistas indizadas para publicación de casos clínicos.",
                 "Proceso de publicación en revistas científicas"
             ],
-            "videoUrl": "https://www.youtube.com/watch?v=QzBrqAbbomw&ab_channel=EviSalud",
+            "videoUrl": "https://www.youtube.com/embed/QzBrqAbbomw",
             "docentes": [
                 {
                     "name": "Álvaro Taype Rondán, MD MSc",

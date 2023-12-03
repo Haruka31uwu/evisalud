@@ -1,17 +1,12 @@
 
 <template>
   <div class="item-divider" v-if="docente.id != 1"></div>
-  <div
-    class="item"
-    :class="
-      docenteDescriptionOpen.includes(docente.id) ? 'item-right' : 'item-left'
-    "
-  >
+  <div class="item" :class="index % 2 == 0 ? 'item-right' : 'item-left'">
     <div class="item-img-container">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="149"
-        height="149"
+        width="169"
+        height="169"
         viewBox="0 0 149 149"
         fill="none"
       >
@@ -20,7 +15,10 @@
           cy="74.5"
           r="73.5"
           :class="
-            docenteDescriptionOpen.includes(docente.id)
+            (docenteDescriptionOpen.includes(docente.id) &&
+              currentWindowWidth < 768) ||
+            (currentWindowWidth > 768 &&
+              !docenteDescriptionOpen.includes(docente.id))
               ? 'circle-active'
               : 'circle'
           "
@@ -51,16 +49,21 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           />
-        </svg> 
+        </svg>
       </div>
       <div
         class="item-description"
-        v-show="docenteDescriptionOpen.includes(docente.id)"
+        v-show="
+          (docenteDescriptionOpen.includes(docente.id) &&
+            currentWindowWidth < 768) ||
+          (currentWindowWidth > 768 &&
+            !docenteDescriptionOpen.includes(docente.id))
+        "
       >
         <p>{{ docente.description }}</p>
         <div class="item-description-links">
-          <button class="button-cuz">Linkedn</button>
-          <button class="button-cuz">Mira aqui sus publicaciones</button>
+          <button class="button-cuz"><span><a :href="docente.linkedin" target="_blank">Linkedn</a></span></button>
+          <button class="button-cuz"><span><a :href="docente.posts" target="_blank">Mira aqui sus publicaciones</a></span></button>
         </div>
       </div>
     </div>
@@ -74,6 +77,11 @@ export default {
     docente: {
       type: Object,
       required: true,
+    },
+    index: {
+      type: Number,
+      required: false,
+      default: 1,
     },
   },
 
@@ -99,6 +107,7 @@ export default {
     return {
       docenteDescriptionOpenHandler,
       docenteDescriptionOpen,
+      currentWindowWidth,
     };
   },
 };
@@ -107,7 +116,7 @@ export default {
   <style scoped>
 .item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   padding: 1em;
   gap: 1em;
@@ -173,6 +182,7 @@ export default {
 .item-info {
   display: flex;
   flex-direction: column;
+  width: 70%;
 }
 .item-name {
   color: var(--EVI400, #f0f0f0);
@@ -201,15 +211,15 @@ export default {
   text-decoration-line: underline;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.5em;
 }
 .item-view-more:hover {
   cursor: pointer;
 }
 .item-img {
-  width: 130px;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin-right: 1em;
   position: absolute;

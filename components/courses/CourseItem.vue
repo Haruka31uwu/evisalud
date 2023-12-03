@@ -102,7 +102,7 @@
               stroke-width="0.2"
             />
           </svg>
-          <span>${{ course.priceUsd }} (Peru:{{ course.pricePen }})</span>
+          <span>${{ course.priceUsd }} (S/.  {{ course.pricePen }})</span>
         </button>
       </div>
     </div>

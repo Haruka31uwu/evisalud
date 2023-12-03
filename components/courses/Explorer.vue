@@ -3,7 +3,8 @@
     <div class="section-content" style="position: relative">
       <input
         type="text"
-        style="width: 300px; align-self: flex-end"
+        style="align-self: flex-end"
+        :style="currentWindowWidth < 1024 ? 'width: 90%;margin:0 auto;margin-bottom:1em' : 'width:300px'"
         class="search-input"
         placeholder="Buscar curso"
         v-model="courseInput"
@@ -17,6 +18,7 @@
           :id="
             programtype.id == 1 ? 'investigation-courses' : 'evidences-courses'
           "
+          class="ms-5"
         >
           {{ programtype.title }}
         </h4>
@@ -24,8 +26,10 @@
         <div
           class="courses-items-container"
           :id="`courses-container-${programtype.id}`"
+          
         >
           <courses-course-item
+            
             v-for="(course, index2) in courses.coursesList.filter(
               (course) =>
                 course.type == programtype.id &&
@@ -48,6 +52,15 @@
             :key="i2"
           ></div>
         </div>
+        <div
+        class="d-flex justify-content-center my-5" 
+        v-if="courses.coursesList.filter(
+              (course) =>
+                course.type == programtype.id &&
+                course.title.toLowerCase().includes(courseInput.toLowerCase())
+            ).length==0">
+          <span style="font-size: 2em;">No Se encuentran Resultados</span>
+        </div>
       </div>
     </div>
   </section>
@@ -62,7 +75,7 @@ export default defineComponent({
     const changePage = (pagev, programId) => {
       const element = document.getElementById(`courses-container-${programId}`);
       console.log(element.scrollWidth, element.scrollLeft, element.clientWidth);
-      element.scrollLeft = (pagev - 1) * 250;
+      element.scrollLeft = (pagev - 1) * 400;
       console.log(pages)
       pages.value[programId] = pagev;
     };

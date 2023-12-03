@@ -2,9 +2,9 @@
   <section class="whatsits-section">
     <div class="section-title">
       <h2>¿Qué es EviSalud?</h2>
-      <div class="section-decorator"></div>
+      <div class="section-decorator" style="width:77%;"></div>
     </div>
-    <p>
+    <p class="mt-3" style="width: 75%;">
       Somos una Startup de e-learning que tiene por objetivo desarrollar
       competencias para la investigación y toma de decisiones basadas en
       evidencia en profesionales y estudiantes de distintas áreas de la salud.
@@ -78,52 +78,52 @@ export default {
     const countrys = ref([
       {
         alt: "Bolivia",
-        src: "/assets/img/bolivia.svg",
+        src: "/evisalud/assets/img/bolivia.svg",
       },
       {
         alt: "Perú",
-        src: "/assets/img/peru.svg",
+        src: "/evisalud/assets/img/peru.svg",
       },
       {
         alt: "Ecuador",
-        src: "/assets/img/ecuador.svg",
+        src: "/evisalud/assets/img/ecuador.svg",
       },
       {
         alt: "Chile",
-        src: "/assets/img/chile.svg",
+        src: "/evisalud/assets/img/chile.svg",
       },
       
       {
         alt: "Colombia",
-        src: "/assets/img/colombia.svg",
+        src: "/evisalud/assets/img/colombia.svg",
       },
       {
         alt: "España",
-        src: "/assets/img/españa.svg",
+        src: "/evisalud/assets/img/españa.svg",
       },
       {
         alt: "México",
-        src: "/assets/img/mexico.svg",
+        src: "/evisalud/assets/img/mexico.svg",
       },
       {
         alt: "Costa Rica",
-        src: "/assets/img/costa-rica.svg",
+        src: "/evisalud/assets/img/costa-rica.svg",
       },
       {
         alt: "Paraguay",
-        src: "/assets/img/paraguay.svg",
+        src: "/evisalud/assets/img/paraguay.svg",
       },
       {
         alt: "República Dominicana",
-        src: "/assets/img/rep-dominicana.svg",
+        src: "/evisalud/assets/img/rep-dominicana.svg",
       },
       {
         alt: "Venezuela",
-        src: "/assets/img/venezuela.svg",
+        src: "/evisalud/assets/img/venezuela.svg",
       },
       {
         alt: "Guatemala",
-        src: "/assets/img/guatemala.svg",
+        src: "/evisalud/assets/img/guatemala.svg",
       },
     ]);
     onMounted(() => {

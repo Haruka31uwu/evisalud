@@ -8,9 +8,10 @@
       </div>
       <div class="section-items">
         <courses-courses-details-docente-item
-          v-for="docente in docentes"
+          v-for="(docente,index) in docentes"
           :key="docente.id"
           :docente="docente"
+          :index="index+1"
         />
       </div>
     </section>

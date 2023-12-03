@@ -89,84 +89,84 @@ const getActualScrollPosition = () => {
 };
 const experiencies = ref([
   {
-    img: "/assets/img/resources/blog2.jpg",
+    img: "/evisalud/assets/img/resources/blog2.jpg",
     title: "Medicina al dia",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
     date: "Marzo 15, 2023",
   },
   {
-    img: "/assets/img/resources/blog2.jpg",
+    img: "/evisalud/assets/img/resources/blog2.jpg",
     title: "Medicina al dia",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
     date: "Marzo 15, 2023",
   },
   {
-    img: "/assets/img/resources/blog2.jpg",
+    img: "/evisalud/assets/img/resources/blog2.jpg",
     title: "Medicina al dia",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
     date: "Marzo 15, 2023",
   },
   {
-    img: "/assets/img/resources/blog2.jpg",
+    img: "/evisalud/assets/img/resources/blog2.jpg",
     title: "Medicina al dia",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
     date: "Marzo 15, 2023",
   },
   {
-    img: "/assets/img/resources/blog2.jpg",
+    img: "/evisalud/assets/img/resources/blog2.jpg",
     title: "Medicina al dia",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
     date: "Marzo 15, 2023",
   },
   {
-    img: "/assets/img/resources/blog2.jpg",
+    img: "/evisalud/assets/img/resources/blog2.jpg",
     title: "Medicina al dia",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
     date: "Marzo 15, 2023",
   },
   {
-    img: "/assets/img/resources/blog2.jpg",
+    img: "/evisalud/assets/img/resources/blog2.jpg",
     title: "Medicina al dia",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
     date: "Marzo 15, 2023",
   },
   {
-    img: "/assets/img/resources/blog2.jpg",
+    img: "/evisalud/assets/img/resources/blog2.jpg",
     title: "Medicina al dia",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
     date: "Marzo 15, 2023",
   },
   {
-    img: "/assets/img/resources/blog2.jpg",
+    img: "/evisalud/assets/img/resources/blog2.jpg",
     title: "Medicina al dia",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
     date: "Marzo 15, 2023",
   },
   {
-    img: "/assets/img/resources/blog2.jpg",
+    img: "/evisalud/assets/img/resources/blog2.jpg",
     title: "Medicina al dia",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
     date: "Marzo 15, 2023",
   },
   {
-    img: "/assets/img/resources/blog2.jpg",
+    img: "/evisalud/assets/img/resources/blog2.jpg",
     title: "Medicina al dia",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
     date: "Marzo 15, 2023",
   },
   {
-    img: "/assets/img/resources/blog2.jpg",
+    img: "/evisalud/assets/img/resources/blog2.jpg",
     title: "Medicina al dia",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",

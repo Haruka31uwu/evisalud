@@ -1,6 +1,13 @@
 <template>
   <div class="navbar">
-    <div class="navbar-logo">
+    <div
+      class="navbar-logo"
+      @click="
+        () => {
+          getClaimForm = false;
+        }
+      "
+    >
       <nuxt-link to="/">
         <svg
           width="137"
@@ -140,20 +147,68 @@
         </svg>
       </nuxt-link>
     </div>
-    <div class="navbar-options">
+    <svg
+      v-if="currentWindowWidth < 768"
+      @click="isCollapsedOpen = !isCollapsedOpen"
+      width="39"
+      height="28"
+      viewBox="0 0 39 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2 2H37"
+        stroke="#F0F0F0"
+        stroke-width="4"
+        stroke-linecap="round"
+      />
+      <path
+        d="M2 14H37"
+        stroke="#F0F0F0"
+        stroke-width="4"
+        stroke-linecap="round"
+      />
+      <path
+        d="M2 26H37"
+        stroke="#F0F0F0"
+        stroke-width="4"
+        stroke-linecap="round"
+      />
+    </svg>
+
+    <div
+      :class="
+        currentWindowWidth > 768 ? 'navbar-options' : 'navbar-options-collapsed'
+      "
+      v-if="currentWindowWidth > 768 ? true : isCollapsedOpen"
+    >
       <nuxt-link
         v-for="(option, index) in navOptions"
         :key="`navbar-option-${index}`"
         :to="option.path"
       >
-        <component :is="getNavbarComponent(option)">
+        <component
+          v-if="option.type != 'svg'"
+          :is="getNavbarComponent(option)"
+          :style="selectedOption == option.name ? 'color: white;' : 'color:#515166'"
+          @click="
+            () => {
+              getClaimForm = false;
+              isCollapsedOpen = false;
+              selectedOption = option.name;
+            }
+          "
+        >
           {{ option.name }}
         </component>
+        <div v-else v-html="option.content" />
       </nuxt-link>
     </div>
   </div>
-    </template>
+</template>
 <script setup>
+import { getClaimForm } from "/composables/main-composables.js";
+const selectedOption = ref('Inicio');
 const navOptions = [
   {
     name: "Inicio",
@@ -196,6 +251,17 @@ const navOptions = [
     path: "/classroom",
     type: "button",
   },
+  {
+    name: "Preguntas Frecuentes",
+    path: "/commons",
+    type: "svg",
+    content: `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.9889 1C5.47398 1 1 5.47398 1 10.9889C1 16.5039 5.47398 21 10.9889 21C16.5039 21 21 16.5039 21 10.9889C21 5.47398 16.5039 1 10.9889 1ZM10.9889 19.4053C6.35991 19.4053 2.59468 15.6401 2.59468 10.9668C2.59468 6.33776 6.35991 2.57254 10.9889 2.57254C15.6401 2.57254 19.4275 6.33776 19.4275 10.9668C19.4053 15.6401 15.6401 19.4053 10.9889 19.4053Z" fill="#515166" stroke="#515166" stroke-width="0.5"/>
+<path d="M10.878 5.87305C9.9921 5.87305 9.28336 6.09453 8.72965 6.55965C8.15379 7.00261 7.91016 7.64492 7.91016 8.39796L7.9323 8.46441H9.3055C9.3055 7.99929 9.46054 7.64492 9.74847 7.42343C10.0586 7.1798 10.4351 7.04691 10.9002 7.04691C11.3653 7.04691 11.7861 7.20195 12.0519 7.46773C12.3398 7.75566 12.4727 8.13218 12.4727 8.6416C12.4727 9.08456 12.3841 9.43894 12.1626 9.74902C11.9633 10.0369 11.6311 10.4799 11.1438 11.0558C10.6787 11.4987 10.3465 11.8531 10.2579 12.0967C10.125 12.3847 10.0586 12.8498 10.0586 13.5585H11.476C11.476 13.1156 11.4982 12.8055 11.5646 12.6062C11.5868 12.3847 11.764 12.1632 12.0076 11.9196C12.5835 11.388 13.0264 10.8343 13.3808 10.3249C13.6909 9.81546 13.8902 9.2396 13.8902 8.61945C13.8902 7.75566 13.6466 7.09121 13.0929 6.5818C12.5392 6.09453 11.8083 5.87305 10.878 5.87305Z" fill="#515166" stroke="#515166" stroke-width="0.5"/>
+<path d="M11.4989 14.998H10.0371V16.482H11.4989V14.998Z" fill="#515166" stroke="#515166" stroke-width="0.5"/>
+</svg>
+`,
+  },
 ];
 const getNavbarComponent = (option) => {
   if (option.type === "link") {
@@ -208,4 +274,12 @@ const getNavbarComponent = (option) => {
     return "svg";
   }
 };
+let currentWindowWidth = ref(null);
+onMounted(() => {
+  currentWindowWidth.value = window.innerWidth;
+  window.addEventListener("resize", () => {
+    currentWindowWidth.value = window.innerWidth;
+  });
+});
+const isCollapsedOpen = ref(false);
 </script>

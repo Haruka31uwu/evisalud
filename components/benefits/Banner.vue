@@ -4,7 +4,6 @@
         <div class="banner-content">
             <h2>ÚNETE A LA COMUNIDAD DE EVIALUMNOS Y DISFRUTA DE NUESTROS BENEFICIOS.</h2>
         </div>
-        <div class="decoration" style="position: absolute;top:0;right: -25em;"></div>
     </section>
 </template>
 <style scoped>

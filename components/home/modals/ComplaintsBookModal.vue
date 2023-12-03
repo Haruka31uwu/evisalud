@@ -55,7 +55,7 @@
                 fill="#F0F0F0"
               />
             </svg>
-            <span><a target="_blank" href="https://wa.me/950876703">Ir a Whatsapp (+51 950 876 703)</a></span>
+            <span><a target="_blank" href="https://wa.me/+51950876703" style="color:inherit">Ir a Whatsapp (+51 950 876 703)</a></span>
 
           </div>
         </div>
@@ -67,8 +67,10 @@
             atención de su reclamo y/o queja, caso contrario, dicha situación
             conllevará a una demora en la tramitación de su caso.
           </p>
-          <div class="btn-blue">
-            Clic aquí para registrar reclamo y/o queja.
+          <div class="btn-blue" @click="openComplaintsBookForm" >
+            <span>
+              Clic aquí para registrar reclamo y/o queja.
+            </span>
           </div>
         </div>
       </div>
@@ -77,13 +79,17 @@
 </template>
   <script>
 export default {
-  emits: ["closeModal"],
+  emits: ["closeModal","openComplaintsBookForm"],
   setup(props, ctx) {
     const closeModal = () => {
       ctx.emit("closeModal");
     };
+    const openComplaintsBookForm = () => {
+      ctx.emit("openComplaintsBookForm");
+    };
     return {
       closeModal,
+      openComplaintsBookForm
     };
   },
 };

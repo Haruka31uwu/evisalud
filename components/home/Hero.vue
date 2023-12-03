@@ -12,10 +12,11 @@
         </div>
       </div>
     </div>
-    <div style="position: absolute;bottom: -8em;right: 0;">
+    <div :style="currentWindowWidth > 768?'position: absolute;bottom: -8em;right: 0;':'position: absolute;bottom: -2em;right: 0;'">
       <svg
-        width="375"
-        height="499"
+        width="100%"
+        :height="currentWindowWidth > 768 ? '300' : '200'"
+        opacity="0.7"
         viewBox="0 0 375 499"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -85,6 +86,13 @@
   </div>
 </template>
 <script setup>
+let currentWindowWidth = ref(null);
+onMounted(() => {
+  currentWindowWidth.value = window.innerWidth;
+  window.addEventListener("resize", () => {
+    currentWindowWidth.value = window.innerWidth;
+  });
+});
 import { redirectTo } from "/composables/main-composables.js";
 </script>
 <style lang="scss" scoped>

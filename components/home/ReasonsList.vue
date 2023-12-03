@@ -26,7 +26,7 @@ export default defineComponent({
   setup() {
     const reasonsList = ref([
       {
-        icon: "/assets/img/lupa.svg",
+        icon: "/evisalud/assets/img/lupa.svg",
         title: "¿Por qué aprender a realizar investigación de calidad?",
         id: "investigation-courses",
         reasons: [
@@ -37,7 +37,7 @@ export default defineComponent({
         ],
       },
       {
-        icon: "/assets/img/board.svg",
+        icon: "/evisalud/assets/img/board.svg",
         title: "¿Por qué aprender a tomar decisiones basadas en evidencia?",
         id: "evidences-courses",
         reasons: [

@@ -47,7 +47,7 @@
             fill="#F0F0F0"
           />
         </svg>
-        <span> <a target="_blank" href="https://wa.me/950876703">Ir a Whatsapp (+51 950 876 703)</a></span>
+        <span> <a target="_blank" href="https://wa.me/+51950876703">Ir a Whatsapp (+51 950 876 703)</a></span>
       </div>
     </div>
     <div

@@ -1,11 +1,11 @@
 <template>
   <div class="modal-customized">
     <div
-      class="modal-customized-body d-flex flex-column pb-5 justify-content-center align-items-center"
-      style="border-radius: 2em; overflow: auto; height: 100%"
+      class="modal-customized-body d-flex flex-column  justify-content-start align-items-center"
+      style="border-radius: 2em; max-height: 100vh;overflow-y: auto;overflow-x: none;"
     >
       <div
-        class="modal-customized-header w-100 d-flex justify-content-between px-3" style="padding-top: 14em;"
+        class="modal-customized-header w-100 d-flex justify-content-between px-3 mt-5" 
       >
         <svg
           width="36"
@@ -41,7 +41,7 @@
       </div>
       <div
         class="row mx-auto d-flex flex-column gap-5 justify-content-center align-items-center modal-customized-body-content"
-        style="width: 90%"
+        style="width: 90%;"
       >
         <span style="color: #0393aa; font-weight: 700" class="text-center"
           >Informacion de Usuario</span

@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default {
+export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
@@ -7,6 +7,10 @@ export default {
   modules: [
     '@pinia/nuxt',
   ],
-  publicPath: process.env.NODE_ENV === "production" ? "/evisalud/" : "/",
+  app: {
+    // baseURL: '/evisalud/', // baseURL: '/<repository>/'
+    buildAssetsDir: '/evisalud/assets',
 
-}
+  }
+
+})

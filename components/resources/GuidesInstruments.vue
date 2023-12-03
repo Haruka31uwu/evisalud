@@ -10,7 +10,7 @@
       class="reason-list-content row"
       style="
         background: #1c1c24;
-        width: 80%;
+        width: 90%;
         padding: 1.3em 1em;
         border-radius: 1em;
       "
@@ -30,8 +30,10 @@
             stroke-width="2"
           />
         </svg>
-        <div class="d-flex mb-2" style="width: 50%; position: relative">
-          <h2 style="font-size: 1.2em; z-index: 2">Guias de Evisalud</h2>
+        <div class="d-flex mb-2" style="width: 70%; position: relative">
+          <h2 style="font-size: 1.2em; z-index: 2">
+            Guías basadas en evidencia
+          </h2>
           <svg
             style="position: absolute; right: 0; bottom: 0"
             width="180"
@@ -50,10 +52,17 @@
           </svg>
         </div>
         <p>
-          Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-          vulputate libero et velit interdum, ac aliquet odio mattis.
+          Hemos organizado las Guías de Práctica Clínica (GPC) realizadas por el
+          Instituto de Evaluación de Tecnologías en Salud e Investigación
+          (IETSI) de Perú para que puedas revisar sus recomendaciones y
+          flujogramas de manejo de forma práctica y rápida. Estas GPC están
+          basadas en búsquedas sistemáticas de evidencia y fueron elaboradas con
+          metodología GRADE, el estándar mundial para la elaboración de este
+          tipo de documentos.
         </p>
-        <button class="btn-blue">GPC</button>
+        <button class="btn-blue mb-3">
+          <span><a href="https://gpc-peru.com/" target="_blank">GPC</a></span>
+        </button>
       </div>
       <div class="col col-12 col-md-6 d-flex flex-column gap-2">
         <svg
@@ -68,9 +77,10 @@
             fill="#0393AA"
           />
         </svg>
-        <div class="d-flex mb-2" style="width: 80%; position: relative">
-          <h2 style="font-size: 1.2em; z-index: 2">
-            Instrumentos de lectura crítica
+        <div class="d-flex mb-2" style="width:100%; position: relative">
+          <h2 style="font-size: 1.2em; z-index: 2; text-align: center">
+            Instrumentos de lectura crítica y para la toma de decisiones en
+            salud
           </h2>
           <div
             style="
@@ -79,21 +89,33 @@
               height: 20px;
               border-radius: 1em;
               position: absolute;
-              right: 0;
-              bottom: 0;
+              right: 0.1rem;
+              bottom: 0.1em;
               opacity: 0.7;
             "
           ></div>
         </div>
-        <div class="donwloads d-flex flex-column mx-0 justify-content-center align-items-start ms-3 mt-3 gap-2">
+        <span>
+          En EviSalud hemos elaborado instrumentos que te facilitarán la lectura
+          crítica de ensayos clínicos aleatorizados, revisiones sistemáticas de
+          intervenciones y pruebas diagnósticas, así como en la lectura de guías
+          de práctica clínica y sus recomendaciones. Además, elaboramos
+          instrumentos para ayudarte en la toma de decisiones en base a tablas
+          de resumen de evidencia (tablas SoF). ¡Estamos seguros que nuestros
+          EviTools te serán de gran utilidad! Te invitamos a descargarlos y
+          ponerlos en práctica.
+        </span>
+        <div
+          class="donwloads d-flex flex-column mx-0 justify-content-center align-items-start ms-3 mt-3 gap-3"
+        >
           <div
             v-for="(instrument, index) in instruments"
             :key="index"
-            class="download-item d-flex gap-2 align-items-center justify-content-center"
+            class="download-item d-flex gap-3 align-items-center justify-content-center"
             @click="
               forceFileDownload(
                 instrument.file,
-                'Instrumento de lectura crítica'
+                instrument.title.replace(/ /g, '_')
               )
             "
           >
@@ -171,20 +193,36 @@ export default defineComponent({
   setup() {
     const instruments = reactive([
       {
-        title: "Instrumento de lectura crítica",
-        file: "/assets/img/resources/test.rtf",
+        title: "EviTool para lectura crítica de Ensayos Clínicos Aleatorizados",
+        file: "/evisalud/assets/img/resources/instrumentos/EviTool para lectura crítica de Ensayos Clínicos Aleatorizados.docx",
       },
       {
-        title: "Instrumento de lectura crítica",
-        file: "/assets/img/resources/test.rtf",
+        title: "EviTool para lectura crítica de Guías de Práctica Clínica",
+        file: "/evisalud/assets/img/resources/instrumentos/EviTool para lectura crítica de Guías de Práctica Clínica.docx",
       },
       {
-        title: "Instrumento de lectura crítica",
-        file: "/assets/img/resources/test.rtf",
+        title: "EviTool para lectura crítica de recomendaciones de GPC",
+        file: "/evisalud/assets/img/resources/instrumentos/EviTool para lectura crítica de recomendaciones de GPC.docx",
       },
       {
-        title: "Instrumento de lectura crítica",
-        file: "/assets/img/resources/test.rtf",
+        title: "EviTool para lectura crítica de Revisiones Sistemáticas de intervenciones",
+        file: "/evisalud/assets/img/resources/instrumentos/EviTool para lectura crítica de Revisiones Sistemáticas de intervenciones.docx",
+      },
+      {
+        title: "EviTool para lectura crítica de Revisiones Sistemáticas de pruebas diagnósticas",
+        file: "/evisalud/assets/img/resources/instrumentos/EviTool para lectura crítica de Revisiones Sistemáticas de pruebas diagnósticas.docx",
+      },
+      {
+        title: "EviTool para tomar decision de usar o no una prueba diagnóstica usando tala SoF",
+        file: "/evisalud/assets/img/resources/instrumentos/EviTool para tomar decision de usar o no una prueba diagnóstica usando tala SoF.docx",
+      },
+      {
+        title: "EviTool para tomar decisiones de la comparacion de dos pruebas  diagnosticas usando tabla SoF",
+        file: "/evisalud/assets/img/resources/instrumentos/EviTool para tomar decisiones de la comparacion de dos pruebas  diagnosticas usando tabla SoF.docx",
+      },
+      {
+        title: "EviTool para tomar decisiones usando tabla SoF",
+        file: "/evisalud/assets/img/resources/instrumentos/EviTool para tomar decisiones usando tabla SoF.docx",
       },
     ]);
     return {
@@ -195,16 +233,16 @@ export default defineComponent({
 </script>
   
 <style lang="scss" scoped>
-.download-item{
-
-    &:hover{
-        cursor: pointer;
-        background: #0393AA;
-        padding: 0.5em 5em 0.5em 1em;
-        border-radius: 1.5em;
-    }
+.download-item {
+  &:hover {
+    cursor: pointer;
+    background: #0393aa;
+    padding: 0.5em 5em 0.5em 1em;
+    border-radius: 1.5em;
+  }
 }
-span,p{
-    font-family: Axiforma;
+span,
+p {
+  font-family: Axiforma;
 }
 </style>

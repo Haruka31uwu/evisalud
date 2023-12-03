@@ -31,10 +31,16 @@
       </svg>
     </article>
     <div class="row ms-xl-5">
+      <div style="position: relative;width: auto;margin: 0 auto;">
+        <h3 class="text-center mb-5">Cursos que incluye el programa
+        <div style="background: #0393AA;height: 30%;width: 80%;opacity: 0.7;border-radius: 1em;position: absolute;top:0.8em;right: -2em;"></div>
+      </h3>
+      </div>
+
       <div class="col col-sm-12 col-md-12 col-xl-8 mb-4">
         <div
           :style="
-            currentWindowWidth > 1200 ? 'width:70%' : 'width:90%;margin:0 auto'
+            currentWindowWidth > 1200 ? 'width:80%' : 'width:90%;margin:0 auto'
           "
           class="d-flex flex-column gap-3"
         >
@@ -42,72 +48,99 @@
             v-for="(item, index) in programInfo.value.coursesList"
             :key="`course-${item.id}-${index}`"
             class="program-course"
-             :style="openedPrograms.includes(item.id)?'border:1px solid #0393AA':''"
+            :style="
+              openedPrograms.includes(item.id) ? 'border:1px solid #0393AA' : ''
+            "
           >
-            <div class="showed-content ms-5 d-flex flex-row align-items-center gap-5"
+            <div
+              class="showed-content ms-5 d-flex flex-row align-items-center gap-5"
+              style="width: 90%; height: 75px"
             >
               <div
-              class="program-course-num"
-              :id="`program-course-${item.id}-${index}`"
-            >
-              <div class="num-container-ext"></div>
-              <div class="num-container-int"></div>
-              <div class="num-container-text">{{ index + 1 }}</div>
-            </div>
-            <div class="d-flex flex-column">
-              <span>{{ item.title }}</span>
-              <span>(5 semanas)</span>
-            </div>
-            <div>
-              <svg
-                v-if="!openedPrograms.includes(item.id)"
-                @click="
-                  openedPrograms.includes(item.id)
-                    ? openedPrograms.splice(openedPrograms.indexOf(item.id), 1)
-                    : openedPrograms.push(item.id)
-                "
-                style="cursor:pointer"
-                xmlns="http://www.w3.org/2000/svg"
-                width="19"
-                height="10"
-                viewBox="0 0 19 10"
-                fill="none"
+                class="program-course-num"
+                :id="`program-course-${item.id}-${index}`"
               >
-                <path
-                  d="M9.55112 9.99905C9.86289 9.99186 10.1608 9.86997 10.3872 9.65715L18.2561 2.15489C18.5795 1.84395 18.7119 1.38562 18.6034 0.951675C18.4947 0.517761 18.1619 0.174097 17.7293 0.0496167C17.297 -0.0748903 16.8307 0.0387152 16.5053 0.347911L9.51159 7.01957L2.51785 0.347909C2.19247 0.0387149 1.72613 -0.0748859 1.29385 0.0496153C0.861321 0.174123 0.528485 0.517765 0.419782 0.951674C0.31132 1.38559 0.443713 1.84391 0.767119 2.15488L8.63599 9.65715C8.88212 9.88894 9.21188 10.0121 9.55064 9.99905L9.55112 9.99905Z"
-                  fill="#F0F0F0"
-                />
-              </svg>
-              <svg
-                v-else
-                style="cursor:pointer"
-
-                @click="
-                  openedPrograms.includes(item.id)
-                    ? openedPrograms.splice(openedPrograms.indexOf(item.id), 1)
-                    : openedPrograms.push(item.id)
-                "
-                xmlns="http://www.w3.org/2000/svg"
-                width="19"
-                height="10"
-                viewBox="0 0 19 10"
-                fill="none"
-              >
-                <path
-                  d="M9.47231 0.000945222C9.16054 0.00814104 8.86259 0.13003 8.63625 0.342845L0.767372 7.84511C0.443967 8.15605 0.311573 8.61438 0.420034 9.04832C0.528714 9.48224 0.861562 9.8259 1.2941 9.95038C1.7264 10.0749 2.19272 9.96128 2.5181 9.65209L9.51185 2.98043L16.5056 9.65209C16.831 9.96128 17.2973 10.0749 17.7296 9.95038C18.1621 9.82588 18.495 9.48223 18.6037 9.04832C18.7121 8.61441 18.5797 8.15609 18.2563 7.84511L10.3874 0.342845C10.1413 0.111062 9.81155 -0.0121391 9.4728 0.000945222H9.47231Z"
-                  fill="#0393AA"
-                />
-              </svg>
-            </div>
+                <div class="num-container-ext"></div>
+                <div class="num-container-int"></div>
+                <div class="num-container-text">{{ index + 1 }}</div>
+              </div>
+              <div class="d-flex flex-column">
+                <span>{{ item.title }}</span>
+                <span>(5 semanas)</span>
+              </div>
+              <div>
+                <svg
+                  v-if="!openedPrograms.includes(item.id)"
+                  @click="
+                    openedPrograms.includes(item.id)
+                      ? openedPrograms.splice(
+                          openedPrograms.indexOf(item.id),
+                          1
+                        )
+                      : openedPrograms.push(item.id)
+                  "
+                  style="cursor: pointer"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="19"
+                  height="10"
+                  viewBox="0 0 19 10"
+                  fill="none"
+                >
+                  <path
+                    d="M9.55112 9.99905C9.86289 9.99186 10.1608 9.86997 10.3872 9.65715L18.2561 2.15489C18.5795 1.84395 18.7119 1.38562 18.6034 0.951675C18.4947 0.517761 18.1619 0.174097 17.7293 0.0496167C17.297 -0.0748903 16.8307 0.0387152 16.5053 0.347911L9.51159 7.01957L2.51785 0.347909C2.19247 0.0387149 1.72613 -0.0748859 1.29385 0.0496153C0.861321 0.174123 0.528485 0.517765 0.419782 0.951674C0.31132 1.38559 0.443713 1.84391 0.767119 2.15488L8.63599 9.65715C8.88212 9.88894 9.21188 10.0121 9.55064 9.99905L9.55112 9.99905Z"
+                    fill="#F0F0F0"
+                  />
+                </svg>
+                <svg
+                  v-else
+                  style="cursor: pointer"
+                  @click="
+                    openedPrograms.includes(item.id)
+                      ? openedPrograms.splice(
+                          openedPrograms.indexOf(item.id),
+                          1
+                        )
+                      : openedPrograms.push(item.id)
+                  "
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="19"
+                  height="10"
+                  viewBox="0 0 19 10"
+                  fill="none"
+                >
+                  <path
+                    d="M9.47231 0.000945222C9.16054 0.00814104 8.86259 0.13003 8.63625 0.342845L0.767372 7.84511C0.443967 8.15605 0.311573 8.61438 0.420034 9.04832C0.528714 9.48224 0.861562 9.8259 1.2941 9.95038C1.7264 10.0749 2.19272 9.96128 2.5181 9.65209L9.51185 2.98043L16.5056 9.65209C16.831 9.96128 17.2973 10.0749 17.7296 9.95038C18.1621 9.82588 18.495 9.48223 18.6037 9.04832C18.7121 8.61441 18.5797 8.15609 18.2563 7.84511L10.3874 0.342845C10.1413 0.111062 9.81155 -0.0121391 9.4728 0.000945222H9.47231Z"
+                    fill="#0393AA"
+                  />
+                </svg>
+              </div>
             </div>
             <div v-if="openedPrograms.includes(item.id)" class="ms-5 pb-3">
               <span>Contenido</span>
 
-              <div v-for="(courses,coursesItem) in getProgramCourses(item.id)[0].contenido" :key="`courses-${coursesItem}`" class="d-flex flex-row gap-2 align-items-center mb-2">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect y="7.07031" width="10" height="10" rx="1" transform="rotate(-45 0 7.07031)" fill="#0393AA"/>
+              <div
+                v-for="(courses, coursesItem) in getProgramCourses(item.id)[0]
+                  .contenido"
+                :key="`courses-${coursesItem}`"
+                class="d-flex flex-row gap-2 align-items-center mb-2"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    y="7.07031"
+                    width="10"
+                    height="10"
+                    rx="1"
+                    transform="rotate(-45 0 7.07031)"
+                    fill="#0393AA"
+                  />
                 </svg>
-                <span >{{ courses }}</span>
+                <span>{{ courses }}</span>
               </div>
             </div>
           </div>
@@ -120,24 +153,37 @@
           borderRadius: '2em',
           borderTopRigthRadius: '0',
           borderBottomRigthRadius: '0',
+          maxHeight: '500px',
         }"
       >
         <div
-          :style="currentWindowWidth > 1200 ? 'width:70%' : 'width:90%'"
+          :style="currentWindowWidth > 1200 ? 'width:80%' : 'width:90%'"
           class="d-flex flex-column gap-1 ms-4"
         >
-          <div class="course-detail-price d-flex flex-column gap-4">
-            <span class="course-detail-price-title">Inversión</span>
-            <span
+          <div class="course-detail-price d-flex flex-column gap-3">
+            <span class="course-detail-price-title" style="color:black;font-size:1.4em;font-weight: 700;">Inversión</span>
+            <span style="color:black;font-size:1em;font-weight: 700;"
               >${{ programInfo.value.priceUsd }} (Peru:S/{{
                 programInfo.value.pricePen
               }})</span
             >
-            <small class="pb-1">!Pregunta por nuestros descuentos</small>
-            <div class="btn-white">
-              <img src="/assets/img/courses/car.svg" /><span
-                >Agregar al carrito</span
+            <small class="pb-1" style="color:black;font-weight: 400;">!Pregunta por nuestros descuentos</small>
+            <div class="btn-white d-flex gap-1">
+              <svg
+                width="15"
+                height="13"
+                viewBox="0 0 15 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
+                <path
+                  d="M7.56802 10.2486C6.90111 10.2486 6.35838 10.7912 6.35838 11.4581C6.35838 12.1252 6.90095 12.6679 7.56802 12.6679C8.23492 12.6679 8.77749 12.1252 8.77749 11.4581C8.77765 10.7912 8.23508 10.2486 7.56802 10.2486ZM7.56802 12.0328C7.25124 12.0328 6.99353 11.7749 6.99353 11.4581C6.99353 11.1415 7.25124 10.8838 7.56802 10.8838C7.88463 10.8838 8.14234 11.1415 8.14234 11.4581C8.1425 11.7751 7.88479 12.0328 7.56802 12.0328ZM11.5394 10.2486C10.8725 10.2486 10.3299 10.7912 10.3299 11.4581C10.3299 12.1252 10.8725 12.6679 11.5394 12.6679C12.2063 12.6679 12.7491 12.1252 12.7491 11.4581C12.7489 10.7912 12.2063 10.2486 11.5394 10.2486ZM11.5394 12.0328C11.2226 12.0328 10.9651 11.7749 10.9651 11.4581C10.9651 11.1415 11.2228 10.8838 11.5394 10.8838C11.8562 10.8838 12.1139 11.1415 12.1139 11.4581C12.1137 11.7751 11.856 12.0328 11.5394 12.0328ZM14.4193 3.49928C14.3007 3.35732 14.1218 3.27586 13.928 3.27586H4.91533C4.87691 3.27586 4.83912 3.27904 4.80244 3.28507L4.38562 0.977751C4.32147 0.62477 4.00581 0.350069 3.65013 0.336573C3.64107 0.336096 3.63234 0.335938 3.62313 0.335938H0.751166C0.575866 0.335938 0.433594 0.47821 0.433594 0.65351C0.433594 0.82881 0.575866 0.971082 0.751166 0.971082H3.62123C3.62266 0.971082 3.62408 0.971241 3.62551 0.971241C3.68204 0.972988 3.75032 1.03364 3.76064 1.09112L4.28463 3.99167C4.28638 4.00517 4.28829 4.01835 4.29067 4.03121L5.2264 9.20939C5.29054 9.56316 5.60764 9.8385 5.96427 9.85072C5.97444 9.8512 5.98508 9.85136 5.99508 9.85136H12.8546C12.864 9.85136 12.8727 9.8512 12.8818 9.85072C13.2373 9.83723 13.553 9.56253 13.6171 9.20923L14.5527 4.03121C14.588 3.8367 14.5392 3.64298 14.4193 3.49928ZM13.9287 3.91117C13.9285 3.91323 13.9282 3.91561 13.9277 3.91815L13.5182 6.18467H5.32516L4.91549 3.91768C4.91517 3.91545 4.91486 3.91339 4.91454 3.91117H13.9287ZM12.857 9.2159C12.8556 9.2159 12.8542 9.21605 12.8527 9.21605H5.99047C5.9892 9.21605 5.98778 9.2159 5.98651 9.2159C5.92998 9.21415 5.86186 9.15349 5.85138 9.09601L5.43996 6.81918H13.4036L12.9923 9.09569C12.9817 9.15365 12.9134 9.21415 12.857 9.2159Z"
+                  fill="#0393AA"
+                  stroke="#0393AA"
+                  stroke-width="0.5"
+                />
+              </svg>
+              <span>Agregar al carrito</span>
             </div>
           </div>
           <div
@@ -145,19 +191,63 @@
             class="my-3 mx-auto"
           ></div>
           <div class="course-detail-contact d-flex flex-column gap-2">
-            <small
+            <small style="color:black;font-weight: 400;"
               >Si tienes dudas o necesitas mas informacion,contactanos</small
             >
-            <div class="btn-white">
-              <img src="/assets/img/courses/whats.svg" />
+            <div class="btn-white d-flex gap-1">
+              <svg
+                width="16"
+                height="17"
+                viewBox="0 0 16 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.3649 6.45468C14.6685 3.78518 12.5213 1.63796 9.82273 0.970588C7.12421 0.303212 4.19356 1.1737 2.33651 3.26288C0.0442156 5.81632 -0.245948 9.64648 1.6111 12.5481C1.46602 13.5927 1.34995 14.6373 1.20487 15.6819C1.14684 16.0591 1.6111 16.3202 1.93028 16.2332C2.94585 15.943 3.99044 15.6819 5.00601 15.3917C7.76257 16.5234 10.9544 16.0011 13.1596 13.9699C15.2198 12.0839 16.0612 9.12419 15.3649 6.45468ZM13.3337 12.0548C11.5927 14.6083 8.1688 15.5658 5.35421 14.2891C5.35421 14.2891 5.35421 14.2891 5.32519 14.2891C5.20913 14.2311 5.06405 14.2021 4.88995 14.2311C4.07749 14.4632 3.26503 14.6663 2.45257 14.8984C2.53962 14.2021 2.62667 13.5347 2.71372 12.8383C2.74274 12.6062 2.80077 12.345 2.6847 12.1129C2.59766 11.9678 2.48159 11.8227 2.39454 11.6486C2.19143 11.3004 2.01733 10.9232 1.87225 10.546C1.40798 9.21124 1.37897 7.7314 1.81421 6.39665C2.56864 4.04632 4.71585 2.27632 7.15322 1.98616C9.67765 1.63796 12.2021 2.85665 13.5078 4.97485C14.8426 7.15107 14.7555 9.93664 13.3337 12.0548Z"
+                  fill="#0393AA"
+                />
+                <path
+                  d="M12.0284 9.32594L10.7227 8.31037C10.3164 7.99119 9.76512 8.04922 9.41693 8.39742L9.03971 8.77463C8.74955 8.60053 8.4884 8.39742 8.22725 8.16529C7.99512 7.93316 7.79201 7.64299 7.61791 7.35283L7.99512 6.97562C8.34332 6.62742 8.37234 6.07611 8.08217 5.66988L7.0666 4.33513C6.86349 4.04496 6.54431 3.87087 6.19611 3.87087C5.84791 3.84185 5.49972 3.98693 5.26759 4.21906L4.13595 5.3507C3.49759 5.98906 3.35251 6.97562 3.75873 7.78808C4.31005 8.83266 5.00644 9.76119 5.8189 10.5736C6.63135 11.3861 7.58889 12.0825 8.60447 12.6338C8.92365 12.8079 9.24283 12.8659 9.56201 12.8659C10.0843 12.8659 10.6356 12.6628 11.0128 12.2566L12.1445 11.125C12.3766 10.8928 12.5217 10.5446 12.4927 10.1964C12.4927 9.84824 12.3186 9.52906 12.0284 9.32594ZM11.332 10.3125L10.2004 11.4441C9.9102 11.7343 9.47496 11.7923 9.12676 11.6182C8.19824 11.125 7.35676 10.5156 6.60234 9.76119C5.84791 9.00676 5.23857 8.16529 4.74529 7.23676C4.57119 6.88857 4.62923 6.45332 4.91939 6.16316L6.05103 5.03152C6.05103 5.03152 6.05103 5.03152 6.08004 5.03152C6.10906 5.03152 6.10906 5.03152 6.10906 5.06054L7.03758 6.27922L6.66037 6.62742C6.37021 6.91758 6.28316 7.38185 6.48627 7.75906C6.7184 8.22332 7.03758 8.62955 7.38578 8.97775C7.73398 9.32594 8.14021 9.64512 8.60447 9.87725C8.98168 10.0804 9.41693 9.99332 9.70709 9.70316L10.1133 9.29693L11.303 10.2255C11.303 10.2255 11.332 10.2255 11.332 10.2545C11.332 10.2835 11.332 10.3125 11.332 10.3125Z"
+                  fill="#0393AA"
+                />
+              </svg>
+
               <span
-                ><a target="_blank" href="https://wa.me/950876703"
+                ><a
+                  target="_blank"
+                  href="https://wa.me/+51950876703"
+                  style="color: #0393aa"
                   >Ir a Whatsapp (+51 950 876 703)</a
                 ></span
               >
             </div>
-            <div class="btn-blue-outline">
-              <img src="/assets/img/courses/info.svg" />
+            <div class="btn-blue-outline d-flex gap-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M7.99225 1C4.13178 1 1 4.13178 1 7.99225C1 11.8527 4.13178 15 7.99225 15C11.8527 15 15 11.8527 15 7.99225C15 4.13178 11.8527 1 7.99225 1ZM7.99225 13.8837C4.75194 13.8837 2.11628 11.2481 2.11628 7.97674C2.11628 4.73643 4.75194 2.10078 7.99225 2.10078C11.2481 2.10078 13.8992 4.73643 13.8992 7.97674C13.8837 11.2481 11.2481 13.8837 7.99225 13.8837Z"
+                  fill="white"
+                  stroke="white"
+                  stroke-width="0.5"
+                />
+                <path
+                  d="M7.91346 4.41016C7.2933 4.41016 6.79718 4.5652 6.40958 4.89078C6.00648 5.20085 5.83594 5.65047 5.83594 6.1776L5.85144 6.22411H6.81268C6.81268 5.89853 6.92121 5.65047 7.12276 5.49543C7.33981 5.32488 7.60338 5.23186 7.92896 5.23186C8.25454 5.23186 8.54912 5.34039 8.73516 5.52644C8.93671 5.72799 9.02974 5.99155 9.02974 6.34814C9.02974 6.65822 8.96772 6.90628 8.81268 7.12333C8.67315 7.32488 8.44059 7.63496 8.0995 8.03806C7.77392 8.34814 7.54136 8.5962 7.47935 8.76674C7.38632 8.9683 7.33981 9.29388 7.33981 9.79H8.33206C8.33206 9.47992 8.34757 9.26287 8.39408 9.12333C8.40958 8.9683 8.53361 8.81326 8.70415 8.64271C9.10726 8.27062 9.41733 7.88302 9.6654 7.52643C9.88245 7.16985 10.022 6.76675 10.022 6.33264C10.022 5.72799 9.85144 5.26287 9.46384 4.90628C9.07625 4.5652 8.56462 4.41016 7.91346 4.41016Z"
+                  fill="white"
+                  stroke="white"
+                  stroke-width="0.5"
+                />
+                <path
+                  d="M8.34747 10.7988H7.32422V11.8376H8.34747V10.7988Z"
+                  fill="white"
+                  stroke="white"
+                  stroke-width="0.5"
+                />
+              </svg>
               <span style="color: white">Ir a Preguntas Frecuentes</span>
             </div>
           </div>
@@ -371,7 +461,7 @@
   </section>
 </template>
   <script>
-import {getProgramCourses} from '/composables/courses-composables.js'
+import { getProgramCourses } from "/composables/courses-composables.js";
 export default {
   props: {
     programInfo: {

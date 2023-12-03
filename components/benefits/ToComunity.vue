@@ -1,14 +1,14 @@
 <template>
   <section style="box-shadow: 0px -4px 50px 0px rgba(0, 0, 0, 0.20);background: #1c1c24;" class="py-3">
-    <div class="row pt-3 d-flex justify-content-center" style="width: 90%;">
+    <div class="row pt-3 d-flex justify-content-center mx-auto" style="width: 90%;">
       <div class="col col-12 col-sm-12 col-md-5 col-lg-6 d-none d-lg-flex mx-0">
         <img
           src="/assets/img/benefits/benefits.png"
           alt="benefits"
-          style="width: 100%;height: 9 0%;"
+          style="width: 100%;height: 90%;"
         />
       </div>
-      <div class="col col-12 col-sm-12 col-md-12 col-lg-6 0">
+      <div class="col col-12 col-sm-12 col-md-12 col-lg-6 ">
         <h2 class="text-center text-md-left">
           Beneficios para la comunidad de Evialumnos
         </h2>

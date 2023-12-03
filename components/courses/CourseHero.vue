@@ -2,7 +2,7 @@
     <div v-if="courseInfo.value" class="hero-container">
       <div class="hero" :style="{ backgroundImage: `url(${courseInfo.value.img})`}"></div>
       <div class="hero-content" :style="{
-        background:`linear-gradient(90deg, ${courseInfo.value.color} 0%, ${courseInfo.value.color} 100%)`,
+        background:`linear-gradient(239deg, ${courseInfo.value.color} -11.4%, ${courseInfo.value.color2} 77.6%)`,
 
       }">
        <div class="hero-content-text">
@@ -14,7 +14,6 @@
           </div>
        </div>
       </div>
-      {{ courseInfo.value.img  }}
     </div>
   </template>
   <script>

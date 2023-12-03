@@ -7,24 +7,26 @@
         <h2>Plana Docente</h2>
         <img
           src="/assets/img/courses/docentes-item.svg"
-          style="bottom: 0; right: -1em; position: absolute"
+          style="bottom: 0; right: -1rem; position: absolute"
         />
       </div>
       <input
         type="text"
-        style="position: absolute; right: 2em; top: 5em"
+        style="position: absolute; right: 2em; top: 5em;"
+        :style="currentWindowWidth<768?'width:90%':''"
         v-model="inputDoctor"
         class="search-input"
         placeholder="Buscar Docente"
       />
     </div>
-    <div class="section-items">
+    <div class="section-items pt-5">
       <about-docente-item
-        v-for="docente in docentes.filter((docente) =>
+        v-for="(docente,index) in docentes.filter((docente) =>
           docente.name.toLowerCase().includes(inputDoctor.toLowerCase())
         )"
         :key="docente.id"
         :docente="docente"
+        :index="index + 1"
       />
     </div>
   </section>
@@ -35,6 +37,14 @@ import { getAllDocentes } from "/composables/docentes-composables.js";
 
 export default {
   setup() {
+
+    let currentWindowWidth = ref(null);
+    onMounted(() => {
+      currentWindowWidth.value = window.innerWidth;
+      window.addEventListener("resize", () => {
+        currentWindowWidth.value = window.innerWidth;
+      });
+    });
     const inputDoctor = ref("");
     const docentes = ref([]);
    
@@ -50,6 +60,7 @@ export default {
     return {
       docentes,
       inputDoctor,
+      currentWindowWidth,
     };
   },
 };

@@ -114,19 +114,38 @@ body {
 }
 
 .navbar {
-    @include theme($EVI400, $EVIDARK001);
+    @include theme($EVI400, black);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0.5em 0;
     padding: 0.5em 2em;
-
+    position: relative;
     .navbar-options {
         display: flex;
         flex-direction: row;
         align-items: center;
         column-gap: 1em;
 
+        a {
+            text-decoration: none;
+
+            div {
+                @include font(700, 14px, 1.5em, $EVIDARK004);
+            }
+        }
+    }
+    .navbar-options-collapsed{
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1em;
+        position: absolute;
+        top: 4.2em;
+        left: 0;
+        z-index: 999;
+
+        width: 100%;
         a {
             text-decoration: none;
 
@@ -622,6 +641,20 @@ section {
 
             .view-more {
                 @include font(400, 14px, 1.4em, $EVI100);
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                column-gap: 0.5em;
+                &:hover {
+                    cursor: pointer;
+                    @include font(400, 14px, 1.4em, $EVI400);
+                    svg {
+                        path {
+                            stroke: $EVI400;
+                        }
+                    }
+                }
             }
 
             .quality-content {
@@ -1073,6 +1106,12 @@ section {
                     svg {
                         width: 30px;
                         height: 30px;
+                        &:hover {
+                            cursor: pointer;
+                            path {
+                                fill: $EVI100;
+                            }
+                        }
                     }
                 }
             }
@@ -1187,9 +1226,16 @@ section {
                 justify-content: center;
                 column-gap: 1.2em;
                 align-items: center;
-                svg{
-                    width: 50px;
-                    height: 50px;
+                svg {
+                    width: 30px;
+                    height: 30px;
+                    &:hover {
+                        cursor: pointer;
+                        path {
+                            stroke: $EVI100;
+                            fill: $EVI100;
+                        }
+                    }
                 }
             }
         }
@@ -1378,6 +1424,8 @@ section {
             .courses-items-container {
                 overflow: hidden;
                 padding: 2em 0;
+                width: 90%;
+                margin: 0 auto;
                 display: grid;
                 align-items: center;
                 justify-content: center;
@@ -1386,16 +1434,31 @@ section {
                 margin: 0 auto;
             }
 
-            @media (max-width: 1024px) {
+            @media (max-width: 1424px) {
                 .courses-items-container {
-                    
-
-                    display: flex  ;
-                    flex-direction: row;
+                    width: 90%;
+                    margin: 0 auto;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-row-gap: 2em;
                     overflow-x: hidden;
                     column-gap: 3em;
                     align-items: center;
                     justify-content: center;
+
+                }
+            }
+            @media (max-width: 768px) {
+                .courses-items-container {
+                    width: 90%;
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: row;
+                    
+                    overflow-x: hidden;
+                    column-gap: 3em;
+                    align-items: center;
+                    justify-content: flex-start;
 
                 }
             }

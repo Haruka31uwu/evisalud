@@ -9,12 +9,12 @@
         class="col col-12 col-lg-6 d-flex flex-column justify-content-center align-items-center"
       >
         <div
-          class="btn-blue"
+          class="btn-blue my-3"
           style="width: 60%"
           :class="tabSelected == 1 ? 'btn-blue' : 'btn-gray-outline'"
           @click="tabSelected = 1"
         >
-          <span>Infografias</span>
+          <span >Infografias</span>
         </div>
       </div>
       <div
@@ -31,7 +31,7 @@
       </div>
     
     </div>
-    <lazy-resources-carousel style="width:100%" v-if="tabSelected==1"/>
+    <lazy-resources-carousel style="width:100%" v-if="tabSelected==1" />
     <lazy-resources-carousel style="width:100%" v-if="tabSelected==2"/>
 
   </section>

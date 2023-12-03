@@ -34,7 +34,7 @@
       >
         <div
           style="width: 100%"
-          class="d-flex flex-column gap-4 ms-4 justify-content-center align-items-center"
+          class="d-flex flex-column gap-4 ms-4 justify-content-center align-items-center align-items-lg-start"
           :style="{
             background: '#0393AA',
             borderRadius: '10px',

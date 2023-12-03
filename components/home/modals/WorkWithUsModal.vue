@@ -2,7 +2,7 @@
   <div class="modal-customized">
     <div class="modal-customized-body" style="border-radius: 2em">
       <div
-        class="modal-customized-header w-100 d-flex justify-content-between px-3 pt-4"
+        class="modal-customized-header w-100 d-flex justify-content-between px-3 pt-5"
       >
         <svg
           width="36"
@@ -30,7 +30,7 @@
           />
         </svg>
       </div>
-      <div class="row" style="width: 90%;margin: 0 auto;"> 
+      <div class="row" style="width: 100%;margin: 0 auto;max-height:100vh;overflow-y: auto;"> 
         <div
         v-if="currentWindowWidth > 1090"
           class="col col-sm-12 col-md-3 col-lg-6 d-flex flex-column align-self-end px-5"
@@ -99,7 +99,7 @@ export default {
 <style lang="scss" scoped>
 .modal-customized {
   position: fixed;
-  top: 0;
+  top:0;
   left: 0;
   z-index: 9999;
   width: 100%;
@@ -108,6 +108,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .modal-customized-body {
   width: 80%;

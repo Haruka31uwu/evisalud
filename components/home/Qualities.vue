@@ -23,7 +23,7 @@
             v-if="index < 3||currentWindowWidth>768"
             style="
               width: 80%;
-              background-color: white;
+              background-color: #515166;
               color: white;
               height: 1px;
               margin: 2em 0;
@@ -53,7 +53,7 @@
             v-if="index > 3 && currentWindowWidth<=768"
             style="
               width: 80%;
-              background-color: white;
+              background-color: #515166;
               color: white;
               height: 1px;
               margin: 2em 0;
@@ -65,13 +65,14 @@
           @click="showMore = !showMore"
           v-if="currentWindowWidth < 768 && ( (index == 3 && !showMore)||(index == 6 && showMore))"
         >
-          Ver más
+          <span>{{  !showMore?'Ver más':'Ver menos'}}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14"
             height="8"
             viewBox="0 0 14 8"
             fill="none"
+            :style="showMore?'transform:rotate(180deg)':''"
           >
             <path
               d="M0.999999 1L7 7L13 1"
@@ -97,43 +98,43 @@ onMounted(() => {
 });
 const qualities = ref([
   {
-    logo: "/assets/img/class-quality.svg",
+    logo: "/evisalud/assets/img/class-quality.svg",
     title: "Calidad educativa",
     content:
       "Los cursos han sido diseñados por docentes con amplia experiencia, han pasado por diversas validaciones y actualizaciones para ofrecerte un curso práctico, articulado, basado en literatura científica y en constante actualización.",
   },
   {
-    logo: "/assets/img/hard-to-easy.svg",
+    logo: "/evisalud/assets/img/hard-to-easy.svg",
     title: "Hacemos sencillo lo difícil:",
     content:
       "Traducimos contenidos complejos para explicarlos de manera sencilla, didáctica, e intuitiva. ¡Nada de esto es complicado cuando te enseñan los conceptos correctos en el orden correcto!",
   },
   {
-    logo: "/assets/img/learning.svg",
+    logo: "/evisalud/assets/img/learning.svg",
     title: "Aprende haciendo:",
     content:
       "Cada curso está enfocado en adquirir competencias prácticas que utilizarás en talleres para resolver problemas de escenarios reales. Con esto estarás en la capacidad de aplicar lo aprendido en el día a día de forma inmediata.",
   },
   {
-    logo: "/assets/img/dinamyc.svg",
+    logo: "/evisalud/assets/img/dinamyc.svg",
     title: "Metodología dinámica:",
     content:
       "Las clases y actividades están diseñadas para que te diviertas y aprendas de manera dinámica  ¡No más clases aburridas! Además, en nuestra aula virtual encontrarás retos que podrás resolver para acceder a beneficios especiales. ¡Obtén todas las insignias y llega al nivel más alto de aprendizaje!",
   },
   {
-    logo: "/assets/img/customized.svg",
+    logo: "/evisalud/assets/img/customized.svg",
     title: "Aprendizaje personalizado:",
     content:
       "Participa de las reuniones sincrónicas en grupos pequeños, en los que un docente facilitará tu aprendizaje y resolverá todas tus dudas. ¡Te acompañamos en todo el proceso de aprendizaje!",
   },
   {
-    logo: "/assets/img/anyplace.svg",
+    logo: "/evisalud/assets/img/anyplace.svg",
     title: "Aprende desde cualquier parte, a cualquier hora y a tu ritmo:",
     content:
       "Accede inmediatamente a todo el contenido, los cursos son virtuales y todo el material educativo está disponible las 24 horas.",
   },
   {
-    logo: "/assets/img/networking.svg",
+    logo: "/evisalud/assets/img/networking.svg",
     title:
       "Realiza networking y se parte de la comunidad basada en evidencias:",
     content:

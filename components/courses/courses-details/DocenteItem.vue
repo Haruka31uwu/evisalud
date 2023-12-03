@@ -3,9 +3,7 @@
   <div class="item-divider" v-if="docente.id != 1"></div>
   <div
     class="item"
-    :class="
-      docenteDescriptionOpen.includes(docente.id) ? 'item-right' : 'item-left'
-    "
+    :class="index % 2 == 0 ? 'item-right' : 'item-left'"
   >
     <div class="item-img-container">
       <svg
@@ -20,7 +18,10 @@
           cy="74.5"
           r="73.5"
           :class="
-            docenteDescriptionOpen.includes(docente.id)
+            (docenteDescriptionOpen.includes(docente.id) &&
+              currentWindowWidth < 768) ||
+            (currentWindowWidth > 768 &&
+              !docenteDescriptionOpen.includes(docente.id))
               ? 'circle-active'
               : 'circle'
           "
@@ -55,12 +56,16 @@
       </div>
       <div
         class="item-description"
-        v-show="docenteDescriptionOpen.includes(docente.id)"
-      >
+        v-show="
+          (docenteDescriptionOpen.includes(docente.id) &&
+            currentWindowWidth < 768) ||
+          (currentWindowWidth > 768 &&
+            !docenteDescriptionOpen.includes(docente.id))
+        "      >
         <p>{{ docente.description }}</p>
         <div class="item-description-links">
-          <button class="button-cuz">Linkedn</button>
-          <button class="button-cuz">Mira aqui sus publicaciones</button>
+          <button class="button-cuz"><span><a :href="docente.linkedin" target="_blank">Linkedn</a></span></button>
+          <button class="button-cuz"><span><a :href="docente.posts" target="_blank">Mira aqui sus publicaciones</a></span></button>
         </div>
       </div>
     </div>
@@ -75,9 +80,21 @@ export default {
       type: Object,
       required: true,
     },
+    index: {
+      type: Number,
+      required: false,
+      default:1,
+    },
   },
 
   setup(props) {
+    let currentWindowWidth = ref(null);
+    onMounted(() => {
+      currentWindowWidth.value = window.innerWidth;
+      window.addEventListener("resize", () => {
+        currentWindowWidth.value = window.innerWidth;
+      });
+    });
     const docenteDescriptionOpen = ref([]);
     const docenteDescriptionOpenHandler = (index) => {
       if (docenteDescriptionOpen.value.includes(index)) {
@@ -92,6 +109,7 @@ export default {
     return {
       docenteDescriptionOpenHandler,
       docenteDescriptionOpen,
+      currentWindowWidth,
     };
   },
 };

@@ -11,7 +11,6 @@
           </div>
        </div>
       </div>
-      {{ programInfo.value.img  }}
     </div>
   </template>
   <script>

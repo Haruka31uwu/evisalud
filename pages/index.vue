@@ -1,6 +1,5 @@
 <template>
     <div>
-        <main>
             <home-hero/>
             <home-what-is/>
             <home-banner/>
@@ -11,8 +10,6 @@
             <home-dudes/>
             <home-allies/>
             <home-news-letter/>
-
-        </main>
     </div>
 </template>
 <script>

@@ -2,7 +2,7 @@
   <section class="d-flex justify-content-center flex-column align-items-center">
     <div class="section-title d-flex mb-5">
       <h2>Blog</h2>
-      <div class="section-decorator"></div>
+      <div class="section-decorator" style="right: -1em;"></div>
     </div>
     <div class="row d-flex gap-4 flex-row" style="width:90%">
       <div class="col-12 col-md-5">
@@ -62,7 +62,7 @@ export default defineComponent({
   setup() {
     const blogItems = reactive({
       main: {
-        img: "/assets/img/resources/blog-main.jpg",
+        img: "/evisalud/assets/img/resources/blog-main.jpg",
         title: "Medicina al dia",
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
@@ -70,21 +70,21 @@ export default defineComponent({
       },
       items: [
         {
-          img: "/assets/img/resources/blog1.jpg",
+          img: "/evisalud/assets/img/resources/blog1.jpg",
           title: "Medicina al dia",
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
           date: "Marzo 15, 2023",
         },
         {
-          img: "/assets/img/resources/blog2.jpg",
+          img: "/evisalud/assets/img/resources/blog2.jpg",
           title: "Medicina al dia",
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
           date: "Marzo 15, 2023",
         },
         {
-          img: "/assets/img/resources/blog3.jpg",
+          img: "/evisalud/assets/img/resources/blog3.jpg",
           title: "Medicina al dia",
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",

@@ -42,7 +42,7 @@ onMounted(() => {
 });
 const qualities = ref([
   {
-    logo: "/assets/img/courses/access.svg",
+    logo: "/evisalud/assets/img/courses/access.svg",
     title: "Calidad educativa",
     content: [
       " Tendrás acceso inmediato al contenido de todos los cursos. Sin embargo, para obtener los certificados deberás unirte a los talleres de los cursos en las fechas disponibles.",
@@ -52,7 +52,7 @@ const qualities = ref([
     ],
   },
   {
-    logo: "/assets/img/courses/modality.svg",
+    logo: "/evisalud/assets/img/courses/modality.svg",
     title: "Hacemos sencillo lo difícil:",
     content: [
       "Todos los cursos tienen una modalidad 100% virtual y están orientados a la aplicación práctica.",
@@ -61,7 +61,7 @@ const qualities = ref([
     ],
   },
   {
-    logo: "/assets/img/courses/certification.svg",
+    logo: "/evisalud/assets/img/courses/certification.svg",
     title: "Aprende haciendo:",
     content: [
       "Para obtener el certificado de haber culminado el programa, deberás publicar al menos un (01) artículo original en una revista científica indizada.",

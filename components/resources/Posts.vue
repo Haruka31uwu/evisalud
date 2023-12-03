@@ -56,13 +56,13 @@ export default defineComponent({
   setup() {
     const posts = reactive([
       {
-        img: "/assets/img/resources/post1.png",
+        img: "/evisalud/assets/img/resources/post1.png",
       },
       {
-        img: "/assets/img/resources/post2.png",
+        img: "/evisalud/assets/img/resources/post2.png",
       },
       {
-        img: "/assets/img/resources/post3.png",
+        img: "/evisalud/assets/img/resources/post3.png",
       },
     ]);
     return {
