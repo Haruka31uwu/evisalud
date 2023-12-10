@@ -2,7 +2,7 @@
   <section class="experiencies-section">
     <div class="section-title">
       <h2>Publicaciones recientes de nuestros docentes</h2>
-      <div class="section-decorator"></div>
+      <div class="section-decorator" style="left: 12em;width: 80%;"></div>
     </div>
     <div class="experiences-container">
       <svg
@@ -41,7 +41,7 @@
             <h4>{{ experience.source }}</h4>
             <p style="text-align: start">{{ experience.content }}</p>
           </div>
-          <span>Leer artículo completo</span>
+          <span @click="redirectTo('benefits')">Leer artículo completo</span>
         </div>
       </div>
 
@@ -66,29 +66,27 @@
   </section>
 </template>
   <script setup>
+  import { redirectTo } from '/composables/main-composables.js';
 let experiencesContainer = ref(null);
 let scrollPosition = ref(0);
 const moveToLeft = () => {
   if (scrollPosition == 0) return;
   experiencesContainer = document.querySelector(".experiences-container2");
-  experiencesContainer.scrollLeft -= 300;
+  experiencesContainer.scrollLeft -= (experiencesContainer.scrollWidth/experiencies.value.length);
   scrollPosition.value = experiencesContainer.scrollLeft;
 };
 const moveToRight = () => {
   if (scrollPosition == experiencesContainer.scrollWidth) return;
-  console.log("moveToRight");
-  experiencesContainer.scrollLeft += 300;
+  experiencesContainer.scrollLeft += (experiencesContainer.scrollWidth/experiencies.value.length);;
   scrollPosition.value = experiencesContainer.scrollLeft;
 };
 onMounted(() => {
   experiencesContainer = document.querySelector(".experiences-container2");
-  console.log(experiencesContainer);
   const resizeObserver = new ResizeObserver(moveToRight);
   resizeObserver.observe(experiencesContainer);
 });
 const getActualScrollPosition = () => {
   experiencesContainer = document.querySelector(".experiences-container2");
-  console.log(experiencesContainer.scrollLeft, "owo");
   return experiencesContainer.scrollLeft;
 };
 const experiencies = ref([

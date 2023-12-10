@@ -4,7 +4,7 @@
   >
     <div class="section-title">
       <h2>¿Qué es el Programa de referidos?</h2>
-      <div class="section-decorator"></div>
+      <div class="section-decorator" style="left:4.5em;width: 95%;"></div>
     </div>
     <div class="row section-container mt-5" style="width: 80%">
       <div class="col col-12 col-lg-6">
@@ -20,7 +20,7 @@
               font-size: 2.3em;
             "
           >
-            !REFIERE Y GANA
+          ¡REFIERE Y GANA!
           </h3>
           <p class="text-center text-md-start">
             El programa de referidos es un programa de recompensas para todos
@@ -50,14 +50,12 @@
           >
           <ul>
             <li>
-              Gana 20 soles por cada persona nueva que refieras y se matricule a
-              un curso. 
+              Gana 20 soles de crédito por cada persona nueva que refieras y se matricule a un curso de EviSalud.
             </li>
             <li>
-              Estos 20 soles pueden ser canjeados con descuentos en los cursos y
-              son acumulables. 
+              Canjea los 20 soles de crédito como descuentos en los cursos de EviSalud y estos créditos son acumulables.
             </li>
-            <li>Obtén material exclusivo vía mailing.</li>
+            <!-- <li>Obtén material exclusivo vía mailing.</li> -->
           </ul>
         </div>
       </div>

@@ -1,8 +1,8 @@
 <template>
-  <section class="d-flex justify-content-center flex-column align-items-center">
+  <section class="d-flex justify-content-center flex-column align-items-center py-4">
     <div class="section-title d-flex mb-5">
       <h2>No te pierdas de nuestros posts en Instagram</h2>
-      <div class="section-decorator"></div>
+      <div class="section-decorator" style="width:90%;" :style="currentWindowWidth<768?'left:1em':'left:8.5em'"></div>
     </div>
     <div class="row" style="width: 90%">
       <div v-for="(post, index) in posts" :key="index" class="col-12 col-md-4">
@@ -10,13 +10,13 @@
           <img
             :src="post.img"
             alt=""
-            style="width: 100%; height: 100%; border-radius: 1rem"
+            style="width: 90%; height: 100%; border-radius: 1rem"
             class="mb-3"
           />
         </div>
       </div>
     </div>
-    <div class="btn-blue mt-2">
+    <div class="btn-blue mt-5">
       <span class="d-flex gap-2 justify-content-center align-items-center">
         <svg
           width="20"
@@ -43,7 +43,9 @@
           href="https://www.instagram.com/evisalud.oficial/"
           target="_blank"
 
-          >Siguenos en Instagram</a
+          ><span>
+            Siguenos en Instagram
+          </span></a
         >
       </span>
     </div>
@@ -65,10 +67,19 @@ export default defineComponent({
         img: "/evisalud/assets/img/resources/post3.png",
       },
     ]);
+    let currentWindowWidth = ref(null);
+    onMounted(() => {
+      currentWindowWidth.value = window.innerWidth;
+      window.addEventListener("resize", () => {
+        currentWindowWidth.value = window.innerWidth;
+      });
+    });
     return {
       posts,
+      currentWindowWidth
     };
   },
+  
 });
 </script>
 <style scoped>

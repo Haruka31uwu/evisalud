@@ -17,7 +17,7 @@
     <div class="our-experiences__footer">
       <span class="mb-3">Nuestros docentes participaron en:</span>
       <ul class="our-doc-experiences-values">
-        <li v-for="(docExpV, docExpI) in docExp" :key="`expv-${docExpI}`">
+        <li v-for="(docExpV, docExpI) in docExp" :key="`expv-${docExpI}`"  :style="currentWindowWidth>768?'min-width: 300px;':''">
           <div class="our-doc-experiences__value">
             <h3>{{ docExpV.value }}</h3>
             <span>{{ docExpV.name }}</span>
@@ -96,13 +96,20 @@
   </div>
 </template>
 <script setup>
+ let currentWindowWidth = ref(null);
+    onMounted(() => {
+      currentWindowWidth.value = window.innerWidth;
+      window.addEventListener("resize", () => {
+        currentWindowWidth.value = window.innerWidth;
+      });
+    });
 const expValues = reactive([
   {
     name: "Cursos Realizados",
     value: "+80",
   },
   {
-    name: "Cursos Para Instituciones",
+    name: "Cursos Para instituciones",
     value: "8",
   },
 ]);
@@ -195,7 +202,7 @@ const docExp = reactive([
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       list-style: none;
       column-gap: 2em;
       padding: 0.5em 1.5em;
@@ -204,7 +211,7 @@ const docExp = reactive([
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         column-gap: 1.5em;
         .our-doc-experiences__value {
           display: flex;

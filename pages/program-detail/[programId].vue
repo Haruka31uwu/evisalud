@@ -18,7 +18,6 @@ export default {
     onMounted(() => {
       const params = route.params;
       if (params.programId) {
-        console.log(params.programId);
         programId.value = params.programId;
         programData.value = getProgram(programId.value);
       }

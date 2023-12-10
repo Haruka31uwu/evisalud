@@ -2,12 +2,13 @@
   <section>
     <div
       class="section-title d-flex flex-column justify-content-center align-items-center"
+      id="docentes-title"
     >
       <div style="position: relative">
-        <h2>Plana Docente</h2>
+        <h2 >Plana Docente</h2>
         <img
           src="/assets/img/courses/docentes-item.svg"
-          style="bottom: 0; right: -1rem; position: absolute"
+          style="bottom: 0; left:3.5rem; position: absolute;width:85%;"
         />
       </div>
       <input
@@ -16,7 +17,7 @@
         :style="currentWindowWidth<768?'width:90%':''"
         v-model="inputDoctor"
         class="search-input"
-        placeholder="Buscar Docente"
+        placeholder="Buscar docente"
       />
     </div>
     <div class="section-items pt-5">
@@ -51,7 +52,6 @@ export default {
     onBeforeMount(async () => {
       try {
         docentes.value = getAllDocentes();
-        console.log(docentes.value);
       } catch (error) {
         console.error(error);
       }

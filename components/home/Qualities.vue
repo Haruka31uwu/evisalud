@@ -15,17 +15,17 @@
         >
           <img :src="quality.logo" width="100" height="100" />
           <div class="quality-content-text">
-            <h4>{{ quality.title }}</h4>
+            <h4 class="mb-1">{{ quality.title }}</h4>
             <p>{{ quality.content }}</p>
           </div>
         </div>
         <div
             v-if="index < 3||currentWindowWidth>768"
             style="
-              width: 80%;
+              width:75%;
               background-color: #515166;
               color: white;
-              height: 1px;
+              height: 0.5px;
               margin: 2em 0;
             "
           ></div>
@@ -55,7 +55,7 @@
               width: 80%;
               background-color: #515166;
               color: white;
-              height: 1px;
+              height: 0.5 px;
               margin: 2em 0;
             "
           ></div>

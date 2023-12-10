@@ -1,10 +1,14 @@
 <template>
-  <section class="d-flex flex-column justify-content-center align-items-center py-5">
+  <section
+    class="d-flex flex-column justify-content-center align-items-center py-5"
+  >
     <div class="row" style="width: 90%">
-      <div class="col-12 col-md-6 section-title d-flex flex-column justify-content-center align-items-center" >
+      <div
+        class="col-12 col-md-6 section-title d-flex flex-column justify-content-center align-items-center"
+      >
         <div style="width: 80%; position: relative; margin-bottom: 4em">
-          <h2 style="font-size: 2rem;">Embajadores de EviSalud</h2>
-          <div class="section-decorator"></div>
+          <h2 style="font-size: 2rem">Embajadores de EviSalud</h2>
+          <div class="section-decorator" style="left: 4em; width: 60%"></div>
         </div>
         <div style="width: 70%">
           <p>
@@ -21,14 +25,24 @@
         class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center"
       >
         <img src="/assets/img/benefits/evi-cell.png" width="40%" />
-        <div style="width: 80%" class="d-flex flex-column justify-content-center align-items-center">
+        <div
+          style="width: 80%"
+          class="d-flex flex-column justify-content-center align-items-center"
+        >
           <p class="text-center">
             ¿Eres influencer y quieres ser parte de los embajadores de EviSalud?
           </p>
-          <span
-            style="font-family: Axiforma; color: #0393aa; font-style: italic"
-            >Comunícate con nosotros 
-          </span>
+          <a target="_blank" href="https://wa.me//+51950876703">
+            <span
+              style="
+                font-family: Axiforma;
+                color: #0393aa;
+                font-weight: 700;
+                text-decoration: underline;
+              "
+              >Comunícate con nosotros 
+            </span>
+          </a>
         </div>
       </div>
     </div>
@@ -37,8 +51,9 @@
 </template>
 
 <style scoped>
-span,p{
-    font-family: 'Axiforma', sans-serif;
-    font-weight: 400;
+span,
+p {
+  font-family: "Axiforma", sans-serif;
+  font-weight: 400;
 }
 </style>

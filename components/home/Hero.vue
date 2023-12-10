@@ -1,6 +1,9 @@
 <template>
-  <div class="hero-container" style="position: relative;">
-    <div class="hero"></div>
+  <div class="hero-container" style="position: relative">
+    <div
+      class="hero"
+      :style="currentWindowWidth<1550?'':'background-size: cover;'"
+    ></div>
     <div class="hero-content">
       <div class="hero-content-text">
         <h1>
@@ -12,7 +15,13 @@
         </div>
       </div>
     </div>
-    <div :style="currentWindowWidth > 768?'position: absolute;bottom: -8em;right: 0;':'position: absolute;bottom: -2em;right: 0;'">
+    <div
+      :style="
+        currentWindowWidth > 768
+          ? 'position: absolute;bottom: -8em;right: 0;'
+          : 'position: absolute;bottom: -2em;right: 0;'
+      "
+    >
       <svg
         width="100%"
         :height="currentWindowWidth > 768 ? '300' : '200'"
@@ -105,7 +114,6 @@ import { redirectTo } from "/composables/main-composables.js";
     width: auto;
     background: url("/assets/img/hero.jpg") no-repeat;
     background-position-y: -12em;
-
     transform: scaleX(-1);
     z-index: 1;
   }

@@ -31,7 +31,7 @@
         <h2 style="width: 100%">
           NO TE CONFORMES CON OPINIONES, BUSCA LA MEJOR EVIDENCIA
         </h2>
-        <p class="text-center">SEAMOS AGENTES DEL CAMBIO EN EL AMBITO DE LA SALUD</p>
+        <p class="text-center mt-4">SEAMOS AGENTES DEL CAMBIO EN EL ÁMBITO DE LA SALUD</p>
       </div>
     </div>
   </section>

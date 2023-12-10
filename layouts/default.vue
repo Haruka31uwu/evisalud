@@ -32,6 +32,7 @@ useHead({
         "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC",
       crossorigin: "anonymous",
     },
+
   ],
   script: [
     {
@@ -42,7 +43,6 @@ useHead({
     },
   ],
 });
-console.log(getClaimForm,'getClaimForm');
 const showModalWorkWithUs = ref(false);
 const showModalComplainBook = ref(false);
 const showModalComplainBookForm = ref(false);
@@ -66,6 +66,5 @@ const openComplaintsBookForm = () => {
   closenComplaintsBookModal();
   
   getClaimForm.value=true;
-  console.log(getClaimForm.value)
 };
 </script>

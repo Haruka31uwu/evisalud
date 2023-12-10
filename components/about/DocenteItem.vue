@@ -25,7 +25,7 @@
           stroke-width="2"
         />
       </svg>
-      <img class="item-img" :src="docente.image" />
+      <img class="item-img" :src="docente.image"  />
     </div>
     <div class="item-info">
       <span class="item-name">{{ docente.name }}</span>
@@ -52,6 +52,7 @@
         </svg>
       </div>
       <div
+        v-if="currentWindowWidth > 768"
         class="item-description"
         v-show="
           (docenteDescriptionOpen.includes(docente.id) &&
@@ -60,14 +61,47 @@
             !docenteDescriptionOpen.includes(docente.id))
         "
       >
-        <p>{{ docente.description }}</p>
+        <p style="color: white; font-weight: 400">{{ docente.description }}</p>
         <div class="item-description-links">
-          <button class="button-cuz"><span><a :href="docente.linkedin" target="_blank">Linkedn</a></span></button>
-          <button class="button-cuz"><span><a :href="docente.posts" target="_blank">Mira aqui sus publicaciones</a></span></button>
+          <button class="button-cuz">
+            <span><a :href="docente.linkedin" target="_blank">Linkedn</a></span>
+          </button>
+          <button class="button-cuz">
+            <span
+              ><a :href="docente.posts" target="_blank"
+                >Mira aqui sus publicaciones</a
+              ></span
+            >
+          </button>
         </div>
       </div>
     </div>
+   
   </div>
+  <div
+      v-if="currentWindowWidth <= 768"
+      class="item-description"
+      v-show="
+        (docenteDescriptionOpen.includes(docente.id) &&
+          currentWindowWidth < 768) ||
+        (currentWindowWidth > 768 &&
+          !docenteDescriptionOpen.includes(docente.id))
+      "
+    >
+      <p style="color: white; font-weight: 400">{{ docente.description }}</p>
+      <div class="item-description-links">
+        <button class="button-cuz">
+          <span><a :href="docente.linkedin" target="_blank">Linkedin</a></span>
+        </button>
+        <button class="button-cuz">
+          <span
+            ><a :href="docente.posts" target="_blank"
+              >Mira aqui sus publicaciones</a
+            ></span
+          >
+        </button>
+      </div>
+    </div>
 </template>
   <script>
 import { ref } from "vue";
@@ -113,7 +147,7 @@ export default {
 };
 </script>
   
-  <style scoped>
+  <style scoped lang="scss">
 .item {
   display: flex;
   align-items: flex-start;
@@ -123,7 +157,7 @@ export default {
 }
 .item-divider {
   width: 90%;
-  height: 1px;
+  height: 2px;
   background: var(--EVI-DARK-004, #515166);
   margin: 1em 0;
 }
@@ -284,9 +318,13 @@ export default {
 .button-cuz {
   border-radius: 30px;
   border: none;
-  background: #0193c1;
+  background: #515166;
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.06);
   color: var(--EVI400, #f0f0f0);
   padding: 0.5em 2em;
+  &:hover {
+    cursor: pointer;
+    background: #0193c1;
+  }
 }
 </style>

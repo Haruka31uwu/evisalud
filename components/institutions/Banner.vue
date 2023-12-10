@@ -13,7 +13,7 @@
       class="d-flex justify-content-between  align-items-center pt-5 gap-3"
       :style="currentWindowWidth>768?'width: 80%;flex-direction:row':'width: 100%;flex-direction:column'"
     >
-      <div class="btn btn-blue">
+      <div class=" btn-blue d-flex flex-row gap-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="19"
@@ -30,7 +30,7 @@
         </svg>
         <span><a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=new">evisalud@gmail.com</a></span>
       </div>
-      <div class="btn btn-blue">
+      <div class="btn-blue d-flex flex-row gap-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="17"
@@ -52,7 +52,7 @@
     </div>
     <div
       style="width: 80%; height: 1px; background: #515166"
-      class="my-5 mx-auto"
+      class="my-3 mx-auto"
     ></div>
    
   </section>

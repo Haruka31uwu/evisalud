@@ -1,11 +1,11 @@
 <template>
   <section style="box-shadow: 0px -4px 50px 0px rgba(0, 0, 0, 0.20);background: #1c1c24;" class="py-3">
     <div class="row pt-3 d-flex justify-content-center mx-auto" style="width: 90%;">
-      <div class="col col-12 col-sm-12 col-md-5 col-lg-6 d-none d-lg-flex mx-0">
+      <div class="col col-12 col-sm-12 col-md-5 col-lg-6 d-none d-lg-flex mx-0 justify-content-end">
         <img
           src="/assets/img/benefits/benefits.png"
           alt="benefits"
-          style="width: 100%;height: 90%;"
+          style="width: 90%;height: 85%;"
         />
       </div>
       <div class="col col-12 col-sm-12 col-md-12 col-lg-6 ">
@@ -42,7 +42,7 @@
                 />
               </svg>
 
-              <p style="width: 90%;">Todas las personas que hayan llevado al menos un curso en EviSalud, se vuelven parte de la comunidad de Evialumnos.</p>
+              <p style="width: 90%;font-family: Axiforma;font-size: 16px;">Todas las personas que hayan llevado al menos un curso en EviSalud, se vuelven parte de la comunidad de Evialumnos.</p>
             </div>
           </div>
           <div class="col-12">
@@ -74,11 +74,33 @@
                 />
               </svg>
 
-              <p style="width: 90%;">La comunidad de Evialumnos tiene un descuento especial en los siguientes cursos o programas en los que se matricule.s</p>
+              <p style="width: 90%;font-family: Axiforma;font-size: 16px;">La comunidad de Evialumnos tiene un descuento especial en los siguientes cursos o programas en los que se matricule</p>
             </div>
+            <span
+            :style="currentWindowWidth>768?'margin-left:8em;':'margin-left:0em;'"
+            style="color:#0393AA;font-weight: 500;font-size: Axiforma;">*Descuento no acumulable con otras promociones.</span>
+
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+<script>
+import { defineComponent } from '@vue/composition-api'
+
+export default defineComponent({
+  setup() {
+    let currentWindowWidth = ref(null);
+    onMounted(() => {
+      currentWindowWidth.value = window.innerWidth;
+      window.addEventListener("resize", () => {
+        currentWindowWidth.value = window.innerWidth;
+      });
+    });
+    return {
+      currentWindowWidth,
+    };
+  },
+})
+</script>

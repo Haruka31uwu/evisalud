@@ -2,7 +2,7 @@
   <section class="experiencies-section">
     <div class="section-title">
       <h2>Experiencias</h2>
-      <div class="section-decorator"></div>
+      <div class="section-decorator" style="left:1em;"></div>
     </div>
     <div class="experiences-container">
       <svg
@@ -12,6 +12,8 @@
         height="39"
         viewBox="0 0 21 39"
         fill="none"
+        :style="scrollPosition>0?'cursor:pointer':''"
+
         :opacity="scrollPosition==0?0:1"
       >
       
@@ -24,13 +26,13 @@
           stroke-linejoin="round"
         />
       </svg>
-<div class="experiences-container2 d-flex gap-4 mx-auto" style="overflow-x: hidden;overflow-y: hidden;width: 80%;" >
+<div class="experiences-container2 d-flex gap-5 mx-auto" style="overflow-x: hidden;overflow-y: hidden;width: 80%;" >
   <div
         v-for="(experience, index) in experiencies"
         :key="`experience-${index}`"
         class="experience-container"
       >
-        <p>{{ experience.content }}</p>
+        <p>" {{ experience.content }} "</p>
         <div class="experience-owner">
           <span>{{ experience.owner }}</span>
           <span>{{ experience.course }}</span>
@@ -45,6 +47,7 @@
         height="39"
         viewBox="0 0 21 39"
         fill="none"
+        style="cursor: pointer;"
       >
         <path
           d="M2 37L19 19.5L2 2"
@@ -62,25 +65,23 @@ let experiencesContainer = ref(null);
 let scrollPosition = ref(0);
 const moveToLeft = () => {
   if (scrollPosition==0) return;
-  experiencesContainer = document.querySelector(".experiences-container2");
-  experiencesContainer.scrollLeft -= 300;
+  experiencesContainer = document.querySelector(".experiences-container2");;
+  experiencesContainer.scrollLeft -= (experiencesContainer.scrollWidth/experiencies.value.length);
   scrollPosition.value = experiencesContainer.scrollLeft;
 };
 const moveToRight = () => {
   if (scrollPosition==experiencesContainer.scrollWidth) return;
-  console.log("moveToRight");
-  experiencesContainer.scrollLeft += 300;
+  experiencesContainer.scrollLeft += (experiencesContainer.scrollWidth/experiencies.value.length);
   scrollPosition.value = experiencesContainer.scrollLeft;
+
 };
 onMounted(() => {
   experiencesContainer= document.querySelector(".experiences-container2");
-  console.log(experiencesContainer);
   const resizeObserver=new ResizeObserver(moveToRight);
   resizeObserver.observe(experiencesContainer);
 });
 const getActualScrollPosition = () => {
    experiencesContainer = document.querySelector(".experiences-container2");
-  console.log(experiencesContainer.scrollLeft,'owo');
   return experiencesContainer.scrollLeft;
 };
 const experiencies = ref([

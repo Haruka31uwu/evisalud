@@ -132,7 +132,6 @@ export default {
       });
     });
     function startCounter(index) {
-      console.log(index, indicators);
       const targetNumber = indicators.value[index].value;
       const duration = 2000; // Duración en milisegundos
       const step = targetNumber / (duration / 10); // Intervalo de tiempo en milisegundos
@@ -140,7 +139,6 @@ export default {
       let currentNumber = 0;
 
       const interval = setInterval(() => {
-        console.log(counters.length);
         if (currentNumber < targetNumber) {
           currentNumber += step;
           counters.value[index] = Math.round(currentNumber);

@@ -82,14 +82,12 @@ export default defineComponent({
     const isOnDrag = ref(false);
     const handleFileInputChange = (e) => {
       files.value.push(...e.target.files);
-      console.log(files.value);
     };
     const dropFiles = (e) => {
       e.preventDefault();
       isOnDrag.value = false;
 
       files.value.push(...e.dataTransfer.files);
-      console.log(files.value);
     };
     return {
       openFileInput,

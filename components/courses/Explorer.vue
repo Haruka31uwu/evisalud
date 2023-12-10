@@ -74,9 +74,7 @@ export default defineComponent({
     let pages = ref([1, 1,1]);
     const changePage = (pagev, programId) => {
       const element = document.getElementById(`courses-container-${programId}`);
-      console.log(element.scrollWidth, element.scrollLeft, element.clientWidth);
       element.scrollLeft = (pagev - 1) * 400;
-      console.log(pages)
       pages.value[programId] = pagev;
     };
     onMounted(() => {

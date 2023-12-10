@@ -20,13 +20,11 @@ export default {
       const params = route.params;
 
       if (params.courseId) {
-        console.log(params.courseId);
         courseId.value = params.courseId;
         courseData.value = getCourse(courseId.value);
         courseData.value.docentes.forEach((docente) => {
           docenteIds.value.push(docente.id);
         });
-        console.log(docenteIds.value);
       }
     });
 

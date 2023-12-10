@@ -1,8 +1,8 @@
 <template>
-  <div class="modal-customized">
+  <div class="modal-customized ">
     <div class="modal-customized-body" style="border-radius: 2em">
       <div
-        class="modal-customized-header w-100 d-flex justify-content-between px-3 pt-5"
+        class="modal-customized-header w-100 d-flex justify-content-between px-3 pt-5 "
       >
         <svg
           width="36"
@@ -30,7 +30,7 @@
           />
         </svg>
       </div>
-      <div class="row" style="width: 100%;margin: 0 auto;max-height:100vh;overflow-y: auto;"> 
+      <div class="row pb-5" style="width: 100%;margin: 0 auto;max-height:100vh;overflow-y: auto;"> 
         <div
         v-if="currentWindowWidth > 1090"
           class="col col-sm-12 col-md-3 col-lg-6 d-flex flex-column align-self-end px-5"
@@ -42,7 +42,7 @@
           />
         </div>
         <div
-          class="col col-sm-12 col-md-9 col-lg-6 d-flex flex-column gap-4 py-5"
+          class="col col-sm-12 col-md-9 col-lg-6 d-flex flex-column gap-4 "
           :class="currentWindowWidth < 1090 ? 'col col-md-10 col-lg-11 mx-auto ' : ''"
         >
           <h5 style="color: white" class="text-center">
@@ -53,19 +53,19 @@
             contactamos
           </span>
           <div class="d-flex flex-column gap-1">
-            <small style="color: white">Nombre</small>
+            <small style="color: white">Nombre*</small>
             <input type="text" class="input-customized" />
           </div>
           <div class="d-flex flex-column gap-1">
-            <small style="color: white">Correo Electronico</small>
+            <small style="color: white">Correo Electronico*</small>
             <input type="text" class="input-customized" />
           </div>
           <div class="d-flex flex-column gap-1">
-            <small style="color: white">Numero de Celular</small>
+            <small style="color: white">Número de Celular*</small>
             <input type="text" class="input-customized" />
           </div>
           <div class="d-flex flex-column gap-1">
-            <small style="color: white">Comentario</small>
+            <small style="color: white">Comentario*</small>
             <textarea class="input-customized" rows="4" cols="50"></textarea>
           </div>
           <div class="btn-blue mx-auto">Enviar</div>
@@ -121,5 +121,6 @@ export default {
   border-radius: 2em;
   padding: 0.8em 1em;
   resize: none;
+  color:  white ;
 }
 </style>

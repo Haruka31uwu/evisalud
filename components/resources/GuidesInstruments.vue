@@ -3,7 +3,7 @@
     class="d-flex justify-content-center flex-column align-items-center py-2"
   >
     <div class="section-title d-flex mb-5">
-      <h2>Guias e Instrumentos</h2>
+      <h2>Guías e instrumentos</h2>
       <div class="section-decorator"></div>
     </div>
     <div
@@ -15,54 +15,57 @@
         border-radius: 1em;
       "
     >
-      <div class="col col-12 col-md-6 d-flex flex-column gap-2">
-        <svg
-          width="75"
-          height="90"
-          viewBox="0 0 75 90"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M68.995 49.5981V36.5251L66.7373 37.4086L61.8066 32.4814L57.5595 35.326C55.3403 32.009 51.3885 29.3534 46.5153 27.8697C50.0184 25.1237 52.287 20.8327 52.287 16.0039C52.286 7.7305 45.6524 1 37.499 1C29.3456 1 22.712 7.7305 22.712 16.0029C22.712 20.8266 24.9767 25.1136 28.4728 27.8597C23.5848 29.3463 19.6497 31.9959 17.4286 35.3169L13.1924 32.4804L8.26176 37.4076L6.00398 36.5241V49.5971C3.18546 50.0314 1 52.889 1 56.3477C1 59.8055 3.18546 62.6631 6.00398 63.0973V75.6708L37.499 88L68.995 75.6708V63.0973C71.8135 62.6631 74 59.8065 74 56.3477C74 52.889 71.8135 50.0314 68.995 49.5981ZM61.6203 34.4123L65.2146 38.0037L43.6492 46.446L61.6203 34.4123ZM24.198 16.0039C24.198 8.56176 30.1649 2.50773 37.499 2.50773C44.8331 2.50773 50.8 8.56177 50.8 16.0029C50.8 23.4441 44.8331 29.4991 37.499 29.4991C30.1649 29.4991 24.198 23.4451 24.198 16.0039ZM13.3777 34.4123L31.3478 46.446L9.78247 38.0037L13.3777 34.4123ZM2.48604 56.3477C2.48604 53.4217 4.39708 51.0415 6.74699 51.0415C9.09691 51.0415 11.0089 53.4217 11.0089 56.3477C11.0089 59.2737 9.09691 61.6529 6.74699 61.6529C4.39708 61.6539 2.48604 59.2737 2.48604 56.3477ZM36.756 86.0932L7.48902 74.6365V63.1054C7.51775 63.1014 7.5445 63.0883 7.57224 63.0833C7.88728 63.029 8.19538 62.9506 8.4916 62.838C8.51637 62.829 8.54014 62.8159 8.56491 62.8058C8.86608 62.6862 9.15734 62.5405 9.43375 62.3656C9.44464 62.3586 9.45653 62.3535 9.46842 62.3455C9.74383 62.1686 10.0034 61.9615 10.2501 61.7354C10.2788 61.7082 10.3095 61.6841 10.3382 61.657C10.5711 61.4348 10.787 61.1896 10.9881 60.9272C11.0198 60.885 11.0525 60.8448 11.0842 60.8026C11.2764 60.5392 11.4518 60.2578 11.6093 59.9613C11.6361 59.911 11.6618 59.8607 11.6876 59.8095C11.8391 59.5069 11.9729 59.1903 12.0829 58.8606C12.0997 58.8104 12.1146 58.7591 12.1294 58.7088C12.2364 58.3671 12.3246 58.0143 12.385 57.6484C12.391 57.6112 12.3939 57.573 12.3999 57.5358C12.4573 57.1498 12.493 56.7538 12.493 56.3477C12.493 55.9417 12.4573 55.5466 12.3999 55.1596C12.3949 55.1225 12.391 55.0843 12.385 55.0471C12.3246 54.6822 12.2374 54.3294 12.1294 53.9866C12.1136 53.9364 12.0997 53.8841 12.0829 53.8349C11.9719 53.5042 11.8382 53.1885 11.6876 52.886C11.6618 52.8347 11.6361 52.7845 11.6093 52.7342C11.4518 52.4377 11.2774 52.1562 11.0842 51.8929C11.0525 51.8507 11.0208 51.8095 10.9881 51.7673C10.787 51.5059 10.572 51.2597 10.3382 51.0375C10.3095 51.0094 10.2788 50.9852 10.2501 50.9581C10.0034 50.7319 9.74383 50.5249 9.46842 50.348C9.45653 50.3409 9.44464 50.3349 9.43275 50.3279C9.15635 50.154 8.86509 50.0082 8.56491 49.8876C8.54014 49.8776 8.51637 49.8655 8.4916 49.8555C8.19538 49.7429 7.88728 49.6655 7.57224 49.6102C7.54351 49.6052 7.51676 49.5921 7.48902 49.5881V38.7224L36.756 50.1791V86.0932ZM18.6878 36.1623C20.8931 32.8704 24.9846 30.2771 30.0995 28.9734C32.2791 30.258 34.8014 31.0068 37.499 31.0068C40.1967 31.0068 42.7199 30.258 44.8985 28.9734C49.9876 30.2701 54.1129 32.8694 56.3182 36.1562L37.499 48.7588L18.6878 36.1623ZM67.509 74.6365L38.242 86.0932V50.1791L67.509 38.7234V49.5981C64.6905 50.0324 62.504 52.89 62.504 56.3487C62.504 59.8075 64.6905 62.6641 67.509 63.0983V74.6365ZM68.252 61.6539C65.9021 61.6539 63.9901 59.2737 63.9901 56.3487C63.9901 53.4227 65.9021 51.0425 68.252 51.0425C70.6019 51.0425 72.514 53.4227 72.514 56.3487C72.513 59.2737 70.6019 61.6539 68.252 61.6539Z"
-            fill="#0393AA"
-            stroke="#0393AA"
-            stroke-width="2"
-          />
-        </svg>
-        <div class="d-flex mb-2" style="width: 70%; position: relative">
-          <h2 style="font-size: 1.2em; z-index: 2">
-            Guías basadas en evidencia
-          </h2>
+      <div class="col col-12 col-md-6 d-flex flex-row gap-2">
+        <div class="d-flex flex-column">
           <svg
-            style="position: absolute; right: 0; bottom: 0"
-            width="180"
-            height="20"
-            viewBox="0 0 180 20"
+            width="75"
+            height="90"
+            viewBox="0 0 75 90"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect
-              opacity="0.7"
-              width="180"
-              height="20"
-              rx="10"
+            <path
+              d="M68.995 49.5981V36.5251L66.7373 37.4086L61.8066 32.4814L57.5595 35.326C55.3403 32.009 51.3885 29.3534 46.5153 27.8697C50.0184 25.1237 52.287 20.8327 52.287 16.0039C52.286 7.7305 45.6524 1 37.499 1C29.3456 1 22.712 7.7305 22.712 16.0029C22.712 20.8266 24.9767 25.1136 28.4728 27.8597C23.5848 29.3463 19.6497 31.9959 17.4286 35.3169L13.1924 32.4804L8.26176 37.4076L6.00398 36.5241V49.5971C3.18546 50.0314 1 52.889 1 56.3477C1 59.8055 3.18546 62.6631 6.00398 63.0973V75.6708L37.499 88L68.995 75.6708V63.0973C71.8135 62.6631 74 59.8065 74 56.3477C74 52.889 71.8135 50.0314 68.995 49.5981ZM61.6203 34.4123L65.2146 38.0037L43.6492 46.446L61.6203 34.4123ZM24.198 16.0039C24.198 8.56176 30.1649 2.50773 37.499 2.50773C44.8331 2.50773 50.8 8.56177 50.8 16.0029C50.8 23.4441 44.8331 29.4991 37.499 29.4991C30.1649 29.4991 24.198 23.4451 24.198 16.0039ZM13.3777 34.4123L31.3478 46.446L9.78247 38.0037L13.3777 34.4123ZM2.48604 56.3477C2.48604 53.4217 4.39708 51.0415 6.74699 51.0415C9.09691 51.0415 11.0089 53.4217 11.0089 56.3477C11.0089 59.2737 9.09691 61.6529 6.74699 61.6529C4.39708 61.6539 2.48604 59.2737 2.48604 56.3477ZM36.756 86.0932L7.48902 74.6365V63.1054C7.51775 63.1014 7.5445 63.0883 7.57224 63.0833C7.88728 63.029 8.19538 62.9506 8.4916 62.838C8.51637 62.829 8.54014 62.8159 8.56491 62.8058C8.86608 62.6862 9.15734 62.5405 9.43375 62.3656C9.44464 62.3586 9.45653 62.3535 9.46842 62.3455C9.74383 62.1686 10.0034 61.9615 10.2501 61.7354C10.2788 61.7082 10.3095 61.6841 10.3382 61.657C10.5711 61.4348 10.787 61.1896 10.9881 60.9272C11.0198 60.885 11.0525 60.8448 11.0842 60.8026C11.2764 60.5392 11.4518 60.2578 11.6093 59.9613C11.6361 59.911 11.6618 59.8607 11.6876 59.8095C11.8391 59.5069 11.9729 59.1903 12.0829 58.8606C12.0997 58.8104 12.1146 58.7591 12.1294 58.7088C12.2364 58.3671 12.3246 58.0143 12.385 57.6484C12.391 57.6112 12.3939 57.573 12.3999 57.5358C12.4573 57.1498 12.493 56.7538 12.493 56.3477C12.493 55.9417 12.4573 55.5466 12.3999 55.1596C12.3949 55.1225 12.391 55.0843 12.385 55.0471C12.3246 54.6822 12.2374 54.3294 12.1294 53.9866C12.1136 53.9364 12.0997 53.8841 12.0829 53.8349C11.9719 53.5042 11.8382 53.1885 11.6876 52.886C11.6618 52.8347 11.6361 52.7845 11.6093 52.7342C11.4518 52.4377 11.2774 52.1562 11.0842 51.8929C11.0525 51.8507 11.0208 51.8095 10.9881 51.7673C10.787 51.5059 10.572 51.2597 10.3382 51.0375C10.3095 51.0094 10.2788 50.9852 10.2501 50.9581C10.0034 50.7319 9.74383 50.5249 9.46842 50.348C9.45653 50.3409 9.44464 50.3349 9.43275 50.3279C9.15635 50.154 8.86509 50.0082 8.56491 49.8876C8.54014 49.8776 8.51637 49.8655 8.4916 49.8555C8.19538 49.7429 7.88728 49.6655 7.57224 49.6102C7.54351 49.6052 7.51676 49.5921 7.48902 49.5881V38.7224L36.756 50.1791V86.0932ZM18.6878 36.1623C20.8931 32.8704 24.9846 30.2771 30.0995 28.9734C32.2791 30.258 34.8014 31.0068 37.499 31.0068C40.1967 31.0068 42.7199 30.258 44.8985 28.9734C49.9876 30.2701 54.1129 32.8694 56.3182 36.1562L37.499 48.7588L18.6878 36.1623ZM67.509 74.6365L38.242 86.0932V50.1791L67.509 38.7234V49.5981C64.6905 50.0324 62.504 52.89 62.504 56.3487C62.504 59.8075 64.6905 62.6641 67.509 63.0983V74.6365ZM68.252 61.6539C65.9021 61.6539 63.9901 59.2737 63.9901 56.3487C63.9901 53.4227 65.9021 51.0425 68.252 51.0425C70.6019 51.0425 72.514 53.4227 72.514 56.3487C72.513 59.2737 70.6019 61.6539 68.252 61.6539Z"
               fill="#0393AA"
+              stroke="#0393AA"
+              stroke-width="2"
             />
           </svg>
+          <div
+            class="d-flex mb-2"
+            style="position: relative"
+            :style="currentWindowWidth < 768 ? 'width:100%' : 'width:70%'"
+          >
+            <h2 style="font-size: 1.2em; z-index: 2">
+              Guías basadas en evidencia
+            </h2>
+            <div
+              style="
+                background: #0393aa;
+                width: 230px;
+                height: 1.2em;
+                border-radius: 1em;
+                opacity: 0.7;
+                position: absolute;
+                bottom: 0;
+                left: 2em;
+              "
+            ></div>
+          </div>
+          <p>
+            Hemos organizado las Guías de Práctica Clínica (GPC) realizadas por
+            el Instituto de Evaluación de Tecnologías en Salud e Investigación
+            (IETSI) de Perú para que puedas revisar sus recomendaciones y
+            flujogramas de manejo de forma práctica y rápida. Estas GPC están
+            basadas en búsquedas sistemáticas de evidencia y fueron elaboradas
+            con metodología GRADE, el estándar mundial para la elaboración de
+            este tipo de documentos.
+          </p>
+          <button class="btn-blue mb-3 w-100" style="max-width: 100%">
+            <span><a href="https://gpc-peru.com/" target="_blank"><span>Ir a la página de GPC</span></a></span>
+          </button>
         </div>
-        <p>
-          Hemos organizado las Guías de Práctica Clínica (GPC) realizadas por el
-          Instituto de Evaluación de Tecnologías en Salud e Investigación
-          (IETSI) de Perú para que puedas revisar sus recomendaciones y
-          flujogramas de manejo de forma práctica y rápida. Estas GPC están
-          basadas en búsquedas sistemáticas de evidencia y fueron elaboradas con
-          metodología GRADE, el estándar mundial para la elaboración de este
-          tipo de documentos.
-        </p>
-        <button class="btn-blue mb-3">
-          <span><a href="https://gpc-peru.com/" target="_blank">GPC</a></span>
-        </button>
+        <div style="width: 1px; height: 90%;margin: 0 1em; background: #515166"></div>
       </div>
       <div class="col col-12 col-md-6 d-flex flex-column gap-2">
         <svg
@@ -77,36 +80,25 @@
             fill="#0393AA"
           />
         </svg>
-        <div class="d-flex mb-2" style="width:100%; position: relative">
+        <div class="d-flex mb-2" style="width: 100%; position: relative">
           <h2 style="font-size: 1.2em; z-index: 2; text-align: center">
-            Instrumentos de lectura crítica y para la toma de decisiones en
-            salud
+            Instrumentos de lectura crítica y para toma de decisiones
           </h2>
           <div
             style="
-              width: 80%;
               background: #0393aa;
-              height: 20px;
+              height: 1.2em;
               border-radius: 1em;
-              position: absolute;
-              right: 0.1rem;
-              bottom: 0.1em;
               opacity: 0.7;
+              position: absolute;
+              bottom: 0;
+              left: 4.2em;
             "
+            :style="currentWindowWidth < 1200 ? 'width: 80%' : 'width: 480px'"
           ></div>
         </div>
-        <span>
-          En EviSalud hemos elaborado instrumentos que te facilitarán la lectura
-          crítica de ensayos clínicos aleatorizados, revisiones sistemáticas de
-          intervenciones y pruebas diagnósticas, así como en la lectura de guías
-          de práctica clínica y sus recomendaciones. Además, elaboramos
-          instrumentos para ayudarte en la toma de decisiones en base a tablas
-          de resumen de evidencia (tablas SoF). ¡Estamos seguros que nuestros
-          EviTools te serán de gran utilidad! Te invitamos a descargarlos y
-          ponerlos en práctica.
-        </span>
         <div
-          class="donwloads d-flex flex-column mx-0 justify-content-center align-items-start ms-3 mt-3 gap-3"
+          class="donwloads d-flex flex-column mx-0 justify-content-center align-items-start ms-3 mt-3 gap-4"
         >
           <div
             v-for="(instrument, index) in instruments"
@@ -191,6 +183,13 @@ import { defineComponent } from "@vue/composition-api";
 import { redirectTo } from "/composables/main-composables.js";
 export default defineComponent({
   setup() {
+    let currentWindowWidth = ref(null);
+    onMounted(() => {
+      currentWindowWidth.value = window.innerWidth;
+      window.addEventListener("resize", () => {
+        currentWindowWidth.value = window.innerWidth;
+      });
+    });
     const instruments = reactive([
       {
         title: "EviTool para lectura crítica de Ensayos Clínicos Aleatorizados",
@@ -205,19 +204,23 @@ export default defineComponent({
         file: "/evisalud/assets/img/resources/instrumentos/EviTool para lectura crítica de recomendaciones de GPC.docx",
       },
       {
-        title: "EviTool para lectura crítica de Revisiones Sistemáticas de intervenciones",
+        title:
+          "EviTool para lectura crítica de Revisiones Sistemáticas de intervenciones",
         file: "/evisalud/assets/img/resources/instrumentos/EviTool para lectura crítica de Revisiones Sistemáticas de intervenciones.docx",
       },
       {
-        title: "EviTool para lectura crítica de Revisiones Sistemáticas de pruebas diagnósticas",
+        title:
+          "EviTool para lectura crítica de Revisiones Sistemáticas de pruebas diagnósticas",
         file: "/evisalud/assets/img/resources/instrumentos/EviTool para lectura crítica de Revisiones Sistemáticas de pruebas diagnósticas.docx",
       },
       {
-        title: "EviTool para tomar decision de usar o no una prueba diagnóstica usando tala SoF",
+        title:
+          "EviTool para tomar decision de usar o no una prueba diagnóstica usando tala SoF",
         file: "/evisalud/assets/img/resources/instrumentos/EviTool para tomar decision de usar o no una prueba diagnóstica usando tala SoF.docx",
       },
       {
-        title: "EviTool para tomar decisiones de la comparacion de dos pruebas  diagnosticas usando tabla SoF",
+        title:
+          "EviTool para tomar decisiones de la comparacion de dos pruebas  diagnosticas usando tabla SoF",
         file: "/evisalud/assets/img/resources/instrumentos/EviTool para tomar decisiones de la comparacion de dos pruebas  diagnosticas usando tabla SoF.docx",
       },
       {
@@ -227,6 +230,7 @@ export default defineComponent({
     ]);
     return {
       instruments,
+      currentWindowWidth,
     };
   },
 });

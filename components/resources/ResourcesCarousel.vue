@@ -67,24 +67,21 @@ let scrollPosition = ref(0);
 const moveToLeft = () => {
   if (scrollPosition == 0) return;
   experiencesContainer = document.querySelector(".experiences-container2");
-  experiencesContainer.scrollLeft -= 300;
+  experiencesContainer.scrollLeft -=  (experiencesContainer.scrollWidth/experiencies.value.length);
   scrollPosition.value = experiencesContainer.scrollLeft;
 };
 const moveToRight = () => {
   if (scrollPosition == experiencesContainer.scrollWidth) return;
-  console.log("moveToRight");
-  experiencesContainer.scrollLeft += 300;
+  experiencesContainer.scrollLeft += (experiencesContainer.scrollWidth/experiencies.value.length)
   scrollPosition.value = experiencesContainer.scrollLeft;
 };
 onMounted(() => {
   experiencesContainer = document.querySelector(".experiences-container2");
-  console.log(experiencesContainer);
   const resizeObserver = new ResizeObserver(moveToRight);
   resizeObserver.observe(experiencesContainer);
 });
 const getActualScrollPosition = () => {
   experiencesContainer = document.querySelector(".experiences-container2");
-  console.log(experiencesContainer.scrollLeft, "owo");
   return experiencesContainer.scrollLeft;
 };
 const experiencies = ref([

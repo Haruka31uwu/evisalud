@@ -51,12 +51,14 @@
             </p>
             </li>
           </ul>
-          <div style="width: 90%;background: white;height: 1px;margin: 0;"></div>
+          <div style="width: 80%;background: white;height: 1px;margin: 0;"></div>
           <p>Además, si eres estudiante de pregrado, sólo envíanos la foto de tu carné y obtén un precio diferenciado para que puedas capacitarte desde tu etapa universitaria.</p>
-          <div class="btn btn-white" @click="openStudentRegisterModal()"><span>Registrarme como estudiante</span></div>
+          <div class="btn-white" @click="openStudentRegisterModal()"><span>Registrarme como estudiante</span></div>
         </div>
       </div>
     </div>
+    <div style="width: 80%;background: #515166;height: 1px;margin: 0;margin-top: 3em;"></div>
+
   </section>
 </template>
 <script >
@@ -66,19 +68,15 @@ export default {
         const discounts = [
             {
                 discount: '20%',
-                description: 'para estudiantes de pregrado'
+                description: 'para integrantes de la Sociedad Peruana de Medicina Interna (SPMI).'
             },
             {
                 discount: '10%',
-                description: 'para estudiantes de postgrado'
+                description: 'para integrantes de la Sociedad Científica Médico Estudiantil Peruana (SOCIMEP).'
             },
             {
                 discount: '10%',
-                description: 'para profesionales de la salud'
-            },
-            {
-                discount: '10%',
-                description: 'para profesionales de la salud'
+                description: 'para la comunidad de USAMEDIC'
             },
         ]
         const openStudentRegisterModal = () => {

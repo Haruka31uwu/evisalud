@@ -608,7 +608,6 @@ export default {
       localStorage.removeItem("respondeDateDescription");
     };
     const saveOnLocalStorage = () => {
-      console.log(claimantTypeSelected.value);
       localStorage.setItem("claimantTypeSelected", claimantTypeSelected.value);
       localStorage.setItem("typeDocumentSelected", typeDocumentSelected.value);
       localStorage.setItem(

@@ -27,7 +27,6 @@
     },
     setup(props){
         const getBackgroundImage = () => {
-          console.log(props.courseInfo.value.img);
             return `background:url(${props.courseInfo.value.img})`;
         };
         return{

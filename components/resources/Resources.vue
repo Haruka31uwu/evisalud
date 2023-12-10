@@ -2,7 +2,7 @@
   <section class="d-flex flex-column align-items-center justify-content-center">
     <div class="section-title">
       <h2>Recursos</h2>
-      <div class="section-decorator"></div>
+      <div class="section-decorator" style="left: 1.5em;"></div>
     </div>
     <div class="row mt-3" style="width: 70%">
       <div

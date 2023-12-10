@@ -1,7 +1,7 @@
 <template>
   <section class="reasons-list">
     <div class="reason-list-content">
-      <div v-for="(reason, index) in reasonsList" :key="`reason-${index}`" class="reason-list-item">
+      <div v-for="(reason, index) in reasonsList" :key="`reason-${index}`" class="reason-list-item" style="position: relative;">
         <div class="reason-header">
           <img :src="reason.icon" />
           <h3>{{ reason.title }}</h3>
@@ -13,6 +13,8 @@
             >{{ reasonItem }}</li>
           </ul>
           <button class="btn-blue" @click="redirectTo('/courses',reason.id)">Ver Cursos</button>
+          <div v-if="index==0 && currentWindowWidth>768" style="height: 100%;width: 1px;background: #515166;
+        ;position: absolute;top: 0;right: 0;"></div>
         </div>
 
       </div>
@@ -24,6 +26,13 @@ import { defineComponent } from "@vue/composition-api";
 import {redirectTo} from "/composables/main-composables.js";
 export default defineComponent({
   setup() {
+    let currentWindowWidth = ref(null);
+    onMounted(() => {
+      currentWindowWidth.value = window.innerWidth;
+      window.addEventListener("resize", () => {
+        currentWindowWidth.value = window.innerWidth;
+      });
+    });
     const reasonsList = ref([
       {
         icon: "/evisalud/assets/img/lupa.svg",
@@ -50,6 +59,7 @@ export default defineComponent({
     ]);
     return {
       reasonsList,
+      currentWindowWidth
     };
   },
 });

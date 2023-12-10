@@ -1,10 +1,11 @@
 export const scrollIntoView = (id) => {
     const el = document.getElementById(id)
-    console.log(el, id)
+    console.warn(el, id)
     el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
 }
 export const redirectTo = (path, id) => {
     const router = useRouter()
+    console.log(path,id)
     router.push(path).then(() => {
         if (id) {
             scrollIntoView(id)

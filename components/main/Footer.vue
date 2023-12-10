@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer-lg" v-if="currentWindowWidth > 1100">
+  <footer class="footer-lg pt-5" v-if="currentWindowWidth > 1100">
     <div class="footer-content">
       <img src="/assets/img/logo-footer.png" width="250" height="250" />
       <div class="footer-content-elements">
@@ -13,25 +13,29 @@
                 >Preguntas frecuentes</router-link
               >
             </span>
-            <span
-              ><router-link
-                to="/about/"
-                style="text-decoration: none; color: inherit"
-                >Acerca de nosotros</router-link
-              ></span
+            <span @click="
+                () => {
+
+                  redirectTo('/about', 'docentes-title');
+                }
+              "
+          >
+              Acerca de nosotros
+              </span
             >
             <span @click="openWorkWithUsModal()">Trabaja con nosotros</span>
           </div>
           <div class="column-divider"></div>
-          <div class="second-column column">
+          <div class="second-column column" >
             <h5>Contacto</h5>
-            <span
+            <span 
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="11"
                 viewBox="0 0 16 11"
                 fill="none"
+                style="margin-right: 0.3em;"
               >
                 <path
                   d="M2.17079 1C1.52502 1 1 1.52514 1 2.17079V8.86118C1 9.50695 1.52514 10.032 2.17079 10.032H13.879C14.5247 10.032 15.0498 9.50683 15.0498 8.86118V2.17079C15.0498 1.52502 14.5246 1 13.879 1H2.17079ZM2.17079 1.33449H13.879C14.0843 1.33449 14.2675 1.41289 14.4122 1.53306L8.63633 6.45169C8.26555 6.76695 7.77321 6.76716 7.40276 6.45169L1.63738 1.53306C1.78205 1.41289 1.96524 1.33449 2.17058 1.33449H2.17079ZM1.42341 1.79965L7.18849 6.70753C7.67444 7.12135 8.36454 7.1209 8.85058 6.70753L14.6264 1.79965C14.6825 1.91247 14.7153 2.03474 14.7153 2.17079V8.86118C14.7153 9.32738 14.3452 9.69748 13.879 9.69748H2.17084C1.70463 9.69748 1.33454 9.32738 1.33454 8.86118V2.17079C1.33454 2.03487 1.36721 1.91248 1.42344 1.79965H1.42341Z"
@@ -54,6 +58,7 @@
                 height="14"
                 viewBox="0 0 14 14"
                 fill="none"
+                style="margin-right: 0.3em;"
               >
                 <path
                   fill-rule="evenodd"
@@ -359,11 +364,14 @@
         <div class="row-divider"></div>
 
         <span
-          ><router-link
-            to="/about/"
-            style="text-decoration: none; color: inherit; font-size: 20px"
-            >Acerca de nosotros</router-link
-          ></span
+        @click="
+                () => {
+
+                  redirectTo('/about', 'docentes-title');
+                }
+              "
+          >Acerca de nosotros
+          </span
         >
         <div class="row-divider"></div>
 
@@ -386,6 +394,8 @@
   </footer>
 </template>
 <script>
+import { redirectTo } from '/composables/main-composables.js';
+
 export default {
   emits: [
     "openWorkWithUsModal",
@@ -413,6 +423,7 @@ export default {
       openWorkWithUsModal,
       openComplaintsBookModal,
       currentWindowWidth,
+      redirectTo
     };
   },
 };

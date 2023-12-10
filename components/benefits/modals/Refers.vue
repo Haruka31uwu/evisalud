@@ -39,7 +39,7 @@
           class="d-flex flex-column justify-content-center align-items-center gap-2"
         >
           <h3 style="font-style: italic; color: #0393aa; margin: 0">
-            !REFIERE Y GANA
+            ¡REFIERE Y GANA!!
           </h3>
           <span style="color: #0393aa"
             >Comparte lo bueno, comparte conocimiento</span
@@ -51,13 +51,13 @@
           <div class="row w-100">
             <div class="col col-12 col-md-6">
               <div class="input-container">
-                <span for="name" style="color: white">*Nombres</span>
+                <span for="name" style="color: white">Nombres*</span>
                 <input type="text" id="name" class="input-customized" />
               </div>
             </div>
             <div class="col col-12 col-md-6">
               <div class="input-container">
-                <span for="name" style="color: white">*Apellidos</span>
+                <span for="name" style="color: white">Apellido*</span>
                 <input type="text" id="name" class="input-customized" />
               </div>
             </div>
@@ -65,13 +65,13 @@
           <div class="row w-100">
             <div class="col col-12 col-md-6">
               <div class="input-container">
-                <span for="name" style="color: white">*Correo Electronico</span>
+                <span for="name" style="color: white">Correo Electronico*</span>
                 <input type="text" id="name" class="input-customized" />
               </div>
             </div>
             <div class="col col-12 col-md-6">
               <div class="input-container">
-                <span for="name" style="color: white">*Celular</span>
+                <span for="name" style="color: white">Celular*</span>
                 <input type="text" id="name" class="input-customized" />
               </div>
             </div>
@@ -92,7 +92,7 @@
             </div>
           </div>
           <div class="btn-blue" @click="closeModal">
-            <span @click="openConfirmationModal2">Guardar Cambios</span>
+            <span @click="openConfirmationModal2">Enviar</span>
             
           </div>
         </div>
