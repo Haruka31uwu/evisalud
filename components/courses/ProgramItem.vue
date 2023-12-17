@@ -31,14 +31,15 @@
         {{ program.hours }}
       </p>
       <ul class="program-course-list">
+        <span style="font-family: Axiforma;">Cursos que incluye:</span>
         <li
           class="program-courses"
           v-for="(programCourse, index) in program.coursesList"
           :key="`course-${program.id}-${index}`"
         >
           <svg
-            width="14   "
-            height="14  "
+            width="14"
+            height="14"
             viewBox="0 0 14 14"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +58,7 @@
       </ul>
       <div class="program-footer">
         <span class="program-more-info">        
-          <router-link :to="'/program-detail/' + program.id">Mas información</router-link> </span>
+          <router-link :to="'/program-detail/' + program.id" style="color:#0393AA ;text-decoration: underline;">Mas información</router-link> </span>
         <button class="btn-blue">
           <svg
             xmlns="http://www.w3.org/2000/svg"

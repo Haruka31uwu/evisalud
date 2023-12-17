@@ -3,7 +3,7 @@
         <div class="decoration" style="position: absolute;bottom:-10em;left: 0;"></div>
         <div class="banner-content">
             <h2>ACCEDE AL MATERIAL DEL CURSO NI BIEN TE MATRICULES</h2>
-            <p>PODRÁS ACCEDER A LOS TALLERES Y OBTENER TU CERTIFICADO</p>
+            <p style="font-style: italic;">PODRÁS ACCEDER A LOS TALLERES Y OBTENER TU CERTIFICADO</p>
         </div>
         <div class="decoration" style="position: absolute;bottom:-10em;right: 0em;"></div>
     </section>

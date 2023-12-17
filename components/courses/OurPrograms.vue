@@ -1,8 +1,8 @@
 <template>
   <section class="our-programs-section" id="programs-list" >
     <div class="section-title mt-5">
-      <h2>Nuestros Programas</h2>
-      <div class="section-decorator"></div>
+      <h2>Nuestros programas</h2>
+      <div class="section-decorator" style="left:4.3em;width: 90%;"></div>
     </div>
     <h3>
       Descubre nuestros programas exclusivos: ¡paquetes de cursos diseñados para

@@ -1,28 +1,43 @@
 <template>
-  <div>
-    <main-navbar />
-    <commons-complaints-book-form
-      v-if="getClaimForm"
-      @closeComplaintsBookForm="closeComplaintsBookForm"/> 
-    <router-view  v-show="!getClaimForm" />
-    <main-footer
-      @openWorkWithUsModal="openWorkWithUsModal"
-      @openComplaintsBookModal="openComplaintsBookModal"
-    />
-    <home-modals-work-with-us-modal
-      v-if="showModalWorkWithUs"
-      @closeModal="closenWorkWithUsModal"
-    />
-    <home-modals-complaints-book-modal
-      v-if="showModalComplainBook"
-      @openComplaintsBookForm="openComplaintsBookForm"
-      @closeModal="closenComplaintsBookModal"
-    />
+  <div style="position: relative;width: 100%;">
+    <main>
+      <main-navbar @openSidebarCart="showSidebarCart = true" />
+      <commons-complaints-book-form
+        v-if="getClaimForm"
+        @closeComplaintsBookForm="closeComplaintsBookForm"
+      />
+      <router-view v-show="!getClaimForm" />
+      <main-footer
+      v-if="showFooter"
+          @openWorkWithUsModal="openWorkWithUsModal"
+        @openComplaintsBookModal="openComplaintsBookModal"
+      />
+      <home-modals-work-with-us-modal
+        v-if="showModalWorkWithUs"
+        @closeModal="closenWorkWithUsModal"
+      />
+      <home-modals-complaints-book-modal
+        v-if="showModalComplainBook"
+        @openComplaintsBookForm="openComplaintsBookForm"
+        @closeModal="closenComplaintsBookModal"
+      />
+    </main>
+
+    <shop-car-side-bar-car-items v-if="showSidebarCart" @closeCarSideBar="showSidebarCart=false" />
 
   </div>
 </template>
 <script setup>
-import {getClaimForm} from '/composables/main-composables.js'
+import { getClaimForm } from "/composables/main-composables.js";
+const route=useRoute();
+const showFooter = ref(true);
+onMounted(() => {
+  if(!route)return; 
+  if (route.matched[0].path === "/login") {
+    console.log("login");
+    showFooter.value = false;
+  }
+});
 useHead({
   link: [
     {
@@ -32,7 +47,6 @@ useHead({
         "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC",
       crossorigin: "anonymous",
     },
-
   ],
   script: [
     {
@@ -43,6 +57,7 @@ useHead({
     },
   ],
 });
+const showSidebarCart = ref(false);
 const showModalWorkWithUs = ref(false);
 const showModalComplainBook = ref(false);
 const showModalComplainBookForm = ref(false);
@@ -60,11 +75,11 @@ const closenComplaintsBookModal = () => {
 };
 const closeComplaintsBookForm = () => {
   showModalComplainBookForm.value = false;
-  getClaimForm.value=false;
+  getClaimForm.value = false;
 };
 const openComplaintsBookForm = () => {
   closenComplaintsBookModal();
-  
-  getClaimForm.value=true;
+
+  getClaimForm.value = true;
 };
 </script>

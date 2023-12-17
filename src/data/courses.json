@@ -5,7 +5,7 @@
             "id": 1
         },
         {
-            "title": "Cursos de medicina basada en evidencias",
+            "title": "Cursos de Medicina Basada en Evidencias",
             "id": 2
         }
     ],
@@ -61,7 +61,7 @@
         {
             "id": 2,
             "type": 1,
-            "title": "Análisis estadístico con STATA",
+            "title": "Análisis estadístico con STATA*",
             "description": "Aprenderás a utilizar el programa RStudio para limpiar tu base de datos, armar las tablas necesarias para presentar tus resultados descriptivos, bivariados y de regresión; para su publicación en formato de artículo científico.",
             "frase": "Si eres un profesional o estudiante de la salud, y estás deseoso de realizar análisis estadísticos para tu tesis o tus publicaciones utilizando el programa STATA, ¡este curso es para ti!",
             "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",
@@ -110,7 +110,7 @@
         {
             "id": 3,
             "type": 1,
-            "title": "Análisis estadístico con RStudio",
+            "title": "Análisis estadístico con RStudio*",
             "description": "Aprenderás a redactar artículos científicos originales en áreas de la salud y realizar el proceso de publicación en una revista científica indizada.",
             "frase": "Si eres un profesional o estudiante de la salud, y estás deseoso de realizar análisis estadísticos para tu tesis o tus publicaciones utilizando el programa RStudio, ¡este curso es para ti!",
             "schedule": "Lunes a viernes de 8:00 a.m. a 12:00 m.",

@@ -50,11 +50,8 @@
       <nuxt-link
         v-for="(option, index) in navOptions"
         :key="`navbar-option-${index}`"
-        :to="
-          option.path !== '/classroom'
-            ? option.path
-            : isLogged==true?'/classroom':'/login'  
-        "
+        :to="getRoute(option.path)"
+        
         class="d-flex align-items-center flex-row gap-1"
       >
         <component
@@ -172,12 +169,26 @@
         </div>
         <div v-else v-html="option.content" />
       </nuxt-link>
+      <shop-car-side-car-item @openCarSideBar="openSidebarCart" />
     </div>
   </div>
 </template>
 <script setup>
 import { getClaimForm, redirectTo } from "/composables/main-composables.js";
-import { isLogged } from "/composables/auth-composables.js";
+import { authStore } from "../../store/auth/auth.store";
+const isLogged = authStore().isLogged;
+const getRoute=(path)=>{
+  console.log(path);
+  if(path==='/classroom/home'){
+
+    console.log(isLogged,'owo');
+    if(isLogged){
+      return path;
+    }
+    return '/login';
+  }
+  return path;
+}
 const selectedOption = ref("Inicio");
 const navOptions = [
   {
@@ -218,7 +229,7 @@ const navOptions = [
   },
   {
     name: "Aula Virtual",
-    path: "/classroom",
+    path: "/classroom/home",
     type: "button",
   },
   {
@@ -251,6 +262,11 @@ onMounted(() => {
     currentWindowWidth.value = window.innerWidth;
   });
 });
+const emit = defineEmits(["openSidebarCart"]);
+const openSidebarCart = () => {
+  emit("openSidebarCart");
+};
+
 const isCollapsedOpen = ref(false);
 const openCourses = ref(false);
 </script>

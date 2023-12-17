@@ -1,12 +1,12 @@
 <template>
   <section class="our-courses-section">
     <div class="section-title" style="margin-bottom: 2em">
-      <h2>Nuestros cursos?</h2>
-      <div class="section-decorator"></div>
+      <h2>Nuestros cursos</h2>
+      <div class="section-decorator" style="left:5em;width: 80%;"></div>
     </div>
-    <div class="our-courses-banner" style="position: relative;">
+    <div class="our-courses-banner r" style="position: relative;">
       <div class="our-courses-banner-text" >
-        <p>
+        <p style="line-height: 2;margin: 0;">
           Brindamos
           <span @click="scrollIntoView('courses-list')">cursos</span> y
           <span @click="scrollIntoView('programs-list')">programas </span> de
