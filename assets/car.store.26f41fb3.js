@@ -1,0 +1,1 @@
+import{$ as r}from"./entry.a352c531.js";const a=r("carStore",{state:()=>({carItems:[]}),getters:{getCarItems:t=>t.carItems},actions:{addCarItem(t){this.carItems.push(t)},removeCarItem(t){const e=this.carItems.indexOf(t);this.carItems.splice(e,1)}}});export{a as c};
