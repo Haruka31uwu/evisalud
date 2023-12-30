@@ -4,9 +4,9 @@
     <VForm
       :validation-schema="schema"
       @submit="onSubmit"
-      class="row d-flex align-items-center"
+      class="row d-flex align-items-start"
     >
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-lg-6 d-flex flex-column" style="row-gap: 1.2em">
         <div class="input-container">
           <span for="name" style="color: white">Nombre</span>
           <AuthInput type="text" name="name" mode="aggressive" />
@@ -32,7 +32,7 @@
           </select>
         </div>
       </div>
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-lg-6 d-flex flex-column" style="row-gap: 1.2em">
         <div class="input-container">
           <span for="name" style="color: white">Celular</span>
           <AuthInput type="text" name="phone" mode="aggressive" />
@@ -74,9 +74,12 @@ import * as yup from "yup";
 import AuthService from "/services/auth/auth.service.js";
 import { useForm } from "vee-validate";
 import { authStore } from "../../store/auth/auth.store";
-    
+import { usePreloader, useSwall } from "@/composables/main-composables.js";
+
 export default defineComponent({
   setup() {
+    const { showPreloader, hidePreloader } = usePreloader();
+    const { showSuccessSwall, showErrorSwall } = useSwall();
     const schema = yup.object().shape({
       email: yup.string().email().required(),
       password: yup.string().required().min(8),
@@ -90,7 +93,7 @@ export default defineComponent({
       validationSchema: schema,
     });
     const condition = ref(false);
-    const onSubmit = (values) => {
+    const onSubmit = async (values) => {
       if (!condition.value) {
         return;
       }
@@ -100,27 +103,26 @@ export default defineComponent({
         name: values.name,
         lastName: values.lastName,
         phone: values.phone,
+        country: countrySelected.value,
       };
-      AuthService.register(authParams).then(
-        (res) => {
-          // resetForm();
-          if (res.status === 200) {
-            store.addToken(res.data.access_token);
-            store.addUserData(res.data.user);
-            location.reload();
-            // const router = useRouter();
-            // router.push("/classroom/home");
-          }
-        },
-        (error) => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
+      try {
+        showPreloader();
+        const res = await AuthService.register(authParams);
+        if (res.status === 200) {
+          store.addToken(res.data.access_token);
+          store.addUserData(res.data.user);
+          showSuccessSwall("Exito", "Usuario creado correctamente");
+          location.reload();
+          // const router = useRouter();
+          // router.push("/classroom/home");
         }
-      );
+        hidePreloader();
+      } catch (e) {
+        console.log(e.response.data);
+        hidePreloader();
+        showErrorSwall("Error", e.response.data.message);
+        return;
+      }
     };
     const countryOptions = [
       { name: "Perú", value: "peru" },

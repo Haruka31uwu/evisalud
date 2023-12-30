@@ -65,7 +65,7 @@
                 type="text"
                 id="name"
                 class="input-customized"
-                v-model="email"
+                v-model="pid"
               />
             </div>
             <div class="input-container">
@@ -74,7 +74,7 @@
                 type="text"
                 id="name"
                 class="input-customized"
-                v-model="email"
+                v-model="number"
               />
             </div>
           </div>
@@ -507,6 +507,71 @@
               </div>
             </div>
           </div>
+          <div
+            v-if="transactionOption == 1"
+            class="d-flex flex-column align-items-center w-100"
+          >
+            <div class="card-pay-container d-flex flex-column gap-2 w-100">
+              <VForm :validation-schema="schema" @submit="onSubmitCard">
+                <div class="input-container">
+                  <span for="name" style="color: white"
+                    >Nombre en la Tarjeta</span
+                  >
+                  <AuthInput type="text" name="cardName" mode="aggressive" />
+                </div>
+                <div class="input-container">
+                  <span for="name" style="color: white"
+                    >Numero de la Tarjeta</span
+                  >
+                  <AuthInput type="text" name="cardNumber" mode="aggressive" />
+                </div>
+                <div class="input-container">
+                  <span for="name" style="color: white"
+                    >Fecha de Vencimiento</span
+                  >
+                  <AuthInput
+                    type="text"
+                    name="cardExpireDate"
+                    mode="aggressive"
+                  />
+                </div>
+                <div class="input-container">
+                  <span for="name" style="color: white">CVC/CVV</span>
+                  <AuthInput
+                    type="text"
+                    name="cardSecurityCode"
+                    mode="aggressive"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn-blue mt-3"
+                  @click="payWithCard"
+                >
+                  <span> Pagar con Tarjeta </span>
+                </button>
+              </VForm>
+            </div>
+          </div>
+          <div
+            v-if="transactionOption == 3"
+            class="d-flex flex-column align-items-center w-50 mx-auto"
+          >
+            <div class="yape-pay-container d-flex flex-row gap-2">
+              <input
+                v-for="(char, charIndex) in yapeSettings.otpCharacters"
+                :key="charIndex"
+                class="yape-pay-char"
+                type="number"
+                v-model="yapeOtp[charIndex]"
+                max="9"
+                min="0"
+              />
+            </div>
+            <div class="btn-blue mt-3" @click="payWithYape">
+              <span> Pagar con Yape </span>
+            </div>
+          </div>
         </div>
 
         <!-- <button @click="payWithYape()" class="btn-white">Pagar con Yape</button> -->
@@ -560,7 +625,7 @@
                   : ''
               "
             >
-              <span>Guardar y Continuar</span>
+              <span @click="startTransaction()">Guardar y Continuar</span>
             </div>
             <span style="color: #575756; font-weight: 500; font-size: 0.8em"
               >¿Necesitas Ayuda?</span
@@ -585,13 +650,19 @@
       class="row mt-5 d-flex flex-column align-items-center"
       style="width: 80%"
     >
-    <auth-reduced-register-form />
-  </div>
+      <auth-reduced-register-form />
+    </div>
   </section>
 </template>
 <script>
+import { usePreloader, useSwall } from "@/composables/main-composables.js";
+const { showPreloader, hidePreloader } = usePreloader();
+const { showSuccessSwall, showErrorSwall } = useSwall();
 import { carStore } from "../../store/car/car.store";
 import { authStore } from "../../store/auth/auth.store";
+import TransactionService from "../../services/transactions/transaction.service";
+import * as yup from "yup";
+import { useForm } from "vee-validate";
 
 export default {
   setup() {
@@ -600,10 +671,15 @@ export default {
       showRegisterForm.value = true;
     };
     const isLogged = authStore().isLogged;
+    const pid = ref("");
+    const number = ref("");
     const store = carStore();
     const getCarItems = store.getCarItems;
     const condition = ref(false);
     const cuponValue = ref(0);
+    const yapeOtp = ref([]);
+    const paymentValue = ref(0);
+    const userData = authStore().getUserData;
     const getCarTotal = () => {
       let carValue;
       if (getCarItems.length === 0) {
@@ -614,6 +690,7 @@ export default {
       }, 0);
       const couponValue = cuponValue.value;
       const total = carValue - couponValue;
+      paymentValue.value = total;
       return [
         {
           name: "Precio Regular:",
@@ -676,8 +753,105 @@ export default {
     const selectTab = (id) => {
       selectedOption.value = id;
     };
-    const payWithYape = () => {
-      console.log("pay with yape");
+
+    /**Transaction Methods */
+    const yapeSettings = ref({
+      otpCharacters: 6,
+    });
+   
+    const schema = yup.object().shape({
+      cardName: yup.string().required("El nombre de la tarjeta es requerido"),
+      cardNumber: yup.string().required("El numero de la tarjeta es requerido"),
+      cardSecurityCode: yup
+        .string()
+        .required("El codigo de seguridad es requerido"),
+      cardExpireDate: yup
+        .string()
+        .required("La fecha de expiración es requerida"),
+    });
+    const { handleSubmit, errors, resetForm } = useForm({
+      validationSchema: schema,
+    });
+    const onSubmitCard = async (values) => {
+      showPreloader();
+      try {
+        const params = {
+          pid: pid.value,
+          number: number.value,
+          type: 2,
+          userId:
+            typeof userData === "object"
+              ? userData.id
+              : JSON.parse(userData).id,
+          amount: paymentValue.value,
+          cardName: values.cardName,
+          cardNumber: values.cardNumber,
+          cardSecurityCode: values.cardSecurityCode,
+          cardExpireDate: values.cardExpireDate,
+        };
+        const { data, status } = await TransactionService.createTransaction(
+          params
+        );
+        hidePreloader();
+        if (status === 201) {
+          showSuccessSwall(
+            "",
+            "Su compra ha sido realizada correctamente. Recibirá un mensaje de confirmación en el correo proporcionado en sus datos"
+          );
+        }
+      } catch (err) {
+        hidePreloader();
+        showErrorSwall(
+          "Error al procesar la transacción",
+          hasOwnProperty(err.response, "data")
+            ? error.response.data.message
+            : "Error al procesar la transacción"
+        );
+        console.log(err);
+      }
+    };
+    const payWithYape = async () => {
+      showPreloader();
+      try {
+        //valid otp
+        const otp = yapeOtp.value.join("");
+        const params = {
+          pid: pid.value,
+          number: number.value,
+          otp: otp,
+          type: 1,
+          userId:
+            typeof userData === "object"
+              ? userData.id
+              : JSON.parse(userData).id,
+          amount: paymentValue.value,
+        };
+
+        const { data, status } = await TransactionService.createTransaction(
+          params
+        );
+        hidePreloader();
+        if (status === 201) {
+          showSuccessSwall(
+            "",
+            "Su compra ha sido realizada correctamente. Recibirá un mensaje de confirmación en el correo proporcionado en sus datos"
+          );
+        }
+      } catch (err) {
+        console.log(err);
+        hidePreloader();
+        showErrorSwall(
+          "Error al procesar la transacción",
+          hasOwnProperty(err.response, "data")
+            ? error.response.data.message
+            : "Error al procesar la transacción"
+        );
+        console.log(err);
+      }
+    };
+    const transactionOption = ref(null);
+    const startTransaction = () => {
+      transactionOption.value = selectedPaymentOption.value;
     };
     return {
       tabs,
@@ -693,6 +867,14 @@ export default {
       isLogged,
       openRegisterForm,
       showRegisterForm,
+      pid,
+      number,
+      startTransaction,
+      yapeSettings,
+      transactionOption,
+      yapeOtp,
+      schema,
+      onSubmitCard,
     };
   },
 };
@@ -742,5 +924,12 @@ p {
   background: #1c1c24;
   color: #1c1c24;
   cursor: pointer;
+}
+.yape-pay-char {
+  height: 2em;
+  width: 2em;
+  font-size: 2em;
+  padding: 0;
+  font-family: "Axiforma";
 }
 </style> 

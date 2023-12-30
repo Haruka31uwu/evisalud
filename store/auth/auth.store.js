@@ -8,10 +8,14 @@ export const authStore = defineStore('authStore', {
     },
     getters: {
         getUserData: (state) => {
+            if (state.userData.length == 0 || localStorage.getItem('userData')) {
+                const userData = localStorage.getItem('userData');
+                return JSON.parse(userData);
+            }
             return state.userData;
+
         },
         isLogged: (state) => {
-            console.log(state.userData.length==0,'owo');
             if (!state.userData==0 && !localStorage.getItem('userData')) {
                 return false;
             }

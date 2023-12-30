@@ -9,20 +9,18 @@ class AuthService {
             await apiClient.get('/sanctum/csrf-cookie');
             const res = await axios.post(`${config.public.APP_BACKEND_URL}auth/register`, body
             )
-            console.log(res);
             return res;
         } catch (e) {
-            console.error(e)
+            throw e;
         }
     }
     async login(body) {
         try {
             await apiClient.get('/sanctum/csrf-cookie');
             const res = await axios.post(`${config.public.APP_BACKEND_URL}auth/login`, body)
-            console.log(res);
             return res;
         } catch (e) {
-            console.error(e)
+            throw e;
         }
     }
 }

@@ -2,7 +2,7 @@
   <div class="hero-container" style="position: relative">
     <div
       class="hero"
-      :style="currentWindowWidth<1550?'':'background-size: cover;'"
+      :style="currentWindowWidth < 1550 ? '' : 'background-size: cover;'"
     ></div>
     <div class="hero-content">
       <div class="hero-content-text">
@@ -94,7 +94,11 @@
     </div>
   </div>
 </template>
+
+
 <script setup>
+import { redirectTo } from "/composables/main-composables.js";
+
 let currentWindowWidth = ref(null);
 onMounted(() => {
   currentWindowWidth.value = window.innerWidth;
@@ -102,7 +106,6 @@ onMounted(() => {
     currentWindowWidth.value = window.innerWidth;
   });
 });
-import { redirectTo } from "/composables/main-composables.js";
 </script>
 <style lang="scss" scoped>
 .hero-container {

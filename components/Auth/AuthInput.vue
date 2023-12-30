@@ -1,5 +1,5 @@
 <template>
-    <div style="position: relative;">
+    <div style="position: relative;" class="d-flex flex-column">
       <input :type="props.type" v-on="handlers" :value="value" :name="name" class="input-customized" :placeholder="!errorMessage?placeholder:''"/>
       <span class="sign-container-error-message" v-if="errorMessage">{{ errorMessage.substring(0,1).toUpperCase()+errorMessage.substring(1)}}</span>
     </div>
@@ -62,5 +62,11 @@
   padding: 0.8em 1em;
   resize: none;
   color: white;
+}
+.sign-container-error-message{
+  color: #CB4335;
+  font-size: 0.8em;
+  margin: 1em 0;
+
 }
 </style>

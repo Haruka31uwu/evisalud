@@ -6,36 +6,42 @@ export const carStore = defineStore('carStore', {
         };
     }, getters: {
         getCarItems: (state) => {
-            return state.carItems;
 
-            // if (state.carItems.length == 0) {
-            //     if (!localStorage.getItem('carItems')) {
-            //         return [];
-            //     }
-            //     return JSON.parse(localStorage.getItem('carItems'));
+            if (!state.carItems.length == 0) {
+                return state.carItems;
 
-            // }
+            }
+
+            if (!localStorage.getItem('carItems')) {
+                return [];
+            }
+            state.carItems = JSON.parse(localStorage.getItem('carItems'));
+            return JSON.parse(localStorage.getItem('carItems'));
+
         },
 
     },
     actions: {
         addCarItem(item) {
+           try{
             this.carItems.push(item);
-            // if (localStorage.getItem('carItems')) {
-            //     localStorage.removeItem('carItems');
-            // }
-            // localStorage.setItem('carItems', JSON.stringify(this.carItems));
-            // console.log(this.carItems);
+            if (localStorage.getItem('carItems')) {
+                localStorage.removeItem('carItems');
+            }
+            localStorage.setItem('carItems', JSON.stringify(this.carItems));
+           }catch(e){
+               console.log(e);
+           }
         },
         removeCarItem(item) {
             const index = this.carItems.indexOf(item);
             this.carItems.splice(index, 1);
-            // if (localStorage.getItem('carItems')) {
-            //     let items = JSON.parse(localStorage.getItem('carItems'));
-            //     items.splice(index, 1);
-            //     localStorage.removeItem('carItems');
-            //     localStorage.setItem('carItems', JSON.stringify(items));
-            // }
+            if (localStorage.getItem('carItems')) {
+                let items = JSON.parse(localStorage.getItem('carItems'));
+                items.splice(index, 1);
+                localStorage.removeItem('carItems');
+                localStorage.setItem('carItems', JSON.stringify(items));
+            }
 
         }
     }

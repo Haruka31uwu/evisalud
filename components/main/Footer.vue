@@ -192,7 +192,7 @@
         <div class="footer-content-end">
           <span @click="openComplaintsBookModal"> Libro de reclamaciones </span>
           <div class="footer-divider"></div>
-          <span> Terminos y condiciones </span>
+          <span @click="openModalTermAndConditions()">  Terminos y condiciones </span>
           <div class="footer-divider"></div>
           <span> © 2023 nombredelaempresa - All Rights Reserved </span>
         </div>
@@ -385,7 +385,7 @@
       >
         <span @click="openComplaintsBookModal"> Libro de reclamaciones </span>
         <div class="footer-divider-vertical"></div>
-        <span> Terminos y condiciones </span>
+        <span @click="openModalTermAndConditions()"> Terminos y condiciones </span>
       </div>
       <span class="name-company">
         © 2023 nombredelaempresa - All Rights Reserved
@@ -401,6 +401,7 @@ export default {
     "openWorkWithUsModal",
     "closeWorkWithUsModal",
     "openComplaintsBookModal",
+    "openModalTermAndConditions",
   ],
   setup(props, ctx) {
     let currentWindowWidth = ref(null);
@@ -419,11 +420,17 @@ export default {
     const openComplaintsBookModal = () => {
       ctx.emit("openComplaintsBookModal");
     };
+    const openModalTermAndConditions = () => {
+      console.log("openModalTermAndConditions");
+      ctx.emit("openModalTermAndConditions");
+    };
     return {
       openWorkWithUsModal,
       openComplaintsBookModal,
+      openModalTermAndConditions,
       currentWindowWidth,
       redirectTo
+
     };
   },
 };

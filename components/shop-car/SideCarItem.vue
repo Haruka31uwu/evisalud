@@ -1,5 +1,5 @@
 <template>
-  <span v-if="getCarTotal() > 0"> S/.{{ getCarTotal() }} </span>
+  <span v-if="getCarTotal > 0"> S/.{{ getCarTotal  }} </span>
   <svg
     @click="openCarSideBar"
     class="car-icon"
@@ -22,22 +22,21 @@ export default {
 
   setup(props, ctx) {
     const store = carStore();
-    const getCarItems = store.getCarItems;
+    const cartItems = computed(() => store.getCarItems);
 
     const openCarSideBar = () => {
       ctx.emit("openCarSideBar");
     };
-    const getCarTotal = () => {
-      console.log(getCarItems,'sum');
-      if (getCarItems.length === 0) {
+    const getCarTotal = computed(() => {
+      // Access the value of cartItems.value to calculate total
+      const items = cartItems.value;
+      if (!items || items.length === 0) {
         return 0;
       }
-      return getCarItems.reduce((acc, item) => {
-        return acc + item.pricePen;
-      }, 0);  
-    };
+      return items.reduce((acc, item) => acc + item.pricePen, 0);
+    });
+
     return {
-      getCarItems,
       getCarTotal,
       openCarSideBar,
     };

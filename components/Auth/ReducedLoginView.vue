@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 40%;" class="mt-5">
+  <div style="width: 40%" class="mt-5">
     <VForm :validation-schema="schema" @submit="onSubmit">
       <div class="input-container">
         <span for="name" style="color: white">Correo Electronico</span>
@@ -32,15 +32,16 @@
           />
         </svg>
       </div>
-     <div class="mt-5 d-flex flex-column align-items-center"> 
-        <button class="btn-blue w-100" type="submit"><span>Iniciar Sesion</span></button>
-      <div class="dont-have-account mt-5">
-        ¿No tienes una cuenta?
-        <span class="register-now"
-        @click="openRegisterForm()"
-          >Registrate aquí</span
-        >
-     </div>
+      <div class="mt-5 d-flex flex-column align-items-center">
+        <button class="btn-blue w-100" type="submit">
+          <span>Iniciar Sesion</span>
+        </button>
+        <div class="dont-have-account mt-5">
+          ¿No tienes una cuenta?
+          <span class="register-now" @click="openRegisterForm()"
+            >Registrate aquí</span
+          >
+        </div>
       </div>
     </VForm>
   </div>
@@ -50,13 +51,17 @@ import * as yup from "yup";
 import AuthService from "/services/auth/auth.service.js";
 import { useForm } from "vee-validate";
 import { authStore } from "../../store/auth/auth.store";
+import { usePreloader, useSwall } from "@/composables/main-composables.js";
+
 export default {
-    emits: ["openRegisterForm"],
-  setup(props,ctx) {
+  emits: ["openRegisterForm"],
+  setup(props, ctx) {
+    const { showPreloader, hidePreloader } = usePreloader();
+    const { showSuccessSwall, showErrorSwall } = useSwall();
     const openRegisterForm = () => {
-    //   const store = authStore();
-    //   store.showRegisterForm();
-    ctx.emit("openRegisterForm");
+      //   const store = authStore();
+      //   store.showRegisterForm();
+      ctx.emit("openRegisterForm");
     };
     const store = authStore();
     const schema = yup.object().shape({
@@ -66,37 +71,55 @@ export default {
     const { handleSubmit, errors, resetForm } = useForm({
       validationSchema: schema,
     });
-    const onSubmit = (values) => {
+    const onSubmit = async (values) => {
       const loginParams = {
         email: values.email,
         password: values.password,
       };
-      AuthService.login(loginParams).then(
-        (res) => {
-          resetForm();
-          if (res.status === 200) {
-            store.addToken(res.data.access_token);
-            store.addUserData(res.data.user);
-            location.reload();
-            // const router = useRouter();
-            // router.push("/classroom/home");
-          }
-        },
-        (error) => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
-          console.log(resMessage);
+      try {
+        showPreloader();
+        const res = await AuthService.login(loginParams);
+
+        if (res.status === 200) {
+          hidePreloader();
+          showSuccessSwall("Inicio de sesión exitoso");
+          store.addToken(res.data.access_token);
+          store.addUserData(res.data.user);
+          location.reload();
+          // const router = useRouter();
+          // router.push("/classroom/home");
         }
-      );
+      } catch (e) {
+        hidePreloader();
+        showErrorSwall("Error", e.response.data.message);
+      }
+
+      // AuthService.login(loginParams).then(
+      //   (res) => {
+      //     resetForm();
+      //     if (res.status === 200) {
+      //       store.addToken(res.data.access_token);
+      //       store.addUserData(res.data.user);
+      //       location.reload();
+      //       // const router = useRouter();
+      //       // router.push("/classroom/home");
+      //     }
+      //   },
+      //   (error) => {
+      //     const resMessage =
+      //       (error.response &&
+      //         error.response.data &&
+      //         error.response.data.message) ||
+      //       error.message ||
+      //       error.toString();
+      //     console.log(resMessage);
+      //   }
+      // );
     };
     return {
       onSubmit,
       schema,
-      openRegisterForm
+      openRegisterForm,
     };
   },
 };
@@ -111,15 +134,15 @@ span {
   top: 3.2em;
 }
 .register-now {
-      background: #0393aa;
-      color:white;
-      padding: 0.7em 1em;
-      border-radius: 2em;
-      &:hover {
-        cursor: pointer;
-        text-decoration: underline;
-      }
-    }
+  background: #0393aa;
+  color: white;
+  padding: 0.7em 1em;
+  border-radius: 2em;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
 .input-customized {
   border: 1px solid #515166;
   background: transparent;
