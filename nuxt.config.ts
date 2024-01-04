@@ -3,7 +3,7 @@
 export default defineNuxtConfig({
   devtools: {
     enabled: true,
-  },
+  }, 
   ssr: false,
   css: ['@/scss/main.scss'],
  
