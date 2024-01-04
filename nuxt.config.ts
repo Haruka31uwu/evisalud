@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   // },
   app: {
     baseURL: '/evisalud/', // baseURL: '/<repository>/'
-    buildAssetsDir: 'assets',
+    buildAssetsDir: '/assets',
 
   },
   runtimeConfig: {
