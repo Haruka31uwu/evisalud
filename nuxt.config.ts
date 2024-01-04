@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     enabled: true,
   }, 
   ssr: false,
+  
   css: ['@/scss/main.scss'],
  
   // auth: {
