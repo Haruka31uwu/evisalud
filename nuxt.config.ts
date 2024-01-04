@@ -6,10 +6,7 @@ export default defineNuxtConfig({
   },
   ssr: false,
   css: ['@/scss/main.scss'],
-  modules: [
-    '@pinia/nuxt',
-
-  ],
+ 
   // auth: {
   //   provider: {
   //     type: 'authjs',
