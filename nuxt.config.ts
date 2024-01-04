@@ -15,11 +15,11 @@ export default defineNuxtConfig({
   //     type: 'authjs',
   //   }
   // },
-  app: {
-    baseURL: '/evisalud/', // baseURL: '/<repository>/'
-    buildAssetsDir: '/assets',
+  // app: {
+  //   baseURL: '/evisalud/', // baseURL: '/<repository>/'
+  //   buildAssetsDir: 'assets',
 
-  },
+  // },
   runtimeConfig: {
     public: {
       APP_BACKEND_URL: process.env.APP_BACKEND_URL,
