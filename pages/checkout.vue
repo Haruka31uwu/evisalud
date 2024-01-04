@@ -655,7 +655,7 @@
   </section>
 </template>
 <script>
-import { usePreloader, useSwall } from "@/composables/main-composables.js";
+import { usePreloader, useSwall } from "/composables/main-composables.js";
 const { showPreloader, hidePreloader } = usePreloader();
 const { showSuccessSwall, showErrorSwall } = useSwall();
 import { carStore } from "../../store/car/car.store";

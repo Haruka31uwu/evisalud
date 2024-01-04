@@ -1,5 +1,5 @@
 import axios from 'axios';
-import apiClient from '../api/api.service';
+import apiClient from '/services/api/api.service.js';
 const config = useRuntimeConfig();
 class AuthService {
     async register(body) {

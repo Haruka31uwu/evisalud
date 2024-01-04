@@ -1,4 +1,4 @@
-import preloaderHandler from '~/handler/main';
+import preloaderHandler from '../handler/main';
 import Swal from 'sweetalert2';
 const preloader = preloaderHandler();
 export const usePreloader = () => {

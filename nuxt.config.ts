@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   devtools: {
     enabled: true,
@@ -7,7 +8,6 @@ export default defineNuxtConfig({
   css: ['@/scss/main.scss'],
   modules: [
     '@pinia/nuxt',
-    "@sidebase/nuxt-auth",
 
   ],
   // auth: {
@@ -15,11 +15,11 @@ export default defineNuxtConfig({
   //     type: 'authjs',
   //   }
   // },
-  // app: {
-  //   baseURL: '/evisalud/', // baseURL: '/<repository>/'
-  //   buildAssetsDir: '/assets',
+  app: {
+    baseURL: '/evisalud/', // baseURL: '/<repository>/'
+    buildAssetsDir: '/assets',
 
-  // },
+  },
   runtimeConfig: {
     public: {
       APP_BACKEND_URL: process.env.APP_BACKEND_URL,
@@ -27,10 +27,11 @@ export default defineNuxtConfig({
       // SUPABASE_KEY: process.env.SUPABASE_KEY,
     }
   },
-  imports: {
-    dirs: [
-      'composables',
-    ]
-  }
+  // imports: {
+  //   dirs: [
+  //     'composables',
+  //     'handler',
+  //   ]
+  // }
 
 })

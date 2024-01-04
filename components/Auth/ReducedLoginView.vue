@@ -51,7 +51,7 @@ import * as yup from "yup";
 import AuthService from "/services/auth/auth.service.js";
 import { useForm } from "vee-validate";
 import { authStore } from "../../store/auth/auth.store";
-import { usePreloader, useSwall } from "@/composables/main-composables.js";
+import { usePreloader, useSwall } from "/composables/main-composables.js";
 
 export default {
   emits: ["openRegisterForm"],

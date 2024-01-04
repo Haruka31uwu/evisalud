@@ -39,7 +39,7 @@
 <script setup>
 import { getClaimForm } from "/composables/main-composables.js";
 const route = useRoute();
-import { usePreloader, useSwall } from "@/composables/main-composables.js";
+import { usePreloader, useSwall } from "/composables/main-composables.js";
 const { isLoading } = usePreloader();
 const showFooter = ref(true);
 onMounted(() => {
