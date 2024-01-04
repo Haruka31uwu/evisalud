@@ -840,6 +840,7 @@ export default {
       } catch (err) {
         console.log(err);
         hidePreloader();
+        
         // showErrorSwall(
         //   "Error al procesar la transacción",
         //   hasOwnProperty(err.response, "data")
