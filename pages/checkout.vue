@@ -801,12 +801,7 @@ export default {
         }
       } catch (err) {
         hidePreloader();
-        // showErrorSwall(
-        //   "Error al procesar la transacción",
-        //   hasOwnProperty(err.response, "data")
-        //     ? error.response.data.message
-        //     : "Error al procesar la transacción"
-        // );
+       
         console.log(err);
       }
     };
@@ -840,13 +835,8 @@ export default {
       } catch (err) {
         console.log(err);
         hidePreloader();
-        
-        // showErrorSwall(
-        //   "Error al procesar la transacción",
-        //   hasOwnProperty(err.response, "data")
-        //     ? error.response.data.message
-        //     : "Error al procesar la transacción"
-        // );
+
+       
         console.log(err);
       }
     };
